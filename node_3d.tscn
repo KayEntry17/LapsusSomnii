@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1xhs2v1vo2k"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4xowi"]
+height = 8.595
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
+transparency = 1
+depth_draw_mode = 1
+shading_mode = 0
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+stencil_reference = 2
+stencil_color = Color(1, 0.13, 0.13, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4xowi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+render_priority = -1
+transparency = 4
+albedo_color = Color(1, 1, 1, 0)
+stencil_mode = 3
+stencil_flags = 6
+stencil_reference = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019128561, -0.013777018, -6.7139945)
+mesh = SubResource("SphereMesh_4xowi")
+surface_material_override/0 = SubResource("StandardMaterial3D_a202f")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62529707, -0.013777018, -8.73444)
+mesh = SubResource("SphereMesh_4xowi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9986038, 0, 0.052823894, 0, 1, 0, -0.052823894, 0, -0.9986038, 0.16227627, -0.555105, -10.699176)
+mesh = SubResource("QuadMesh_4xowi")
+surface_material_override/0 = SubResource("StandardMaterial3D_noarx")
