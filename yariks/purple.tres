@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dbaydalbe1w4c"]
+
+[ext_resource type="Shader" uid="uid://dgo18nirewges" path="res://yariks/sha.gdshader" id="1_0t35f"]
+
+[resource]
+shader = ExtResource("1_0t35f")
+shader_parameter/col1 = Color(0.14509805, 0.7490196, 0.94509804, 1)
+shader_parameter/col2 = Color(0.654902, 0.2509804, 0.9529412, 1)
+shader_parameter/col3 = Color(0.9490196, 0.4509804, 0.14901961, 1)
+shader_parameter/col4 = Color(0.078431375, 0.03137255, 0.18039216, 1)
+shader_parameter/margin = 0.045
+shader_parameter/scol1 = Color(0.654902, 0.2509804, 0.9529412, 1)

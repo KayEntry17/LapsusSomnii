@@ -1,4 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://i1xhs2v1vo2k"]
+[gd_scene load_steps=13 format=3 uid="uid://i1xhs2v1vo2k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.033
 
 [sub_resource type="SphereMesh" id="SphereMesh_4xowi"]
 height = 8.595
@@ -23,7 +38,35 @@ stencil_mode = 3
 stencil_flags = 6
 stencil_reference = 2
 
+[sub_resource type="Gradient" id="Gradient_a0tk4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r3fl7"]
+noise_type = 2
+frequency = 0.0331
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_jka67"]
+noise = SubResource("FastNoiseLite_r3fl7")
+color_ramp = SubResource("Gradient_a0tk4")
+seamless = true
+
+[sub_resource type="FogMaterial" id="FogMaterial_i5arm"]
+density = 0.9154
+emission = Color(1, 1, 1, 1)
+height_falloff = 2.2973985e-05
+edge_fade = 0.3511988
+density_texture = SubResource("NoiseTexture3D_jka67")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wc5p8"]
+size = Vector2(500, 500)
+
 [node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_noarx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019128561, -0.013777018, -6.7139945)
@@ -38,3 +81,12 @@ mesh = SubResource("SphereMesh_4xowi")
 transform = Transform3D(-0.9986038, 0, 0.052823894, 0, 1, 0, -0.052823894, 0, -0.9986038, 0.16227627, -0.555105, -10.699176)
 mesh = SubResource("QuadMesh_4xowi")
 surface_material_override/0 = SubResource("StandardMaterial3D_noarx")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1730872, 0)
+size = Vector3(10, 10, 10)
+material = SubResource("FogMaterial_i5arm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8173957, 0)
+mesh = SubResource("PlaneMesh_wc5p8")

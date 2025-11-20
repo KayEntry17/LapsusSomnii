@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3lxeow87h7ol"]
+
+[ext_resource type="Script" uid="uid://b28xya0y68utx" path="res://coresystems_libraries/savem.gd" id="1_xfihq"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_xfihq")

@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dbdrcydvpfg"]
+
+[ext_resource type="Material" uid="uid://bovygib005i4u" path="res://yariks/bl00.tres" id="1_0pqma"]
+[ext_resource type="Material" uid="uid://dbaydalbe1w4c" path="res://yariks/purple.tres" id="2_lrtgu"]
+[ext_resource type="Material" uid="uid://c5dmpdrveym0w" path="res://yariks/orange.tres" id="3_7fn1p"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 82.0
+offset_top = -3.0
+offset_right = 122.0
+offset_bottom = 37.0
+rotation = 0.6992277
+color = Color(0.14509805, 0.7490196, 0.94509804, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 46.000004
+offset_top = 20.0
+offset_right = 86.0
+offset_bottom = 60.0
+rotation = 0.6992277
+color = Color(0.654902, 0.2509804, 0.9529412, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 79.0
+offset_top = 24.0
+offset_right = 119.0
+offset_bottom = 64.0
+rotation = 0.6992277
+color = Color(0.9490196, 0.4509804, 0.14901961, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = 2
+material = ExtResource("1_0pqma")
+offset_left = 34.0
+offset_top = -35.0
+offset_right = 72.0
+offset_bottom = 47.0
+color = Color(0.654902, 0.2509804, 0.9529412, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+z_index = 6
+material = ExtResource("1_0pqma")
+offset_left = 46.0
+offset_top = -10.0
+offset_right = 90.0
+offset_bottom = 56.0
+color = Color(0.654902, 0.2509804, 0.9529412, 1)
+
+[node name="purple" type="Node2D" parent="."]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="purple"]
+position = Vector2(-164, -16)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="purple"]
+material = ExtResource("2_lrtgu")
+offset_left = -60.0
+offset_top = 60.0
+offset_right = -16.0
+offset_bottom = 126.0
+color = Color(0.654902, 0.2509804, 0.9529412, 1)
+
+[node name="purple2" type="Node2D" parent="."]
+position = Vector2(9, 50)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="purple2"]
+position = Vector2(-164, -16)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="purple2"]
+material = ExtResource("2_lrtgu")
+offset_left = -41.999996
+offset_top = 13.000002
+offset_right = 2.0000038
+offset_bottom = 79.0
+rotation = 1.0405868
+color = Color(0.654902, 0.2509804, 0.9529412, 1)
+
+[node name="orange" type="Node2D" parent="."]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="orange"]
+position = Vector2(-169, -5)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="orange"]
+material = ExtResource("3_7fn1p")
+offset_left = -60.0
+offset_top = 95.0
+offset_right = -16.0
+offset_bottom = 161.0
+color = Color(0.9490196, 0.4509804, 0.14901961, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="orange2" type="Node2D" parent="."]
+position = Vector2(-22, -10)
+rotation = 0.50026774
+scale = Vector2(-1.1039728, 0.9746424)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="orange2"]
+position = Vector2(-167.13264, -8.77229)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="orange2"]
+material = ExtResource("3_7fn1p")
+offset_left = -60.0
+offset_top = 95.0
+offset_right = -16.0
+offset_bottom = 161.0
+color = Color(0.9490196, 0.4509804, 0.14901961, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="blue" type="Node2D" parent="."]
+position = Vector2(-34, 21)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="blue"]
+position = Vector2(-316, -22)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="blue"]
+material = ExtResource("1_0pqma")
+offset_left = -29.999998
+offset_top = 30.000004
+offset_right = 14.000002
+offset_bottom = 96.0
+rotation = 0.42477995
+color = Color(0.14509805, 0.7490196, 0.94509804, 1)
+metadata/_edit_use_anchors_ = true
