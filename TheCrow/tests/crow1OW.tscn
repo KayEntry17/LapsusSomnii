@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck6gjome6mr4l"]
+
+[ext_resource type="Script" uid="uid://oc01surlpwl6" path="res://TheCrow/tests/crow_1ow.gd" id="1_eiqnp"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_eiqnp")
