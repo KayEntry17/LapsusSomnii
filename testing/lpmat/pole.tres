@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfhtwg4kavx3u"]
+
+[ext_resource type="Texture2D" uid="uid://bmgn6u74p72yg" path="res://testing/scrapstexp_wood4.png" id="1_htftf"]
+
+[resource]
+resource_name = "pole"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_htftf")
+texture_filter = 2

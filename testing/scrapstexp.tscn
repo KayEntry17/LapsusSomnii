@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://0r7v58dhswpu"]
+
+[ext_resource type="PackedScene" uid="uid://ddj1rcipb0ob7" path="res://testing/scrapstexp.glb" id="1_7pxgf"]
+
+[node name="scrapstexp" instance=ExtResource("1_7pxgf")]

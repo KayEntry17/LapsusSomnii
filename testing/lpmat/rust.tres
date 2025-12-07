@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfwx8tnvsq3ai"]
+
+[ext_resource type="Texture2D" uid="uid://d1a10wr0lv8yu" path="res://testing/scrapstexp_rusty metal.png" id="1_iw77b"]
+
+[resource]
+resource_name = "rust"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_iw77b")
+metallic = 0.7705882
+roughness = 0.2529412
+texture_filter = 2

@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0ck21a5mkmhp"]
+
+[ext_resource type="Shader" uid="uid://bipn5lro2iecj" path="res://testing/globalsp.gdshader" id="1_upup2"]
+[ext_resource type="Shader" uid="uid://dhn8oi7itk27m" path="res://testing/dither.gdshader" id="2_t6ll6"]
+[ext_resource type="Shader" uid="uid://d2wkfv0dafvbk" path="res://testing/edged.gdshader" id="2_y4y50"]
+[ext_resource type="Texture2D" uid="uid://dx1rhw3kh4wju" path="res://testing/bayer16tile2.png" id="3_ntx4i"]
+[ext_resource type="PackedScene" uid="uid://0r7v58dhswpu" path="res://testing/scrapstexp.tscn" id="4_7cyv6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t6ll6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntx4i"]
+render_priority = 0
+shader = ExtResource("1_upup2")
+shader_parameter/offset = -0.98
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sbfop"]
+size = Vector2(3.31, 1.95)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t81v6"]
+render_priority = 0
+shader = ExtResource("2_y4y50")
+shader_parameter/outline_threshold = 0.345
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cyv6"]
+shader = ExtResource("2_t6ll6")
+shader_parameter/col1 = Color(0, 0, 0, 1)
+shader_parameter/col2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1g8fq"]
+render_priority = 0
+shader = ExtResource("2_y4y50")
+shader_parameter/outline_threshold = 0.2
+shader_parameter/outline_color = Color(0.043, 0.282, 0.467, 1)
+
+[sub_resource type="Environment" id="Environment_ntx4i"]
+background_mode = 1
+ambient_light_energy = 0.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+light_energy = 7.0
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.54667443, 0.7984329, 0.25229368, 0.15564659, -0.39294502, 0.90629375, 0.8227521, -0.45617893, -0.33908632, -1.1205709, 1.67188, -0.35150588)
+mesh = SubResource("BoxMesh_t6ll6")
+surface_material_override/0 = SubResource("ShaderMaterial_ntx4i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.082398586, 0.91944253, 0.38449484, -0.44548815, -0.31113452, 0.83948535, 0.8914882, -0.24046026, 0.38396364, -1.1205709, -0.5088804, -0.35150588)
+mesh = SubResource("BoxMesh_t6ll6")
+surface_material_override/0 = SubResource("ShaderMaterial_ntx4i")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.8760433, -0.04188183, -0.48041052, -0.44548804, -0.31113446, 0.8394852, -0.18463147, 0.9494426, 0.2539094, -1.1205709, 1.0664505, -1.6937419)
+mesh = SubResource("BoxMesh_t6ll6")
+surface_material_override/0 = SubResource("ShaderMaterial_ntx4i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.049738813, 0, 0.99876225, 0, 1, 0, -0.99876225, 0, 0.049738813, 2.646083, 0.945, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.9999985, -0.001745224, 9.758578e-09, 9.832922e-09, 4.259107e-08, -1, 0.001745224, 0.9999985, 4.2608164e-08, 0.022647753, 0.005445242, -0.8045509)
+mesh = SubResource("PlaneMesh_sbfop")
+surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = 411.0
+offset_top = 182.0
+offset_right = 1005.0
+offset_bottom = 491.0
+color = Color(0, 1, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7cyv6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ntx4i")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_1g8fq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ntx4i")
+
+[node name="scrapstexp" parent="." instance=ExtResource("4_7cyv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6428199, -0.12132859, -2.801551)
+visible = false
+
+[node name="scrapstexp2" parent="." instance=ExtResource("4_7cyv6")]
+transform = Transform3D(1, 0, 0, 0, 0.94973737, 0.31304777, 0, -0.31304777, 0.94973737, 0.6428199, 0.8115146, 2.8219926)
+visible = false
+
+[node name="scrapstexp3" parent="." instance=ExtResource("4_7cyv6")]
+transform = Transform3D(0.9599179, 0.26619372, 0.087741464, -0.2802814, 0.9116699, 0.30050015, 0, -0.31304777, 0.94973737, -2.2899337, 0.8115146, -0.51075387)
+visible = false
