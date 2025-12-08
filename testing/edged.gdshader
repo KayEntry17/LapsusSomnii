@@ -1,58 +1,119 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, depth_test_disabled ;
 
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear;
-uniform sampler2D NORMAL_TEXTURE: hint_normal_roughness_texture, filter_linear;
+// pixel sampling radius
+uniform float scale = 1.0;
 
-uniform float outline_threshold = 0.2;
-uniform vec3 outline_color: source_color = vec3(0.043, 0.282, 0.467);
+// outline dilation after computation
+uniform float outline_spread = 1.0;
 
-const mat3 sobel_y = mat3(
-	vec3(1.0, 0.0, -1.0),
-	vec3(2.0, 0.0, -2.0),
-	vec3(1.0, 0.0, -1.0)
-);
+uniform vec4 _Color : source_color = vec4(0.0, 1.0, 0.0, 1.0);
 
-const mat3 sobel_x = mat3(
-	vec3(1.0, 2.0, 1.0),
-	vec3(0.0, 0.0, 0.0),
-	vec3(-1.0, -2.0, -1.0)
-);
+uniform float _DepthNormalThreshold = 0.1;
+uniform float _DepthNormalThresholdScale = 3.;
+uniform float _DepthThreshold = 1.5;
+uniform float _NormalThreshold = 2.0;
+uniform float depthfost;
+uniform float depthfoend;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap, repeat_disable;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap, repeat_disable;
+uniform sampler2D normal_roughness_texture : hint_normal_roughness_texture, repeat_disable;
 
-bool is_edge(in vec2 uv, in vec3 normal, in vec2 offset) {
-	vec3 n = texture(NORMAL_TEXTURE, uv + vec2(0.0, -offset.y)).rgb;
-	vec3 s = texture(NORMAL_TEXTURE, uv + vec2(0.0, offset.y)).rgb;
-	vec3 e = texture(NORMAL_TEXTURE, uv + vec2(offset.x, 0.0)).rgb;
-	vec3 w = texture(NORMAL_TEXTURE, uv + vec2(-offset.x, 0.0)).rgb;
-	vec3 nw = texture(NORMAL_TEXTURE, uv + vec2(-offset.x, -offset.y)).rgb;
-	vec3 ne = texture(NORMAL_TEXTURE, uv + vec2(offset.x, -offset.y)).rgb;
-	vec3 sw = texture(NORMAL_TEXTURE, uv + vec2(-offset.x, offset.y)).rgb;
-	vec3 se = texture(NORMAL_TEXTURE, uv + vec2(offset.x, offset.y)).rgb;
-
-	mat3 surrounding_pixels = mat3(
-		vec3(length(nw-normal), length(n-normal), length(ne-normal)),
-		vec3(length(w-normal), length(normal-normal), length(e-normal)),
-		vec3(length(sw-normal), length(s-normal), length(se-normal))
-	);
-
-	float edge_x = dot(sobel_x[0], surrounding_pixels[0]) + dot(sobel_x[1], surrounding_pixels[1]) + dot(sobel_x[2], surrounding_pixels[2]);
-	float edge_y = dot(sobel_y[0], surrounding_pixels[0]) + dot(sobel_y[1], surrounding_pixels[1]) + dot(sobel_y[2], surrounding_pixels[2]);
-
-	float edge = sqrt(pow(edge_x, 2.0)+pow(edge_y, 2.0));
-
-	return edge > outline_threshold;
-}
 
 void fragment() {
-	vec2 uv = SCREEN_UV;
-	vec3 screen_color = texture(SCREEN_TEXTURE, uv).rgb;
-	vec3 screen_normal = texture(NORMAL_TEXTURE, uv).rgb;
-	screen_normal = screen_normal * 2.0 - 1.0;
-	vec2 offset = 1.0 / VIEWPORT_SIZE;
+    float half_scale_floor = floor(scale * 0.5);
+    float half_scale_ceil = ceil(scale * 0.5);
 
-	if (is_edge(uv, screen_normal, offset)) {
-		ALBEDO = outline_color;
-	} else {
-		ALBEDO = screen_color;
+    vec2 texel_size = vec2(1.0) / vec2(textureSize(SCREEN_TEXTURE, 0));
+
+    // Compute UV coordinates
+    vec2 bottom_left_uv  = SCREEN_UV - vec2(texel_size.x, texel_size.y) * half_scale_floor;
+    vec2 top_right_uv    = SCREEN_UV + vec2(texel_size.x, texel_size.y) * half_scale_ceil;
+    vec2 bottom_right_uv = SCREEN_UV + vec2(texel_size.x * half_scale_ceil, -texel_size.y * half_scale_floor);
+    vec2 top_left_uv     = SCREEN_UV + vec2(-texel_size.x * half_scale_floor, texel_size.y * half_scale_ceil);
+
+    // Normals
+    vec3 normal0 = texture(normal_roughness_texture, bottom_left_uv).rgb;
+    vec3 normal1 = texture(normal_roughness_texture, top_right_uv).rgb;
+    vec3 normal2 = texture(normal_roughness_texture, bottom_right_uv).rgb;
+    vec3 normal3 = texture(normal_roughness_texture, top_left_uv).rgb;
+
+    // Depth 
+    float depth0 = texture(DEPTH_TEXTURE, bottom_left_uv).r;
+    float depth1 = texture(DEPTH_TEXTURE, top_right_uv).r;
+    float depth2 = texture(DEPTH_TEXTURE, bottom_right_uv).r;
+    float depth3 = texture(DEPTH_TEXTURE, top_left_uv).r;
+
+	vec3 viewNormal = normal0 * 2. - 1.;
+	float NdotV = 1. - dot(viewNormal, VIEW);
+
+	// Return a value in the 0...1 range depending on where NdotV lies
+	// between _DepthNormalThreshold and 1.
+	float normalThreshold01 = clamp(((NdotV - _DepthNormalThreshold) / (1. - _DepthNormalThreshold)),0.0,1.0);
+	// Scale the threshold, and add 1 so that it is in the range of 1..._NormalThresholdScale + 1.
+	float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1.;
+
+	float depthThreshold = _DepthThreshold * depth0 * normalThreshold;
+
+	float depthFiniteDifference0 = depth1 - depth0;
+	float depthFiniteDifference1 = depth3 - depth2;
+
+	float edgeDepth = sqrt(pow(depthFiniteDifference0, 2.) + pow(depthFiniteDifference1, 2.)) * 100.;
+	edgeDepth = edgeDepth > depthThreshold ? 1. : 0.;
+
+	vec3 normalFiniteDifference0 = normal1 - normal0;
+	vec3 normalFiniteDifference1 = normal3 - normal2;
+
+	float edgeNormal = sqrt(dot(normalFiniteDifference0, normalFiniteDifference0) + dot(normalFiniteDifference1, normalFiniteDifference1));
+				edgeNormal = edgeNormal > _NormalThreshold ? 1. : 0.;
+
+	float edge = max(edgeDepth, edgeNormal);
+
+	float dilated_edge = edge;
+
+	// Directional offsets for 4-neighbor dilation
+	vec2 offsets[4] = vec2[](
+	    vec2(texel_size.x, 0.0),
+	    vec2(-texel_size.x, 0.0),
+	    vec2(0.0, texel_size.y),
+	    vec2(0.0, -texel_size.y)
+	);
+	
+	float thickness = outline_spread;
+	for (int i = 0; i < 4; i++) {
+	    vec2 offset_uv = SCREEN_UV + offsets[i] * thickness;
+
+	    float depth_n = texture(DEPTH_TEXTURE, offset_uv).r;
+	    vec3 normal_n = texture(normal_roughness_texture, offset_uv).rgb;
+
+	    float depth_diff = depth_n - depth0; 
+	    vec3 normal_diff = normal_n - normal0; 
+
+	    float edge_depth_n = (sqrt(depth_diff * depth_diff) * 100.0 > _DepthThreshold) ? 1.0 : 0.0;
+	    float edge_normal_n = (length(normal_diff) > _NormalThreshold) ? 1.0 : 0.0;
+
+	    dilated_edge = max(dilated_edge, max(edge_depth_n, edge_normal_n));
 	}
+
+	vec4 edgeColor = vec4(_Color.rgb, _Color.a * dilated_edge);
+		float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
+  	vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+  	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+  	view.xyz /= view.w;
+ 	 float linear_depth = -view.z;
+	ALBEDO = mix(vec3(0.), edgeColor.rgb, edgeColor.a);
+	if (linear_depth>depthfost){
+		ALBEDO = mix(vec3(0.), edgeColor.rgb, edgeColor.a)*((linear_depth-depthfost)/(depthfoend-depthfost));
+		//ALBEDO = texture(DEPTH_TEXTURE, SCREEN_UV).xyz;
+	}
+	
+	
+	
+
+  // Visualize linear depth
+  
+	//ALBEDO.rgb = fract(world_position).xyz;
+
+	//ALBEDO = mix(vec3(0.0), edgeColor.rgb, edgeColor.a);
+
 }

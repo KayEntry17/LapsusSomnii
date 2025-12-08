@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyixqipwn6y18"]
+
+[ext_resource type="Shader" uid="uid://bipn5lro2iecj" path="res://testing/globalsp.gdshader" id="1_sqwp1"]
+[ext_resource type="Script" uid="uid://fngj32462axp" path="res://testing/mesh_instance_3d_2.gd" id="2_pk1ti"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t6ll6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntx4i"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_sqwp1")
+shader_parameter/offset = -1.1
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.16981839, 0.9144598, 0.36732084, 0.15564711, -0.39294472, 0.90629375, 0.97310597, -0.09673295, -0.20906238, 0, 0, 0)
+mesh = SubResource("BoxMesh_t6ll6")
+surface_material_override/0 = SubResource("ShaderMaterial_ntx4i")
+script = ExtResource("2_pk1ti")
