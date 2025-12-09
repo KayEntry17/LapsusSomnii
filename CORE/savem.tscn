@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch3s135rpeolk"]
+
+[ext_resource type="Script" uid="uid://dh3cqswod4ji2" path="res://CORE/savem.gd" id="1_k0v0u"]
+
+[node name="Savem" type="Node"]
+script = ExtResource("1_k0v0u")
+flagsdata = Dictionary[String, int]({
+"checkp": 5,
+"currentlevel": 2,
+"levelunlocked": 3
+})
+plname = "KayL"

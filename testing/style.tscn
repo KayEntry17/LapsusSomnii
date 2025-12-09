@@ -42,7 +42,7 @@ seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rofhy"]
 noise_type = 2
-frequency = 0.4995
+frequency = 0.1962
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqt6t"]
 width = 640
@@ -140,7 +140,7 @@ light_energy = 7.0
 shadow_enabled = true
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.06692911, 0.91956145, 0.38720316, 0.15564708, -0.3929446, 0.90629375, 0.98554236, -0.00039041022, -0.16942666, 2.0189826, 1.67188, -4.008275)
+transform = Transform3D(0.7953979, 0.5939061, 0.120900095, 0.15564708, -0.3929446, 0.90629375, 0.5857605, -0.70204633, -0.40498745, 2.0189826, 1.67188, -4.008275)
 surface_material_override/0 = SubResource("ShaderMaterial_31i2h")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -177,6 +177,7 @@ texture = SubResource("GradientTexture2D_udk60")
 expand_mode = 1
 stretch_mode = 1
 script = ExtResource("5_31i2h")
+ratio = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -239,19 +240,19 @@ mesh = SubResource("PlaneMesh_sbfop")
 surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.42601186, -0.85447025, -0.29731196, 0.15564714, -0.3929447, 0.9062939, -0.89122784, 0.33981633, 0.3003951, 1.5557361, 0.91279435, 6.2742605)
+transform = Transform3D(-0.9536756, -0.2988858, 0.034195777, 0.15564714, -0.3929447, 0.9062939, -0.2574412, 0.86963314, 0.4212627, 1.5557361, 0.91279435, 6.2742605)
 surface_material_override/0 = SubResource("ShaderMaterial_hcjjm")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.98580873, -0.0033880756, 0.16783415, 0.15564701, -0.3929445, 0.9062938, 0.06287887, 0.9195555, 0.38789594, -0.29962254, 0.1777845, -3.87949)
+transform = Transform3D(-0.58741325, 0.70080984, 0.40473506, 0.15564701, -0.3929445, 0.9062938, 0.79417783, 0.5953649, 0.121742025, -0.29962254, 0.1777845, -3.87949)
 surface_material_override/0 = SubResource("ShaderMaterial_udk60")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.6225073, -0.77181035, 0.12958832, -0.7674188, -0.6344652, -0.092313334, 0.15346766, -0.04198283, -0.9872612, -0.9871819, 3.1701505, 5.750202)
+transform = Transform3D(0.52009296, -0.53184134, -0.668317, -0.7674188, -0.6344652, -0.092313334, -0.37492782, 0.56089085, -0.73812616, -0.9871819, 3.1701505, 5.750202)
 surface_material_override/0 = SubResource("ShaderMaterial_jqt6t")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(8.503772, 5.6543036, 0.9911144, 1.5969391, -4.031613, 9.298574, 5.513912, -7.5526533, -4.2215886, -16.344467, 0, -6.737998)
+transform = Transform3D(9.707388, -2.0968776, -2.576299, 1.5969391, -4.031613, 9.298574, -2.9127297, -9.19874, -3.488094, -16.344467, 0, -6.737998)
 surface_material_override/0 = SubResource("ShaderMaterial_rofhy")
 
 [node name="beam" type="Node3D" parent="."]

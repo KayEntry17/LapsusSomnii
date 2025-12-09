@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgemhpycsyrjm"]
+[gd_scene load_steps=28 format=3 uid="uid://bgemhpycsyrjm"]
 
 [ext_resource type="Texture2D" uid="uid://drrndy5qmavoc" path="res://testing/sky.png" id="1_fdd00"]
+[ext_resource type="Script" uid="uid://cxpsg6to6davm" path="res://testing/themem.gd" id="1_yo01q"]
 [ext_resource type="PackedScene" uid="uid://bjr32q6qdtf2w" path="res://testing/slopccityexp.tscn" id="2_8ke5f"]
+[ext_resource type="AudioStream" uid="uid://w7uowuvuesb" path="res://audio/analgesic/mp3/space.mp3" id="2_sxpvu"]
 [ext_resource type="Shader" uid="uid://ca6elh61itoqd" path="res://testing/crtt.gdshader" id="3_8ke5f"]
 [ext_resource type="Script" uid="uid://b256012yurlsn" path="res://testing/character_body_3d.gd" id="4_er7rn"]
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="5_xivhn"]
@@ -91,6 +93,10 @@ width = 640
 height = 360
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_yo01q")
+theme = ExtResource("2_sxpvu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xivhn")
@@ -231,9 +237,7 @@ camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.57542896, 0)
-
-[node name="SubViewport" type="SubViewport" parent="CharacterBody3D"]
-size = Vector2i(640, 360)
+cull_mask = 524287
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_gqg8v")
@@ -261,3 +265,4 @@ texture = SubResource("GradientTexture2D_uv74t")
 expand_mode = 1
 stretch_mode = 1
 script = ExtResource("6_yo01q")
+ratio = 3
