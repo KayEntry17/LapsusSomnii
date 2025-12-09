@@ -1,12 +1,12 @@
 extends Node
 @export var flagsdata:Dictionary[String, int]
-@export var flagsdataexp:Dictionary[String, int]
+#@export var flagsdataexp:Dictionary[String, int]
 @export var plname:String
 var volm:=linear_to_db(0.7)
 var volsfx:=linear_to_db(0.7)
 var volmus:=linear_to_db(0.7)
 func _ready() -> void:
-	load_game()
+	#load_game()
 	pass
 func save():
 	volsfx=(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
@@ -36,9 +36,14 @@ func load_game():
 			var json=JSON.new()
 			var parse_result=json.parse(json_string)
 			var node_data=json.get_data()
-			print(node_data)
+			#print(node_data)
 			volm=node_data["volmast"]
-			print(node_data["core"])
+			var dicm=(node_data["core"])
+			flagsdata={}
+			for i in dicm.keys():
+				flagsdata.get_or_add(i,int(dicm[i]) )
+				#print(flagsdata)
+				
 			plname=node_data["name"]
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),volm)
 			volmus=node_data["volmus"]
