@@ -102,9 +102,14 @@ void fragment() {
   	view.xyz /= view.w;
  	 float linear_depth = -view.z;
 	ALBEDO = mix(vec3(0.), edgeColor.rgb, edgeColor.a);
+	float trn=(1.-(linear_depth-depthfost)/(depthfoend-depthfost));
+	trn=pow(trn,6.);
 	if (linear_depth>depthfost){
-		ALBEDO = mix(vec3(0.), edgeColor.rgb, edgeColor.a)*((linear_depth-depthfost)/(depthfoend-depthfost));
+		ALBEDO = mix(vec3(0.), edgeColor.rgb, edgeColor.a)*trn;
 		//ALBEDO = texture(DEPTH_TEXTURE, SCREEN_UV).xyz;
+	}
+	if (linear_depth>depthfoend){
+		ALBEDO=vec3(0.);
 	}
 	
 	

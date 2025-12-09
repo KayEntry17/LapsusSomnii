@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0ck21a5mkmhp"]
+[gd_scene load_steps=34 format=3 uid="uid://c0ck21a5mkmhp"]
 
 [ext_resource type="PackedScene" uid="uid://cyixqipwn6y18" path="res://testing/neatblock.tscn" id="1_e2sit"]
 [ext_resource type="Shader" uid="uid://bipn5lro2iecj" path="res://testing/globalsp.gdshader" id="1_upup2"]
@@ -26,8 +26,13 @@ shader_parameter/col1 = Color(0, 0, 0, 1)
 shader_parameter/col2 = Color(1, 1, 1, 1)
 shader_parameter/brightness = -16.99
 
+[sub_resource type="Gradient" id="Gradient_udk60"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jqt6t"]
+gradient = SubResource("Gradient_udk60")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_udk60"]
-frequency = 0.0955
+frequency = 0.2941
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqt6t"]
 width = 640
@@ -37,7 +42,7 @@ seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rofhy"]
 noise_type = 2
-frequency = 0.3365
+frequency = 0.3028
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8trct"]
 width = 640
@@ -51,8 +56,8 @@ shader_parameter/screen_texturedither = SubResource("NoiseTexture2D_jqt6t")
 shader_parameter/screen_texturedither2 = SubResource("NoiseTexture2D_8trct")
 shader_parameter/col1 = Color(1, 1, 1, 1)
 shader_parameter/col2 = Color(0, 0, 0, 1)
-shader_parameter/brightness = -2.16
-shader_parameter/dithersp = 5.125
+shader_parameter/brightness = -2.9
+shader_parameter/dithersp = 3.9
 
 [sub_resource type="Gradient" id="Gradient_hcjjm"]
 
@@ -81,7 +86,7 @@ fog_depth_curve = 0.047366172
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_31i2h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sbfop"]
-size = Vector2(3.31, 1.95)
+size = Vector2(6.215, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t81v6"]
 render_priority = 0
@@ -93,8 +98,8 @@ shader_parameter/_DepthNormalThreshold = 0.1
 shader_parameter/_DepthNormalThresholdScale = 3.0
 shader_parameter/_DepthThreshold = 1.5
 shader_parameter/_NormalThreshold = 0.32
-shader_parameter/depthfost = 10.0
-shader_parameter/depthfoend = 15.0
+shader_parameter/depthfost = 30.0
+shader_parameter/depthfoend = 76.54
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcjjm"]
 resource_local_to_scene = true
@@ -133,16 +138,8 @@ light_energy = 7.0
 shadow_enabled = true
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.70749474, -0.6846241, -0.17532946, 0.1556471, -0.39294466, 0.90629375, -0.6893653, 0.6139085, 0.38456634, 2.0189826, 1.67188, -4.008275)
+transform = Transform3D(-0.65775853, -0.7257229, -0.20169061, 0.15564708, -0.39294463, 0.90629375, -0.7369715, 0.5647298, 0.37141967, 2.0189826, 1.67188, -4.008275)
 surface_material_override/0 = SubResource("ShaderMaterial_31i2h")
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-offset_left = 411.0
-offset_top = 182.0
-offset_right = 1005.0
-offset_bottom = 491.0
-color = Color(0, 1, 1, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -155,6 +152,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ntx4i")
 stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0009521246
+texture = SubResource("GradientTexture1D_jqt6t")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 texture_filter = 1
@@ -222,26 +229,26 @@ script = ExtResource("3_1g8fq")
 camcopy = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/SubViewport/Camera3D2"]
-transform = Transform3D(0.9999985, -0.001745224, 9.758578e-09, 9.832922e-09, 4.259107e-08, -1, 0.001745224, 0.9999985, 4.2608164e-08, 0.022773594, 0.005445242, -0.8020246)
+transform = Transform3D(0.99999356, -0.0018416084, 0.003097147, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.99806285, 0.062190916, 0.022773601, 0.005445242, -0.8020245)
 layers = 524288
 ignore_occlusion_culling = true
 mesh = SubResource("PlaneMesh_sbfop")
 surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.8567474, 0.51037765, 0.07414791, 0.15564713, -0.3929447, 0.9062939, 0.4916879, -0.7649243, -0.41609338, 1.5557361, 0.91279435, 6.2742605)
+transform = Transform3D(0.88268244, 0.4671969, 0.050971813, 0.15564714, -0.3929447, 0.9062939, 0.44344658, -0.7920363, -0.41956344, 1.5557361, 0.91279435, 6.2742605)
 surface_material_override/0 = SubResource("ShaderMaterial_hcjjm")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.7381513, -0.56342596, -0.3710568, 0.15564702, -0.39294454, 0.9062938, -0.65643406, -0.72673595, -0.20235716, -0.29962254, 0.1777845, -3.87949)
+transform = Transform3D(0.74121433, -0.5600196, -0.37010598, 0.15564701, -0.3929445, 0.9062938, -0.65297335, -0.729364, -0.20409094, -0.29962254, 0.1777845, -3.87949)
 surface_material_override/0 = SubResource("ShaderMaterial_udk60")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.5545171, 0.58453846, 0.59230494, -0.76741886, -0.63446516, -0.09231348, 0.32183605, -0.5057355, 0.80040795, -0.9871819, 3.1701505, 5.750202)
+transform = Transform3D(-0.58580106, 0.6353489, 0.5031585, -0.7674188, -0.6344652, -0.09231341, 0.2605853, -0.4402108, 0.85924935, -0.9871819, 3.1701505, 5.750202)
 surface_material_override/0 = SubResource("ShaderMaterial_jqt6t")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-9.952343, 1.1550852, 2.2100317, 1.5969391, -4.031613, 9.298574, 1.9152659, 9.363733, 3.7309353, -16.344467, 0, -6.737998)
+transform = Transform3D(-10.099001, 0.15922855, 1.8034421, 1.5969391, -4.031613, 9.298574, 0.8529602, 9.433364, 3.9435663, -16.344467, 0, -6.737998)
 surface_material_override/0 = SubResource("ShaderMaterial_rofhy")
 
 [node name="beam" type="Node3D" parent="."]

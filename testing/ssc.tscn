@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgemhpycsyrjm"]
+
+[ext_resource type="Texture2D" uid="uid://drrndy5qmavoc" path="res://testing/sky.png" id="1_fdd00"]
+[ext_resource type="PackedScene" uid="uid://bjr32q6qdtf2w" path="res://testing/slopccityexp.tscn" id="2_8ke5f"]
+[ext_resource type="Shader" uid="uid://ca6elh61itoqd" path="res://testing/crtt.gdshader" id="3_8ke5f"]
+[ext_resource type="Script" uid="uid://b256012yurlsn" path="res://testing/character_body_3d.gd" id="4_er7rn"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_er7rn"]
+panorama = ExtResource("1_fdd00")
+filter = false
+
+[sub_resource type="Sky" id="Sky_gqg8v"]
+sky_material = SubResource("PanoramaSkyMaterial_er7rn")
+
+[sub_resource type="Environment" id="Environment_xivhn"]
+background_mode = 2
+sky = SubResource("Sky_gqg8v")
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.42
+glow_blend_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yo01q"]
+size = Vector2(2000, 2000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxpvu"]
+shading_mode = 0
+albedo_color = Color(0.033514947, 0.0031356432, 0.040036183, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_er7rn"]
+viewport_path = NodePath("CharacterBody3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqg8v"]
+resource_local_to_scene = true
+shader = ExtResource("3_8ke5f")
+shader_parameter/tex = SubResource("ViewportTexture_er7rn")
+shader_parameter/mask_type = 5
+shader_parameter/curve = 0.0
+shader_parameter/color_offset = 0.004000023939999986
+shader_parameter/mask_brightness = 0.9230000438425
+shader_parameter/aspect = 0.75
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xivhn"]
+viewport_path = NodePath("CharacterBody3D/SubViewport")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqg8v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivhn"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xivhn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 7.0
+shadow_enabled = true
+
+[node name="bg" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.49097, 0, -63.443657)
+
+[node name="slopccityexp" parent="bg" instance=ExtResource("2_8ke5f")]
+
+[node name="slopccityexp2" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, 44.31433, 0, 149.98303)
+
+[node name="slopccityexp5" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, -74.331665, 0, 102.15243)
+
+[node name="slopccityexp6" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 571.46313, 0, 0)
+
+[node name="slopccityexp7" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, 665.0667, 0, 149.98303)
+
+[node name="slopccityexp8" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, 497.13147, 0, 173.83405)
+
+[node name="slopccityexp9" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.89431, 0, -103.5886)
+
+[node name="slopccityexp10" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, -110.32744, 0, -197.75653)
+
+[node name="slopccityexp11" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, -56.226578, 0, -101.25962)
+
+[node name="slopccityexp12" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 284.41235, 0, -323.78882)
+
+[node name="slopccityexp13" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, 598.6176, 0, -173.80579)
+
+[node name="slopccityexp14" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, 270.9282, 0, -149.95477)
+
+[node name="slopccityexp15" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.46985, 0, -152.22906)
+
+[node name="slopccityexp16" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, -123.86627, 0, -2.2460403)
+
+[node name="slopccityexp17" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, -291.8015, 0, 21.604988)
+
+[node name="slopccityexp25" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.788773, 0, -0.6146846, 0, 1, 0, 0.6146846, 0, -0.788773, -255.38385, 0, -404.96686)
+
+[node name="slopccityexp26" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.8372228, 0, 0.54686195, 0, 1, 0, -0.54686195, 0, -0.8372228, -382.53003, 0, -496.0301)
+
+[node name="slopccityexp27" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.8372227, 0, 0.5413932, 0, 0.98999995, 0, 0.5468619, 0, -0.82885045, -259.5446, 0, -531.2325)
+
+[node name="slopccityexp28" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.788773, 0, -0.6146846, 0, 1, 0, 0.6146846, 0, -0.788773, -231.06482, 0, -292.58972)
+
+[node name="slopccityexp29" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.8372228, 0, 0.54686195, 0, 1, 0, -0.54686195, 0, -0.8372228, -46.802673, 0, -316.79843)
+
+[node name="slopccityexp30" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.8372227, 0, 0.5413932, 0, 0.98999995, 0, 0.5468619, 0, -0.82885045, -148.79114, 0, -359.65762)
+
+[node name="slopccityexp31" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.788773, 0, -0.6146846, 0, 1, 0, 0.6146846, 0, -0.788773, 9.723328, 0, -418.56805)
+
+[node name="slopccityexp32" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.8372228, 0, 0.54686195, 0, 1, 0, -0.54686195, 0, -0.8372228, -156.3009, 0, -479.33392)
+
+[node name="slopccityexp33" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.8372227, 0, 0.5413932, 0, 0.98999995, 0, 0.5468619, 0, -0.82885045, -38.498978, 0, -601.3742)
+
+[node name="slopccityexp18" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.60663, 0, 271.8376)
+
+[node name="slopccityexp19" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, 255.2102, 0, 421.82062)
+
+[node name="slopccityexp20" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, 87.27496, 0, 445.67163)
+
+[node name="slopccityexp21" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.54936, 0, -537.96545)
+
+[node name="slopccityexp22" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.32423115, 0, -0.94597787, 0, 1, 0, 0.94597787, 0, 0.32423115, 132.6733, 0, -214.20963)
+
+[node name="slopccityexp23" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(-0.32423115, 0, -0.9365181, 0, 0.99, 0, -0.94597787, 0, 0.32098883, 135.43488, 0, -364.1314)
+
+[node name="slopccityexp3" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.41636005, 0, 0.90919983, 0, 1, 0, -0.90919983, 0, 0.41636005, 126.85509, 0, -40.744812)
+
+[node name="slopccityexp24" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.41636005, 0, 0.90919983, 0, 1, 0, -0.90919983, 0, 0.41636005, -20.763702, 0, -221.40808)
+
+[node name="slopccityexp4" parent="bg" instance=ExtResource("2_8ke5f")]
+transform = Transform3D(0.3254858, 0, -0.94554687, 0, 1, 0, 0.94554687, 0, 0.3254858, 290.72943, 0, 149.98303)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yo01q")
+surface_material_override/0 = SubResource("StandardMaterial3D_sxpvu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gqg8v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_xivhn")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 11.450874, -383.4315)
+script = ExtResource("4_er7rn")
+speed = 4.0
+jump_height = 0.5
+camera = NodePath("SubViewport/Camera3D")
+
+[node name="SubViewport" type="SubViewport" parent="CharacterBody3D"]
+size = Vector2i(640, 360)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SubViewport"]
+transform = Transform3D(0.9238795, 0, 0.38268346, 0, 1, 0, -0.38268346, 0, 0.9238795, -215.44264, 12.026302, -397.39294)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_gqg8v")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 8.221445, -383.4315)
+use_collision = true
+size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_xivhn")

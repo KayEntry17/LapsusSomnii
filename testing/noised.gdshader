@@ -25,7 +25,7 @@ void fragment() {
 	scuv=mod(scuv,vec2(1));
 	vec3 ogc=texture(screen_texture,trscuv).rgb;
 	ogc=vec3(ogc.r+ogc.g+ogc.b)/3.;
-	vec4 colog=(texture(screen_texturedither,vec2(trscuv.x+TIME*dithersp1,trscuv.y+TIME*dithersp1))+texture(screen_texturedither2,vec2(trscuv.x-0.3*TIME*dithersp1,trscuv.y-0.5*TIME*dithersp1)))/2.;
+	vec4 colog=(texture(screen_texturedither,vec2(trscuv.x+TIME*dithersp1,trscuv.y-TIME*dithersp1))+texture(screen_texturedither2,vec2(trscuv.x-0.3*TIME*dithersp1,trscuv.y+0.5*TIME*dithersp1)))/2.;
 	if (colog.r-(brightness/100.)>ogc.r){
 		COLOR=col2;}
 	else{
