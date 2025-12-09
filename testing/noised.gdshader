@@ -6,7 +6,7 @@ uniform vec4 col1:source_color;
 uniform vec4 col2:source_color;
 uniform float brightness=0.;
 uniform float dithersp=0.;
-
+uniform vec2 resolution=vec2(640,360);
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -19,7 +19,7 @@ void fragment() {
 	//scp=vec2(1./scp.r,1./scp.g);
 	vec2 scuv=UV;
 	//vec2 scuv=vec2((SCREEN_UV.x/UV.x)*fract(UV.x),(SCREEN_UV.y/UV.y)*fract(UV.y));
-	vec2 res=vec2(640,360);
+	vec2 res=resolution;
 	vec2 trscuv=floor(SCREEN_UV*res)/res;
 	scuv=scuv*screennorm;
 	scuv=mod(scuv,vec2(1));

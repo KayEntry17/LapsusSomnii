@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgemhpycsyrjm"]
+[gd_scene load_steps=26 format=3 uid="uid://bgemhpycsyrjm"]
 
 [ext_resource type="Texture2D" uid="uid://drrndy5qmavoc" path="res://testing/sky.png" id="1_fdd00"]
 [ext_resource type="PackedScene" uid="uid://bjr32q6qdtf2w" path="res://testing/slopccityexp.tscn" id="2_8ke5f"]
 [ext_resource type="Shader" uid="uid://ca6elh61itoqd" path="res://testing/crtt.gdshader" id="3_8ke5f"]
 [ext_resource type="Script" uid="uid://b256012yurlsn" path="res://testing/character_body_3d.gd" id="4_er7rn"]
+[ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="5_xivhn"]
+[ext_resource type="Script" uid="uid://dkqoklohbhby5" path="res://testing/texture_rect_3.gd" id="6_yo01q"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_er7rn"]
 panorama = ExtResource("1_fdd00")
@@ -27,6 +29,9 @@ size = Vector2(2000, 2000)
 shading_mode = 0
 albedo_color = Color(0.033514947, 0.0031356432, 0.040036183, 1)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_er7rn"]
+data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_er7rn"]
 viewport_path = NodePath("CharacterBody3D/SubViewport")
 
@@ -36,7 +41,7 @@ shader = ExtResource("3_8ke5f")
 shader_parameter/tex = SubResource("ViewportTexture_er7rn")
 shader_parameter/mask_type = 5
 shader_parameter/curve = 0.0
-shader_parameter/color_offset = 0.004000023939999986
+shader_parameter/color_offset = 0.00400002393999998
 shader_parameter/mask_brightness = 0.9230000438425
 shader_parameter/aspect = 0.75
 
@@ -45,11 +50,45 @@ viewport_path = NodePath("CharacterBody3D/SubViewport")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqg8v"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xivhn"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-albedo_color = Color(1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_udk60"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xivhn"]
+gradient = SubResource("Gradient_udk60")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sxpvu"]
+frequency = 0.5732
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqt6t"]
+width = 1280
+height = 720
+noise = SubResource("FastNoiseLite_sxpvu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5jcon"]
+noise_type = 0
+frequency = 0.5988
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8trct"]
+width = 1280
+height = 720
+noise = SubResource("FastNoiseLite_5jcon")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0114"]
+resource_local_to_scene = true
+shader = ExtResource("5_xivhn")
+shader_parameter/screen_texturedither = SubResource("NoiseTexture2D_jqt6t")
+shader_parameter/screen_texturedither2 = SubResource("NoiseTexture2D_8trct")
+shader_parameter/col1 = Color(1, 1, 1, 1)
+shader_parameter/col2 = Color(0, 0, 0, 1)
+shader_parameter/brightness = -2.9
+shader_parameter/dithersp = 3.9
+shader_parameter/resolution = Vector2(1280, 720)
+
+[sub_resource type="Gradient" id="Gradient_hcjjm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uv74t"]
+gradient = SubResource("Gradient_hcjjm")
+width = 640
+height = 360
 
 [node name="Node3D" type="Node3D"]
 
@@ -62,7 +101,7 @@ light_energy = 7.0
 shadow_enabled = true
 
 [node name="bg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.49097, 0, -63.443657)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="slopccityexp" parent="bg" instance=ExtResource("2_8ke5f")]
 
@@ -166,7 +205,14 @@ transform = Transform3D(0.3254858, 0, -0.94554687, 0, 1, 0, 0.94554687, 0, 0.325
 mesh = SubResource("PlaneMesh_yo01q")
 surface_material_override/0 = SubResource("StandardMaterial3D_sxpvu")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 56.754856, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_er7rn")
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_gqg8v")
 anchors_preset = 15
@@ -177,23 +223,41 @@ grow_vertical = 2
 texture = SubResource("ViewportTexture_xivhn")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 11.450874, -383.4315)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 68.205734, -383.4315)
 script = ExtResource("4_er7rn")
-speed = 4.0
+speed = 20.0
 jump_height = 0.5
-camera = NodePath("SubViewport/Camera3D")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.57542896, 0)
 
 [node name="SubViewport" type="SubViewport" parent="CharacterBody3D"]
 size = Vector2i(640, 360)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SubViewport"]
-transform = Transform3D(0.9238795, 0, 0.38268346, 0, 1, 0, -0.38268346, 0, 0.9238795, -215.44264, 12.026302, -397.39294)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_gqg8v")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 8.221445, -383.4315)
-use_collision = true
-size = Vector3(100, 0.5, 100)
-material = SubResource("StandardMaterial3D_xivhn")
+[node name="TextureRect4" type="TextureRect" parent="CharacterBody3D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0009521246
+texture = SubResource("GradientTexture1D_xivhn")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_m0114")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_uv74t")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("6_yo01q")

@@ -19,18 +19,21 @@ var grav_vel: Vector3 # Gravity velocity
 var jump_vel: Vector3 # Jumping velocity
 
 @export var camera: Camera3D 
-
+var cameraposbase
 func _ready() -> void:
 	capture_mouse()
+	cameraposbase=camera.global_position-global_position
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("ui_accept"): jumping = true
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
+	camera.global_position=cameraposbase+global_position
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
