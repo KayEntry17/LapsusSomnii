@@ -1,20 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://bgemhpycsyrjm"]
+[gd_scene load_steps=23 format=3 uid="uid://bgemhpycsyrjm"]
 
-[ext_resource type="Texture2D" uid="uid://drrndy5qmavoc" path="res://testing/sky.png" id="1_fdd00"]
 [ext_resource type="Script" uid="uid://cxpsg6to6davm" path="res://testing/themem.gd" id="1_yo01q"]
 [ext_resource type="PackedScene" uid="uid://bjr32q6qdtf2w" path="res://testing/slopccityexp.tscn" id="2_8ke5f"]
-[ext_resource type="AudioStream" uid="uid://w7uowuvuesb" path="res://audio/analgesic/mp3/space.mp3" id="2_sxpvu"]
-[ext_resource type="Shader" uid="uid://ca6elh61itoqd" path="res://testing/crtt.gdshader" id="3_8ke5f"]
+[ext_resource type="AudioStream" uid="uid://nrgp1wvnihuu" path="res://audio/jens vide/Bloom Night.ogg" id="2_yo01q"]
+[ext_resource type="Material" uid="uid://bn8dx410mcq6k" path="res://testing/ssc.tres" id="3_sxpvu"]
 [ext_resource type="Script" uid="uid://b256012yurlsn" path="res://testing/character_body_3d.gd" id="4_er7rn"]
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="5_xivhn"]
 [ext_resource type="Script" uid="uid://dkqoklohbhby5" path="res://testing/texture_rect_3.gd" id="6_yo01q"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_er7rn"]
-panorama = ExtResource("1_fdd00")
-filter = false
-
 [sub_resource type="Sky" id="Sky_gqg8v"]
-sky_material = SubResource("PanoramaSkyMaterial_er7rn")
+sky_material = ExtResource("3_sxpvu")
 
 [sub_resource type="Environment" id="Environment_xivhn"]
 background_mode = 2
@@ -23,6 +18,13 @@ tonemap_mode = 2
 glow_enabled = true
 glow_bloom = 0.42
 glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 0.13397168
+fog_depth_begin = 216.9
+fog_depth_end = 1816.8
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yo01q"]
 size = Vector2(2000, 2000)
@@ -33,22 +35,6 @@ albedo_color = Color(0.033514947, 0.0031356432, 0.040036183, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_er7rn"]
 data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_er7rn"]
-viewport_path = NodePath("CharacterBody3D/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqg8v"]
-resource_local_to_scene = true
-shader = ExtResource("3_8ke5f")
-shader_parameter/tex = SubResource("ViewportTexture_er7rn")
-shader_parameter/mask_type = 5
-shader_parameter/curve = 0.0
-shader_parameter/color_offset = 0.00400002393999998
-shader_parameter/mask_brightness = 0.9230000438425
-shader_parameter/aspect = 0.75
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xivhn"]
-viewport_path = NodePath("CharacterBody3D/SubViewport")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqg8v"]
 
@@ -96,7 +82,7 @@ height = 360
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("1_yo01q")
-theme = ExtResource("2_sxpvu")
+theme = ExtResource("2_yo01q")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xivhn")
@@ -216,17 +202,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 56.754856, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_er7rn")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_gqg8v")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ViewportTexture_xivhn")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -215.44264, 68.205734, -383.4315)

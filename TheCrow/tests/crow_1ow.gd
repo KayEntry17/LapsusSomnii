@@ -19,7 +19,7 @@ extends Node3D
 #(if clunky its possible to just loose speed in an animation and destroy the obstacle)
 #in overworld the crow gets sent back a large distance and stops
 # barreling towards the ground plays a simple animation while transitioning the camera to an fps view to admire the sights and get dialogue
-
+#region Parameter Variables
 @export_group("Speed")
 @export var speedperflap: float
 @export var startspeed: float
@@ -38,10 +38,6 @@ extends Node3D
 @export var flaptime: float
 @export var barrelrolltime: float
 @export var flapcooldown: float
-var spinouttimer : float=0
-var flaptimer: float=0
-var barrelrolltimer: float=0
-var flapcooldownr: float=0
 @export_group("Flags")
 @export var canflap: bool
 @export var isbrolling: bool
@@ -52,5 +48,29 @@ var flapcooldownr: float=0
 @export var fullbrake:Vector2=Vector2(1,1)
 @export var broll:Vector2=Vector2(1,1)
 @export var damaged: Vector2=Vector2(1,1)
+#endregion
+var spinouttimer : float=0
+var flaptimer: float=0
+var barrelrolltimer: float=0
+var flapcooldownr: float=0
+var controltotal:Vector4
+var speedtotal:float
+var move_dir: Vector2
+@export_group("Main")
+@export var maxangle:float
+@export var visual_coll:Node3D
 func _process(delta: float) -> void:
-	pass
+	controltotal=Vector4(0.5,2,1.5,0.1)
+	#region final adjusment and action
+	move_dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	if move_dir.x<0:
+		move_dir.x*=controltotal.x
+	else:
+		move_dir.x*=controltotal.y
+	if move_dir.y<0:
+		move_dir.y*=controltotal.w
+	else:
+		move_dir.y*=controltotal.z
+	var crotation=Vector3(0,-maxangle*move_dir.x,maxangle*move_dir.y)
+	visual_coll.rotation_degrees=crotation
+	#endregion

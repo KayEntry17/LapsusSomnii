@@ -17,7 +17,6 @@ var look_dir: Vector2 # Input direction for look/aim
 var walk_vel: Vector3 # Walking velocity 
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
-
 @export var camera: Camera3D 
 var cameraposbase
 func _ready() -> void:

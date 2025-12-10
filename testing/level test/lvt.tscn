@@ -1,0 +1,2604 @@
+[gd_scene load_steps=4 format=3 uid="uid://f7igdx2ucsrl"]
+
+[ext_resource type="PackedScene" uid="uid://c5bqydqcyxuri" path="res://testing/test.tscn" id="1_nrhrn"]
+[ext_resource type="PackedScene" uid="uid://ck6gjome6mr4l" path="res://TheCrow/tests/crow1OW.tscn" id="2_jvk47"]
+
+[sub_resource type="Environment" id="Environment_1iw0p"]
+background_mode = 1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 430.5
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1iw0p")
+
+[node name="beam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.308436, 0.9512452, 0, -0.9512452, 0.308436, -7.992897, 87.681305, 17.707893)
+
+[node name="test" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam"]
+transform = Transform3D(1, 0, 0, 0, -0.966792, -0.25556383, 0, 0.25556383, -0.966792, 152.54977, 0, 0)
+
+[node name="test" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.326935, 169.2312)
+
+[node name="test" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 0, 0)
+
+[node name="test" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, -1.3212423, -23.947083)
+
+[node name="test" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 12.326935, 223.42166)
+
+[node name="test" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, 11.005693, 199.47458)
+
+[node name="test" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam12" type="Node3D" parent="beam/beam2"]
+transform = Transform3D(1, 0, 0, 0, -0.055089623, 0.9984814, 0, -0.9984814, -0.055089623, 632.369, 4.83033, 87.54815)
+
+[node name="test" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -846.20984, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -962.979, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1109.0847, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -704.9684, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -610.233, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam7" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.69287, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam8" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.97687, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam9" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -352.74597, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam10" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.85178, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam11" type="Node3D" parent="beam/beam2/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.73541, 0, 0)
+
+[node name="test" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam2/beam12/beam11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam2/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam"]
+transform = Transform3D(0.9990398, -0.043744657, 0.002413542, -0.041675173, -0.96588, -0.25561413, 0.013512946, 0.25526813, -0.96677566, -1021.1279, 0, 0)
+
+[node name="test" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.326935, 169.2312)
+
+[node name="test" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 0, 0)
+
+[node name="test" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, -1.3212423, -23.947083)
+
+[node name="test" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 12.326935, 223.42166)
+
+[node name="test" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, 11.005693, 199.47458)
+
+[node name="test" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam12" type="Node3D" parent="beam/beam3"]
+transform = Transform3D(1, 0, 0, 0, -0.055089623, 0.9984814, 0, -0.9984814, -0.055089623, 632.369, 4.83033, 87.54815)
+
+[node name="test" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -846.20984, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -962.979, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1109.0847, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -704.9684, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -610.233, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam7" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.69287, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam8" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.97687, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam9" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -352.74597, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam10" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.85178, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam11" type="Node3D" parent="beam/beam3/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.73541, 0, 0)
+
+[node name="test" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam3/beam12/beam11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam3/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam"]
+transform = Transform3D(0.9990398, -0.043744657, 0.002413542, -0.041675173, -0.96588, -0.25561413, 0.013512946, 0.25526813, -0.96677566, -2093.3962, 0, 0)
+
+[node name="test" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.326935, 169.2312)
+
+[node name="test" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 0, 0)
+
+[node name="test" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, -1.3212423, -23.947083)
+
+[node name="test" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 0.98314977, 0.18280178, 0, -0.18280178, 0.98314977, -371.70523, 12.326935, 223.42166)
+
+[node name="test" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, 0.99517614, -0.098103985, 0, 0.098103985, 0.99517614, 90.37991, 11.005693, 199.47458)
+
+[node name="test" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam12" type="Node3D" parent="beam/beam4"]
+transform = Transform3D(1, 0, 0, 0, -0.055089623, 0.9984814, 0, -0.9984814, -0.055089623, 632.369, 4.83033, 87.54815)
+
+[node name="test" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -846.20984, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -962.979, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1109.0847, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -704.9684, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -610.233, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam7" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.69287, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam8" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.97687, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam9" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -352.74597, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam10" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.85178, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam11" type="Node3D" parent="beam/beam4/beam12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.73541, 0, 0)
+
+[node name="test" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam4/beam12/beam11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam4/beam12/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam13" type="Node3D" parent="beam"]
+transform = Transform3D(1, 0, 0, 0, 0.30843595, -0.95124495, 0, 0.95124495, 0.30843595, -301.18594, -27.044065, -83.406395)
+
+[node name="test" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam2" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -846.20984, 0, 0)
+
+[node name="test" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam2" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam2/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam3" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -962.979, 0, 0)
+
+[node name="test" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam3" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam3/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam4" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1109.0847, 0, 0)
+
+[node name="test" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam4" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam4/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam5" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -704.9684, 0, 0)
+
+[node name="test" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam5" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam5/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam6" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -610.233, 0, 0)
+
+[node name="test" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam6" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam6/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam7" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.69287, 0, 0)
+
+[node name="test" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam7" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam7/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam8" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.97687, 0, 0)
+
+[node name="test" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam8" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam8/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam9" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -352.74597, 0, 0)
+
+[node name="test" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam9" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam9/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam10" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.85178, 0, 0)
+
+[node name="test" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam10" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam10/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam11" type="Node3D" parent="beam/beam13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.73541, 0, 0)
+
+[node name="test" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam11" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="beam" type="Node3D" parent="beam/beam13/beam11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.190468)
+
+[node name="test" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
+
+[node name="test2" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
+
+[node name="test3" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
+
+[node name="test4" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
+
+[node name="test5" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
+
+[node name="test6" parent="beam/beam13/beam11/beam" instance=ExtResource("1_nrhrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
+
+[node name="Node3D" parent="." instance=ExtResource("2_jvk47")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 823.4938, 0, 0.29594278)
