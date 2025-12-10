@@ -55,12 +55,14 @@ var barrelrolltimer: float=0
 var flapcooldownr: float=0
 var controltotal:Vector4
 var speedtotal:float
+var coordinatestr:Vector2
 var move_dir: Vector2
 @export_group("Main")
 @export var maxangle:float
 @export var visual_coll:Node3D
 func _process(delta: float) -> void:
-	controltotal=Vector4(0.5,2,1.5,0.1)
+	speedtotal=10
+	controltotal=Vector4(1,1,1,1)
 	#region final adjusment and action
 	move_dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	if move_dir.x<0:
@@ -73,4 +75,9 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.z
 	var crotation=Vector3(0,-maxangle*move_dir.x,maxangle*move_dir.y)
 	visual_coll.rotation_degrees=crotation
+	
+	visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
+	visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.RIGHT, crotation.z)*delta
+	
 	#endregion
+	print(move_dir)

@@ -73,6 +73,9 @@ mesh = SubResource("ArrayMesh_1xna8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
 
+[node name="Camera3D" type="Camera3D" parent="CR2r"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.283054, 2.0781562, -0.52016735)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 visible = false
 
@@ -81,6 +84,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857309, -0.06548819, 0)
 operation = 1
 size = Vector3(2, 0.001, 1)
 material = SubResource("StandardMaterial3D_eiqnp")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.329847, 2.0781562, 0)
