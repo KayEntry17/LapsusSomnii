@@ -148,7 +148,7 @@ light_energy = 7.0
 shadow_enabled = true
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.98685306, -0.102275096, 0.12513873, 0.15564705, -0.39294454, 0.90629375, -0.04351873, 0.9138562, 0.40369785, 2.0189826, 1.67188, -4.008275)
+transform = Transform3D(0.5105905, -0.75340235, -0.41434428, 0.15564701, -0.39294446, 0.9062938, -0.8456182, -0.52723646, -0.083368994, 2.0189826, 1.67188, -4.008275)
 surface_material_override/0 = SubResource("ShaderMaterial_31i2h")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -261,19 +261,19 @@ mesh = SubResource("PlaneMesh_sbfop")
 surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.9334989, -0.24152419, -0.26503792, 0.15564714, -0.3929447, 0.9062939, -0.32303697, -0.887277, -0.32922104, 1.5557361, 0.91279435, 6.2742605)
+transform = Transform3D(-0.16263811, 0.8947604, 0.41587585, 0.15564717, -0.39294475, 0.90629387, 0.9743315, 0.21212788, -0.075359166, 1.5557361, 0.91279435, 6.2742605)
 surface_material_override/0 = SubResource("ShaderMaterial_hcjjm")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.047405273, -0.9134465, -0.4041875, 0.155647, -0.3929445, 0.9062938, -0.98667395, -0.10587365, 0.12354771, -0.29962254, 0.1777845, -3.87949)
+transform = Transform3D(0.84379435, 0.52991635, 0.08484412, 0.155647, -0.3929445, 0.9062938, 0.5135988, -0.7515201, -0.41404474, -0.29962254, 0.1777845, -3.87949)
 surface_material_override/0 = SubResource("ShaderMaterial_udk60")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.20849794, 0.110805295, 0.9717254, -0.7674188, -0.6344652, -0.09231333, 0.60629714, -0.764968, 0.21731882, -0.9871819, 3.1701505, 5.750202)
+transform = Transform3D(-0.43248397, 0.6185595, -0.6560041, -0.7674188, -0.6344652, -0.09231332, -0.473313, 0.4635061, 0.7490903, -0.9871819, 3.1701505, 5.750202)
 surface_material_override/0 = SubResource("ShaderMaterial_jqt6t")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-6.244912, 7.022572, 4.1173015, 1.5969391, -4.031613, 9.298574, 7.982383, 6.3005724, 1.3608626, -16.344467, 0, -6.737998)
+transform = Transform3D(-4.018672, -8.893557, -3.165838, 1.5969384, -4.031611, 9.298575, -9.304173, 3.1493454, 2.9633708, -16.344467, 0, -6.737998)
 surface_material_override/0 = SubResource("ShaderMaterial_rofhy")
 
 [node name="beam" type="Node3D" parent="."]

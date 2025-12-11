@@ -8,7 +8,7 @@ uniform float brightness=0.;
 uniform float dithersp=0.;
 uniform vec2 resolution=vec2(640,360);
 render_mode unshaded ;
-//stencil_mode read, compare_equal, 15;
+stencil_mode read, compare_not_equal, 2;
 void vertex() {
 	// Called for every vertex the material is visible on.
 }

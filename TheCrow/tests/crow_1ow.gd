@@ -62,6 +62,7 @@ var move_dir: Vector2
 @export var visual_coll:Node3D
 @export var trailf:PathFollow3D
 @export var maxcoords: Vector2=Vector2(18,13)
+@export var vismode: int=0
 func _ready() -> void:
 	coordinatestr=Vector3(0,0,0)
 func _process(delta: float) -> void:
@@ -77,7 +78,7 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.w
 	else:
 		move_dir.y*=controltotal.z
-	var crotation=Vector3(maxangle*move_dir.y,-maxangle*move_dir.x,0)
+	var crotation=Vector3(maxangle*move_dir.y/1.5,-maxangle*move_dir.x/1.5,0)
 	visual_coll.rotation_degrees=crotation
 	
 	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
@@ -85,10 +86,16 @@ func _process(delta: float) -> void:
 	coordinatestr+=visual_coll.transform.basis.z*speedtotal*delta
 	coordinatestr.x=max(coordinatestr.x,-maxcoords.x)
 	coordinatestr.x=min(coordinatestr.x,maxcoords.x)
-	coordinatestr.y=max(coordinatestr.y,-maxcoords.y+7)
-	coordinatestr.y=min(coordinatestr.y,maxcoords.y-8)
+	coordinatestr.y=max(coordinatestr.y,-maxcoords.y+4)
+	coordinatestr.y=min(coordinatestr.y,maxcoords.y-6)
 	visual_coll.position.y=-coordinatestr.y
 	visual_coll.position.x=-coordinatestr.x
 	trailf.progress=coordinatestr.z
+	#endregion
+	#region vismodes
+	if vismode==2:
+		$Camera3D2/MeshInstance3D2.visible=true
+	else:
+		$Camera3D2/MeshInstance3D2.visible=false
 	#endregion
 	#print(move_dir)

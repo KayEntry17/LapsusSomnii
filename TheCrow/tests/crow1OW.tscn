@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://ck6gjome6mr4l"]
+[gd_scene load_steps=18 format=4 uid="uid://ck6gjome6mr4l"]
 
 [ext_resource type="Script" uid="uid://oc01surlpwl6" path="res://TheCrow/tests/crow_1ow.gd" id="1_eiqnp"]
 [ext_resource type="Script" uid="uid://b31jixb3dj838" path="res://TheCrow/tests/lookat.gd" id="2_h4gvt"]
 [ext_resource type="Shader" uid="uid://bpb2uko6nx5jk" path="res://TheCrow/outl.gdshader" id="2_pybyk"]
 [ext_resource type="Script" uid="uid://bqd1fc6fsj0d2" path="res://TheCrow/tests/lag.gd" id="3_uvr1k"]
+[ext_resource type="Material" uid="uid://cvlitihns0lve" path="res://testing/3ddither.tres" id="4_h8eww"]
+[ext_resource type="Script" uid="uid://cjvibx01it8n6" path="res://testing/copier.gd" id="6_habae"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_habae"]
+size = Vector2(6.215, 4.055)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at6xy"]
 resource_name = "Material.002"
@@ -60,30 +65,51 @@ albedo_color = Color(0, 0, 0, 1)
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_habae"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Environment" id="Environment_h8eww"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_habae"]
+
+[sub_resource type="Compositor" id="Compositor_ujvdi"]
+
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("visual_coll")]
 script = ExtResource("1_eiqnp")
 fullbrake = Vector2(0.7, 0.7)
 damaged = Vector2(0.1, 0.1)
 maxangle = 45.0
 visual_coll = NodePath("CR2r")
-maxcoords = Vector2(18, 20)
+maxcoords = Vector2(50, 20)
 
 [node name="Camera3D" type="Node3D" parent="." node_paths=PackedStringArray("birdbirdbird")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
 script = ExtResource("2_h4gvt")
 birdbirdbird = NodePath("../CR2r/Cube_003")
+maxangle = Vector2(10, 15)
 
 [node name="Camera3D2" type="Camera3D" parent="." node_paths=PackedStringArray("c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
+top_level = true
 fov = 101.5
 script = ExtResource("3_uvr1k")
 speed = 1.0
 c = NodePath("../Camera3D")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Camera3D2"]
+transform = Transform3D(0.99999356, -0.0018416122, 0.0030971465, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.99806273, 0.062190916, 0.89951843, 0.005445242, -0.8456867)
+visible = false
+layers = 524288
+ignore_occlusion_culling = true
+mesh = SubResource("PlaneMesh_habae")
+skeleton = NodePath("../SubViewport/Camera3D2")
+surface_material_override/0 = ExtResource("4_h8eww")
+
 [node name="CR2r" type="Node3D" parent="."]
 
 [node name="Cube_003" type="MeshInstance3D" parent="CR2r"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+layers = 16385
 mesh = SubResource("ArrayMesh_1xna8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
@@ -96,3 +122,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857309, -0.06548819, 0)
 operation = 1
 size = Vector3(2, 0.001, 1)
 material = SubResource("StandardMaterial3D_eiqnp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 15
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_habae")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2560, 1440)
+
+[node name="Camera3D3" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("camcopy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
+top_level = true
+cull_mask = 16384
+environment = SubResource("Environment_h8eww")
+attributes = SubResource("CameraAttributesPractical_habae")
+compositor = SubResource("Compositor_ujvdi")
+fov = 101.5
+script = ExtResource("6_habae")
+camcopy = NodePath("../../Camera3D2")

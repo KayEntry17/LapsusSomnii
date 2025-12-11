@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://cybjmabn6de1b" path="res://testing/dither 3d.gdshader" id="1_4jjcl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8trct"]
-frequency = 0.1596
+frequency = 0.905
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqey7"]
 width = 640
@@ -11,20 +11,22 @@ height = 360
 noise = SubResource("FastNoiseLite_8trct")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_neav6"]
-frequency = 0.076
+frequency = 0.5629
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_otwmm"]
+resource_local_to_scene = true
 width = 640
 height = 360
 noise = SubResource("FastNoiseLite_neav6")
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_4jjcl")
 shader_parameter/screen_texturedither = SubResource("NoiseTexture2D_nqey7")
 shader_parameter/screen_texturedither2 = SubResource("NoiseTexture2D_otwmm")
 shader_parameter/col1 = Color(1, 1, 1, 1)
 shader_parameter/col2 = Color(0, 0, 0, 1)
-shader_parameter/brightness = 0.0
+shader_parameter/brightness = 2.3
 shader_parameter/dithersp = 1.0
 shader_parameter/resolution = Vector2(640, 360)
