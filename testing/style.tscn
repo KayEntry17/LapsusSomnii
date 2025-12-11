@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c0ck21a5mkmhp"]
+[gd_scene load_steps=36 format=3 uid="uid://c0ck21a5mkmhp"]
 
 [ext_resource type="PackedScene" uid="uid://cyixqipwn6y18" path="res://testing/neatblock.tscn" id="1_e2sit"]
 [ext_resource type="Shader" uid="uid://bipn5lro2iecj" path="res://testing/globalsp.gdshader" id="1_upup2"]
@@ -11,11 +11,13 @@
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="5_hcjjm"]
 [ext_resource type="Shader" uid="uid://buol7b8xw8jii" path="res://testing/outl.gdshader" id="5_sbfop"]
 [ext_resource type="Script" uid="uid://b256012yurlsn" path="res://testing/character_body_3d.gd" id="9_e2sit"]
+[ext_resource type="Material" uid="uid://cvlitihns0lve" path="res://testing/3ddither.tres" id="10_jqt6t"]
 [ext_resource type="PackedScene" uid="uid://c5bqydqcyxuri" path="res://testing/test.tscn" id="12_udk60"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_31i2h"]
 resource_local_to_scene = true
 render_priority = 0
+next_pass = ExtResource("10_jqt6t")
 shader = ExtResource("1_upup2")
 shader_parameter/offset = -1.1
 shader_parameter/scale = 1.0
@@ -85,6 +87,12 @@ fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 fog_depth_curve = 0.047366172
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqt6t"]
+next_pass = ExtResource("10_jqt6t")
+stencil_mode = 3
+stencil_flags = 2
+stencil_reference = 15
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_31i2h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sbfop"]
@@ -140,7 +148,7 @@ light_energy = 7.0
 shadow_enabled = true
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.7953979, 0.5939061, 0.120900095, 0.15564708, -0.3929446, 0.90629375, 0.5857605, -0.70204633, -0.40498745, 2.0189826, 1.67188, -4.008275)
+transform = Transform3D(-0.98685306, -0.102275096, 0.12513873, 0.15564705, -0.39294454, 0.90629375, -0.04351873, 0.9138562, 0.40369785, 2.0189826, 1.67188, -4.008275)
 surface_material_override/0 = SubResource("ShaderMaterial_31i2h")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -166,6 +174,7 @@ rotation = 0.0009521246
 texture = SubResource("GradientTexture1D_jqt6t")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_nqey7")
 anchors_preset = 15
@@ -180,6 +189,7 @@ script = ExtResource("5_31i2h")
 ratio = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_1g8fq")
 anchors_preset = 15
@@ -209,6 +219,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2, 0.5)
 use_collision = true
 size = Vector3(6, 1, 12)
+material = SubResource("StandardMaterial3D_jqt6t")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("9_e2sit")
@@ -224,6 +235,15 @@ shape = SubResource("CapsuleShape3D_31i2h")
 transform = Transform3D(0.049738813, 0, 0.99876225, 0, 1, 0, -0.99876225, 0, 0.049738813, 2.5, 1, 0)
 cull_mask = 524287
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/Camera3D"]
+transform = Transform3D(0.99999356, -0.0018416122, 0.0030971465, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.99806273, 0.062190916, 0.89951843, 0.005445242, -0.8456867)
+visible = false
+layers = 524289
+ignore_occlusion_culling = true
+mesh = SubResource("PlaneMesh_sbfop")
+skeleton = NodePath("../SubViewport/Camera3D2")
+surface_material_override/0 = ExtResource("10_jqt6t")
+
 [node name="SubViewport" type="SubViewport" parent="CharacterBody3D/Camera3D"]
 size = Vector2i(2560, 1440)
 
@@ -233,26 +253,27 @@ script = ExtResource("3_1g8fq")
 camcopy = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/SubViewport/Camera3D2"]
-transform = Transform3D(0.99999356, -0.0018416084, 0.003097147, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.99806285, 0.062190916, 0.022773601, 0.005445242, -0.8020245)
+transform = Transform3D(0.99999356, -0.0018416122, 0.0030971467, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.9980628, 0.062190916, 0.8995184, 0.005445242, -0.84568673)
+visible = false
 layers = 524288
 ignore_occlusion_culling = true
 mesh = SubResource("PlaneMesh_sbfop")
 surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.9536756, -0.2988858, 0.034195777, 0.15564714, -0.3929447, 0.9062939, -0.2574412, 0.86963314, 0.4212627, 1.5557361, 0.91279435, 6.2742605)
+transform = Transform3D(0.9334989, -0.24152419, -0.26503792, 0.15564714, -0.3929447, 0.9062939, -0.32303697, -0.887277, -0.32922104, 1.5557361, 0.91279435, 6.2742605)
 surface_material_override/0 = SubResource("ShaderMaterial_hcjjm")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.58741325, 0.70080984, 0.40473506, 0.15564701, -0.3929445, 0.9062938, 0.79417783, 0.5953649, 0.121742025, -0.29962254, 0.1777845, -3.87949)
+transform = Transform3D(0.047405273, -0.9134465, -0.4041875, 0.155647, -0.3929445, 0.9062938, -0.98667395, -0.10587365, 0.12354771, -0.29962254, 0.1777845, -3.87949)
 surface_material_override/0 = SubResource("ShaderMaterial_udk60")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.52009296, -0.53184134, -0.668317, -0.7674188, -0.6344652, -0.092313334, -0.37492782, 0.56089085, -0.73812616, -0.9871819, 3.1701505, 5.750202)
+transform = Transform3D(-0.20849794, 0.110805295, 0.9717254, -0.7674188, -0.6344652, -0.09231333, 0.60629714, -0.764968, 0.21731882, -0.9871819, 3.1701505, 5.750202)
 surface_material_override/0 = SubResource("ShaderMaterial_jqt6t")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(9.707388, -2.0968776, -2.576299, 1.5969391, -4.031613, 9.298574, -2.9127297, -9.19874, -3.488094, -16.344467, 0, -6.737998)
+transform = Transform3D(-6.244912, 7.022572, 4.1173015, 1.5969391, -4.031613, 9.298574, 7.982383, 6.3005724, 1.3608626, -16.344467, 0, -6.737998)
 surface_material_override/0 = SubResource("ShaderMaterial_rofhy")
 
 [node name="beam" type="Node3D" parent="."]
@@ -276,7 +297,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
 [node name="beam2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.027765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.906479)
 
 [node name="test" parent="beam2" instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)

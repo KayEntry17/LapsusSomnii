@@ -55,11 +55,15 @@ var barrelrolltimer: float=0
 var flapcooldownr: float=0
 var controltotal:Vector4
 var speedtotal:float
-var coordinatestr:Vector2
+var coordinatestr:Vector3
 var move_dir: Vector2
 @export_group("Main")
 @export var maxangle:float
 @export var visual_coll:Node3D
+@export var trailf:PathFollow3D
+@export var maxcoords: Vector2=Vector2(18,13)
+func _ready() -> void:
+	coordinatestr=Vector3(0,0,0)
 func _process(delta: float) -> void:
 	speedtotal=10
 	controltotal=Vector4(1,1,1,1)
@@ -76,8 +80,15 @@ func _process(delta: float) -> void:
 	var crotation=Vector3(0,-maxangle*move_dir.x,maxangle*move_dir.y)
 	visual_coll.rotation_degrees=crotation
 	
-	visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
-	visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.RIGHT, crotation.z)*delta
-	
+	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
+	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.RIGHT, crotation.z)*delta
+	coordinatestr+=visual_coll.transform.basis.x*speedtotal*delta
+	coordinatestr.z=max(coordinatestr.z,-maxcoords.x)
+	coordinatestr.z=min(coordinatestr.z,maxcoords.x)
+	coordinatestr.y=max(coordinatestr.y,-maxcoords.y+3)
+	coordinatestr.y=min(coordinatestr.y,maxcoords.y)
+	visual_coll.position.y=coordinatestr.y
+	visual_coll.position.z=coordinatestr.z
+	trailf.progress=coordinatestr.x
 	#endregion
 	print(move_dir)

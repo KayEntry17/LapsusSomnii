@@ -1,5 +1,6 @@
 shader_type spatial;
 varying vec3 world_coords;
+stencil_mode write, compare_always, 15;
 render_mode unshaded;
 uniform float offset;
 uniform float scale =1.0;

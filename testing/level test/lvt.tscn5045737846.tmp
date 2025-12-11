@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://f7igdx2ucsrl"]
+[gd_scene load_steps=5 format=3 uid="uid://f7igdx2ucsrl"]
 
 [ext_resource type="PackedScene" uid="uid://c5bqydqcyxuri" path="res://testing/test.tscn" id="1_nrhrn"]
 [ext_resource type="PackedScene" uid="uid://ck6gjome6mr4l" path="res://TheCrow/tests/crow1OW.tscn" id="2_jvk47"]
 
 [sub_resource type="Environment" id="Environment_1iw0p"]
 background_mode = 1
+fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
@@ -14,17 +15,10 @@ fog_depth_end = 430.5
 [sub_resource type="Curve3D" id="Curve3D_nrhrn"]
 bake_interval = 10.0
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -40.615173, 0, 0.42947006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -770.92053, 0, -2.9752388, 0, 0, 0, 0, 0, 0, -1062.0212, 0, 2.1318016, 0, 0, 0, 0, 0, 0, -1130.9663, 0, -62.55724, 0, 0, 0, 0, 0, 0, -1058.6167, 0, -217.47052, 0, 0, 0, 0, 0, 0, -816.88385, 0, -195.34004, 0, 0, 0, 0, 0, 0, -608.3468, 0, -191.93536, 0, 0, 0, 68.725, 0, 0, -485.778, 0, -186.82832, -75.475, 6.22, 0, 167.64, 0, 0, -307.79236, 2.0541763, -234.16895, -39.54, 0, -148.155, 188.1, 0, 102.845, -164.0351, 0, -158.73965, 0, 0, 0, 0, 0, 0, -31.252258, 0, -140.86505),
+"points": PackedVector3Array(0, 0, 0, -389.385, 489.865, 0, -40.615173, 0, 0.42947006, 0, 0, 0, 0, 0, 0, -395.55383, 207.07701, -0.42172623, 0, 0, 0, 0, 0, 0, -770.92053, 0, -2.9752388, 0, 0, 0, 0, 0, 0, -1062.0212, 0, 2.1318016, 0, 0, 0, 0, 0, 0, -1130.9663, 0, -62.55724, 0, 0, 0, 0, 0, 0, -1058.6167, 0, -217.47052, 0, 0, 0, 0, 0, 0, -816.88385, 0, -195.34004, 0, 0, 0, 0, 0, 0, -608.3468, 0, -191.93536, 0, 0, 0, 68.725, 0, 0, -485.778, 0, -186.82832, -75.475, 6.22, 0, 167.64, 0, 0, -307.79236, 2.0541763, -234.16895, -39.54, 0, -148.155, 188.1, 0, 102.845, -164.0351, 0, -158.73965, 0, 0, 0, 0, 0, 0, -31.252258, 0, -140.86505),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, -0.051935483, 0, 0)
 }
 point_count = 12
-
-[sub_resource type="Curve3D" id="Curve3D_jvk47"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 727.1558, 0, 0.16932571, 0, 0, 0, 0, 0, 0, -258.5011, 0, -1.5330058),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [node name="Node3D" type="Node3D"]
 
@@ -2616,15 +2610,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 810.31555, 0, 0)
-visible = false
 curve = SubResource("Curve3D_nrhrn")
 
-[node name="Path3D2" type="Path3D" parent="."]
-curve = SubResource("Curve3D_jvk47")
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.3711257e-08, 0.7828148, 0.6222455, 0, 0.6222455, -0.7828148, -0.99999696, -3.421792e-08, -2.7199212e-08, -40.615173, 0, 0.42947006)
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(0.010573591, 0, -0.9999383, 0, 0.9999942, 0, 0.99994105, 0, 0.010573562, 769.7004, 0, 0.42947006)
-
-[node name="Node3D" parent="Path3D2/PathFollow3D" node_paths=PackedStringArray("trailf") instance=ExtResource("2_jvk47")]
-transform = Transform3D(0.010573656, 0, 0.9999473, 0, 1.000006, 0, -0.99995005, 0, 0.010573685, 0.1335249, 42.11078, 33.473145)
+[node name="Node3D" parent="Path3D/PathFollow3D" node_paths=PackedStringArray("trailf") instance=ExtResource("2_jvk47")]
+transform = Transform3D(-4.3600238e-08, 0, 1.0000032, -0.78282404, 0.6222527, -3.4131197e-08, -0.62225276, -0.7828239, -2.7130275e-08, 0.13352528, 42.11078, 33.473053)
 trailf = NodePath("..")

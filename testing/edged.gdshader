@@ -1,5 +1,6 @@
 shader_type spatial;
 render_mode unshaded, depth_test_disabled ;
+stencil_mode read, compare_not_equal, 1;
 
 // pixel sampling radius
 uniform float scale = 1.0;

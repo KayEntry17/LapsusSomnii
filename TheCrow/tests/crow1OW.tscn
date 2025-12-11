@@ -65,16 +65,16 @@ damaged = Vector2(0.1, 0.1)
 maxangle = 45.0
 visual_coll = NodePath("CR2r")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.878, 2.118, 0)
+fov = 101.5
+
 [node name="CR2r" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.046793, 0, 0.52016735)
 
 [node name="Cube_003" type="MeshInstance3D" parent="CR2r"]
 mesh = SubResource("ArrayMesh_1xna8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
-
-[node name="Camera3D" type="Camera3D" parent="CR2r"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.283054, 2.0781562, -0.52016735)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 visible = false
