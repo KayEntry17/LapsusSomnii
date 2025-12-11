@@ -65,7 +65,7 @@ var move_dir: Vector2
 func _ready() -> void:
 	coordinatestr=Vector3(0,0,0)
 func _process(delta: float) -> void:
-	speedtotal=10
+	speedtotal=30
 	controltotal=Vector4(1,1,1,1)
 	#region final adjusment and action
 	move_dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -77,18 +77,18 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.w
 	else:
 		move_dir.y*=controltotal.z
-	var crotation=Vector3(0,-maxangle*move_dir.x,maxangle*move_dir.y)
+	var crotation=Vector3(maxangle*move_dir.y,-maxangle*move_dir.x,0)
 	visual_coll.rotation_degrees=crotation
 	
 	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
 	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.RIGHT, crotation.z)*delta
-	coordinatestr+=visual_coll.transform.basis.x*speedtotal*delta
-	coordinatestr.z=max(coordinatestr.z,-maxcoords.x)
-	coordinatestr.z=min(coordinatestr.z,maxcoords.x)
-	coordinatestr.y=max(coordinatestr.y,-maxcoords.y+3)
-	coordinatestr.y=min(coordinatestr.y,maxcoords.y)
-	visual_coll.position.y=coordinatestr.y
-	visual_coll.position.z=coordinatestr.z
-	trailf.progress=coordinatestr.x
+	coordinatestr+=visual_coll.transform.basis.z*speedtotal*delta
+	coordinatestr.x=max(coordinatestr.x,-maxcoords.x)
+	coordinatestr.x=min(coordinatestr.x,maxcoords.x)
+	coordinatestr.y=max(coordinatestr.y,-maxcoords.y+7)
+	coordinatestr.y=min(coordinatestr.y,maxcoords.y-8)
+	visual_coll.position.y=-coordinatestr.y
+	visual_coll.position.x=-coordinatestr.x
+	trailf.progress=coordinatestr.z
 	#endregion
-	print(move_dir)
+	#print(move_dir)

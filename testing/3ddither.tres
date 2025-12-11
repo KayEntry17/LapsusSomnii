@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://cybjmabn6de1b" path="res://testing/dither 3d.gdshader" id="1_4jjcl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8trct"]
-frequency = 0.1222
+frequency = 0.1596
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqey7"]
 width = 640
@@ -11,7 +11,7 @@ height = 360
 noise = SubResource("FastNoiseLite_8trct")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_neav6"]
-frequency = 0.1693
+frequency = 0.076
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_otwmm"]
 width = 640

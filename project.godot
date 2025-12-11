@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Lapsus Somnii"
+run/main_scene="uid://f7igdx2ucsrl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://4lp50kkv0pkt"
 
@@ -23,7 +24,6 @@ Save="*res://CORE/savem.tscn"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 

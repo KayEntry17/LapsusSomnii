@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ck6gjome6mr4l"]
+[gd_scene load_steps=11 format=4 uid="uid://ck6gjome6mr4l"]
 
 [ext_resource type="Script" uid="uid://oc01surlpwl6" path="res://TheCrow/tests/crow_1ow.gd" id="1_eiqnp"]
+[ext_resource type="Script" uid="uid://b31jixb3dj838" path="res://TheCrow/tests/lookat.gd" id="2_h4gvt"]
 [ext_resource type="Shader" uid="uid://bpb2uko6nx5jk" path="res://TheCrow/outl.gdshader" id="2_pybyk"]
+[ext_resource type="Script" uid="uid://bqd1fc6fsj0d2" path="res://TheCrow/tests/lag.gd" id="3_uvr1k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at6xy"]
 resource_name = "Material.002"
@@ -64,14 +66,24 @@ fullbrake = Vector2(0.7, 0.7)
 damaged = Vector2(0.1, 0.1)
 maxangle = 45.0
 visual_coll = NodePath("CR2r")
+maxcoords = Vector2(18, 20)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.878, 2.118, 0)
+[node name="Camera3D" type="Node3D" parent="." node_paths=PackedStringArray("birdbirdbird")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
+script = ExtResource("2_h4gvt")
+birdbirdbird = NodePath("../CR2r/Cube_003")
+
+[node name="Camera3D2" type="Camera3D" parent="." node_paths=PackedStringArray("c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
 fov = 101.5
+script = ExtResource("3_uvr1k")
+speed = 1.0
+c = NodePath("../Camera3D")
 
 [node name="CR2r" type="Node3D" parent="."]
 
 [node name="Cube_003" type="MeshInstance3D" parent="CR2r"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_1xna8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
