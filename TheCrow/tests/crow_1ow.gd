@@ -1,5 +1,5 @@
 extends Node3D
-
+#region plan
 #Basics of controls:
 	#reversed up down axis for turning
 	#button to flap - speeds up player temporarily
@@ -19,8 +19,10 @@ extends Node3D
 #(if clunky its possible to just loose speed in an animation and destroy the obstacle)
 #in overworld the crow gets sent back a large distance and stops
 # barreling towards the ground plays a simple animation while transitioning the camera to an fps view to admire the sights and get dialogue
+#endregion 
 #region Parameter Variables
 @export_group("Speed")
+@export var minspeed:float
 @export var speedperflap: float
 @export var startspeed: float
 @export var knockbackspeed: float
@@ -49,6 +51,7 @@ extends Node3D
 @export var broll:Vector2=Vector2(1,1)
 @export var damaged: Vector2=Vector2(1,1)
 #endregion
+#region corevariables
 var spinouttimer : float=0
 var flaptimer: float=0
 var barrelrolltimer: float=0
@@ -57,20 +60,41 @@ var controltotal:Vector4
 var speedtotal:float
 var coordinatestr:Vector3
 var move_dir: Vector2
+enum states {Idle, Normal,Brake_Full, Brake_Left, Brake_Right,Barrel_Roll,Lean_Left, Lean_Right}
+var speedadded:float
+var speedn:float
 @export_group("Main")
+@export var state:states
 @export var maxangle:float
 @export var visual_coll:Node3D
 @export var trailf:PathFollow3D
 @export var maxcoords: Vector2=Vector2(18,13)
 @export var vismode: int=0
 @export var viewspeed:float
+
 #@export var viewpt: Camera3D
+#endregion
 func _ready() -> void:
 	coordinatestr=Vector3(0,0,0)
+	speedn=startspeed
+	
 func _process(delta: float) -> void:
-	speedtotal=30
+	canflap=true
+	if state==states.Normal:
+		speedn-=normaldesc*delta
+	#speedtotal=30
 	controltotal=Vector4(1,1,1,1)
+	#print(speedn)
+	if canflap and flapcooldownr<=0 and Input.is_action_just_pressed("ui_accept"):
+		flap()
+	
+	
 	#region final adjusment and action
+	if state==states.Normal:
+		speedn=min(speedn,maxbasespeed)
+	speedn=max(speedn,0)
+	print(speedn)
+	speedtotal=speedadded+speedn
 	move_dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	if move_dir.x<0:
 		move_dir.x*=controltotal.x
@@ -80,7 +104,7 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.w
 	else:
 		move_dir.y*=controltotal.z
-	var crotation=Vector3(maxangle*move_dir.y/1.5,-maxangle*move_dir.x/1.5,0)
+	var crotation=Vector3(maxangle*move_dir.y,-maxangle*move_dir.x,0)
 	visual_coll.rotation_degrees=crotation
 		#visual_coll.rotation.x=lerp_angle(visual_coll.global_rotation.y,deg_to_rad(crotation.y),viewspeed*delta)
 #
@@ -99,11 +123,28 @@ func _process(delta: float) -> void:
 	#print(visual_coll.global_rotation_degrees)
 	#endregion
 	#region vismodes
+	
 	if vismode==2:
 		$TextureRect.visible=true
-		#$SubViewport.render_target_update_mode=
+		$SubViewport.render_target_update_mode=4
 		
 	else:
 		$"TextureRect".visible=false
+		$SubViewport.render_target_update_mode=1
 	#endregion
-	#print(move_dir)
+	#print(flapcooldownr)
+
+	#region timers count down
+	spinouttimer=max(0,spinouttimer-delta)
+	flapcooldownr=max(0,flapcooldownr-delta)
+	barrelrolltimer=max(0,barrelrolltimer-delta)
+		#flapcooldown=max(0,flapcooldown-delta)
+		
+	#endregion
+		
+		
+func flap():
+	flapcooldownr=flapcooldown
+	speedn+=speedperflap
+
+	

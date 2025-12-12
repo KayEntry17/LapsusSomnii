@@ -22,6 +22,6 @@ func _process(delta: float) -> void:
 			#self.global_rotation.y=lerp(global_rotation.y+360,c.global_rotation.y,speed*delta)
 		#else:
 			#self.global_rotation.y=lerp(global_rotation.y,c.global_rotation.y,speed*delta)
-	
-	print(global_rotation_degrees)
-	print(c.global_rotation_degrees)
+	#
+	#print(global_rotation_degrees)
+	#print(c.global_rotation_degrees)

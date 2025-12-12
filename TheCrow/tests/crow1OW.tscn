@@ -77,18 +77,24 @@ viewport_path = NodePath("SubViewport")
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("visual_coll")]
 script = ExtResource("1_eiqnp")
+minspeed = 5.0
+speedperflap = 30.0
+startspeed = 30.0
+maxbasespeed = 60.0
+normaldesc = 3.0
+flapcooldown = 2.0
 fullbrake = Vector2(0.7, 0.7)
 damaged = Vector2(0.1, 0.1)
+state = 1
 maxangle = 45.0
 visual_coll = NodePath("CR2r")
-maxcoords = Vector2(50, 20)
+maxcoords = Vector2(40, 20)
 viewspeed = 3.0
 
 [node name="Camera3D" type="Node3D" parent="." node_paths=PackedStringArray("birdbirdbird")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
 script = ExtResource("2_h4gvt")
 birdbirdbird = NodePath("../CR2r")
-maxangle = Vector2(10, 15)
 
 [node name="Camera3D2" type="Camera3D" parent="." node_paths=PackedStringArray("c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
@@ -149,6 +155,7 @@ expand_mode = 1
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(2560, 1440)
+render_target_update_mode = 0
 
 [node name="Camera3D3" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("camcopy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
