@@ -63,6 +63,7 @@ var move_dir: Vector2
 @export var trailf:PathFollow3D
 @export var maxcoords: Vector2=Vector2(18,13)
 @export var vismode: int=0
+@export var viewspeed:float
 #@export var viewpt: Camera3D
 func _ready() -> void:
 	coordinatestr=Vector3(0,0,0)
@@ -81,6 +82,9 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.z
 	var crotation=Vector3(maxangle*move_dir.y/1.5,-maxangle*move_dir.x/1.5,0)
 	visual_coll.rotation_degrees=crotation
+		#visual_coll.rotation.x=lerp_angle(visual_coll.global_rotation.y,deg_to_rad(crotation.y),viewspeed*delta)
+#
+	#visual_coll.rotation.y=lerp_angle(visual_coll.global_rotation.x,deg_to_rad(crotation.x),viewspeed*delta)
 	
 	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.UP, crotation.y)*delta
 	#visual_coll.position+=Vector3(speedtotal,0,0).rotated(Vector3.RIGHT, crotation.z)*delta
@@ -92,6 +96,7 @@ func _process(delta: float) -> void:
 	visual_coll.position.y=-coordinatestr.y
 	visual_coll.position.x=-coordinatestr.x
 	trailf.progress=coordinatestr.z
+	#print(visual_coll.global_rotation_degrees)
 	#endregion
 	#region vismodes
 	if vismode==2:

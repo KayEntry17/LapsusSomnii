@@ -118,6 +118,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
 
 [node name="Cube_004" type="MeshInstance3D" parent="CR2r" node_paths=PackedStringArray("c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 top_level = true
 layers = 16385
 mesh = SubResource("ArrayMesh_1xna8")

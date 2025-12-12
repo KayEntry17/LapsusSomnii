@@ -7,4 +7,4 @@ func _process(delta: float) -> void:
 	rotation_degrees.x=min(rotation_degrees.x,maxangle.x)
 	rotation_degrees.y=max(rotation_degrees.y,-maxangle.y)
 	rotation_degrees.y=min(rotation_degrees.y,maxangle.y)
-	print(rotation_degrees)
+	#print(rotation_degrees)

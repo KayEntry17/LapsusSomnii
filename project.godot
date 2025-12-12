@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lapsus Somnii"
-run/main_scene="uid://f7igdx2ucsrl"
+run/main_scene="uid://g3uq3lakrxy6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://4lp50kkv0pkt"
 
