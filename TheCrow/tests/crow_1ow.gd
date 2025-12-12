@@ -63,6 +63,7 @@ var move_dir: Vector2
 @export var trailf:PathFollow3D
 @export var maxcoords: Vector2=Vector2(18,13)
 @export var vismode: int=0
+#@export var viewpt: Camera3D
 func _ready() -> void:
 	coordinatestr=Vector3(0,0,0)
 func _process(delta: float) -> void:
@@ -94,8 +95,10 @@ func _process(delta: float) -> void:
 	#endregion
 	#region vismodes
 	if vismode==2:
-		$Camera3D2/MeshInstance3D2.visible=true
+		$TextureRect.visible=true
+		#$SubViewport.render_target_update_mode=
+		
 	else:
-		$Camera3D2/MeshInstance3D2.visible=false
+		$"TextureRect".visible=false
 	#endregion
 	#print(move_dir)

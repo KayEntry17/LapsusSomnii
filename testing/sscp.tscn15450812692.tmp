@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://g3uq3lakrxy6"]
+[gd_scene load_steps=24 format=3 uid="uid://g3uq3lakrxy6"]
 
 [ext_resource type="Script" uid="uid://cxpsg6to6davm" path="res://testing/themem.gd" id="1_0ksud"]
 [ext_resource type="AudioStream" uid="uid://bp35k8xyxb3rq" path="res://audio/jens vide/149 Degrees_Full.ogg" id="2_0ksud"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="6_lfyik"]
 [ext_resource type="PackedScene" uid="uid://ck6gjome6mr4l" path="res://TheCrow/tests/crow1OW.tscn" id="7_0ksud"]
 [ext_resource type="Script" uid="uid://dkqoklohbhby5" path="res://testing/texture_rect_3.gd" id="7_bdm2m"]
+[ext_resource type="Script" uid="uid://c21drrxw16qlh" path="res://testing/texture_rect.gd" id="7_blco3"]
 
 [sub_resource type="Sky" id="Sky_gqg8v"]
 sky_material = ExtResource("3_g6tuc")
@@ -70,6 +71,11 @@ shader_parameter/resolution = Vector2(1280, 720)
 gradient = SubResource("Gradient_hcjjm")
 width = 640
 height = 360
+
+[sub_resource type="Gradient" id="Gradient_g6tuc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t4dfb"]
+gradient = SubResource("Gradient_g6tuc")
 
 [sub_resource type="Curve3D" id="Curve3D_dn40s"]
 _data = {
@@ -217,6 +223,18 @@ expand_mode = 1
 stretch_mode = 1
 script = ExtResource("7_bdm2m")
 ratio = 3
+
+[node name="TextureRect" type="TextureRect" parent="." node_paths=PackedStringArray("pl")]
+z_index = 15
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_t4dfb")
+expand_mode = 1
+script = ExtResource("7_blco3")
+pl = NodePath("../Path3D/PathFollow3D/Node3D")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 824, 107.54854, 160)
