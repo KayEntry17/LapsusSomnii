@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://juely5at7xmi"]
+
+[ext_resource type="PackedScene" uid="uid://dc2p46howhcbe" path="res://blender/CR4r.glb" id="1_2l7bw"]
+[ext_resource type="Script" uid="uid://cvv2epbsf0ca2" path="res://TheCrow/tests/smoothpl.gd" id="2_1rq6r"]
+[ext_resource type="Shader" uid="uid://bpb2uko6nx5jk" path="res://TheCrow/outl.gdshader" id="2_fj6f3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rq6r"]
+render_priority = 0
+shader = ExtResource("2_fj6f3")
+shader_parameter/color = Color(0.80786175, 0.41240102, 3.85046e-07, 1)
+shader_parameter/thickness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nspn7"]
+next_pass = SubResource("ShaderMaterial_1rq6r")
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1rq6r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rq6r"]
+animation = &"flap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nspn7"]
+animation = &"GLIDE"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_o4i8g"]
+fadein_time = 0.5
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_1l36c"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fqw8k"]
+nodes/output/position = Vector2(780, 160)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_nspn7")
+nodes/Animation/position = Vector2(100, 180)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_1rq6r")
+"nodes/Animation 2/position" = Vector2(180, 340)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_o4i8g")
+nodes/OneShot/position = Vector2(480, 220)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1l36c")
+nodes/TimeScale/position = Vector2(240, 120)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"TimeScale", &"OneShot", 1, &"Animation 2", &"TimeScale", 0, &"Animation"]
+
+[node name="CR4r" instance=ExtResource("1_2l7bw")]
+script = ExtResource("2_1rq6r")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.00025011649, 0.9466806, 0.66491795)
+bones/0/rotation = Quaternion(0.46665552, 0.5372827, 0.459765, 0.53120255)
+bones/1/rotation = Quaternion(-0.012393171, -3.2985467e-05, 0.11257373, 0.9935661)
+bones/2/rotation = Quaternion(0.015633192, -0.00014386883, -0.046393894, 0.99880093)
+bones/3/position = Vector3(-0.00025004536, 0.978453, 0.6649179)
+bones/3/rotation = Quaternion(-0.50099707, 0.49884883, -0.49121898, 0.5087788)
+bones/5/rotation = Quaternion(0.0003264199, 0.0012449877, 0.0345956, 0.99940056)
+bones/6/rotation = Quaternion(-0.0017416918, 0.00370626, -0.42543295, 0.9049807)
+bones/7/position = Vector3(0.15413067, 1.0971985, 0.014855176)
+bones/7/rotation = Quaternion(0.2660721, 0.73283523, -0.38997206, 0.48997957)
+bones/8/rotation = Quaternion(0.18470764, -0.017577957, 0.023821678, 0.9823476)
+bones/9/rotation = Quaternion(0.12702872, 0.008190996, 0.16658008, 0.977777)
+bones/10/rotation = Quaternion(0.18845801, 0.035323717, 0.26672202, 0.94450796)
+bones/11/position = Vector3(0.0969028, 0.7886306, 0.6311279)
+bones/11/rotation = Quaternion(0.62482405, 0.34037867, 0.6197443, 0.3311411)
+bones/12/rotation = Quaternion(0.03795198, -0.0030458071, -0.074183345, 0.99651754)
+bones/13/rotation = Quaternion(-0.1007103, -0.005505307, -0.0075350185, 0.9948721)
+bones/15/rotation = Quaternion(-0.03788485, -1.897174e-09, -0.0009378333, 0.9992817)
+bones/16/rotation = Quaternion(0.47251275, 0.003766608, 0.18758535, 0.86112094)
+bones/18/rotation = Quaternion(-0.3738355, 0.0048213764, 0.18293919, 0.9092618)
+bones/19/rotation = Quaternion(0.14664361, -1.7674759e-07, 0.039481353, 0.9884012)
+bones/20/rotation = Quaternion(-0.01243855, -0.043725956, -0.95577514, 0.29056355)
+bones/21/position = Vector3(-0.15413067, 1.0971985, 0.014855176)
+bones/21/rotation = Quaternion(-0.2660721, 0.73283523, -0.38997206, -0.48997957)
+bones/22/rotation = Quaternion(0.18470764, 0.017577957, -0.02382167, 0.9823476)
+bones/23/rotation = Quaternion(0.12702873, -0.008191, -0.1665801, 0.977777)
+bones/24/rotation = Quaternion(0.18845803, -0.035323724, -0.26672202, 0.94450796)
+bones/25/position = Vector3(-0.0969028, 0.7886306, 0.6311279)
+bones/25/rotation = Quaternion(0.624824, -0.3403787, -0.6197443, 0.33114117)
+bones/26/rotation = Quaternion(0.037951976, 0.0030458053, 0.074183345, 0.99651754)
+bones/27/rotation = Quaternion(-0.10071031, 0.005505303, 0.0075349584, 0.99487203)
+bones/28/rotation = Quaternion(0.060263492, -0.0046078493, -0.25789785, 0.96427995)
+bones/29/rotation = Quaternion(-0.03788485, 1.6320734e-09, 0.00093786314, 0.9992817)
+bones/30/rotation = Quaternion(0.47251278, -0.0037666168, -0.18758534, 0.86112094)
+bones/31/rotation = Quaternion(-0.2032933, -2.8200034e-08, -0.04514099, 0.97807676)
+bones/32/rotation = Quaternion(-0.37383544, -0.0048213624, -0.18293922, 0.9092618)
+bones/33/rotation = Quaternion(0.14664362, 1.7955485e-07, -0.039481375, 0.9884012)
+bones/34/rotation = Quaternion(-0.01243855, 0.043725956, 0.95577514, 0.29056355)
+
+[node name="Cube_003" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0051670074, 1.1920929e-07, 0.012384295)
+layers = 16385
+surface_material_override/0 = SubResource("StandardMaterial3D_nspn7")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.5165333, 0.7668242, -0.38101748, -0.025378969, -0.43106902, -0.9019619, -0.8558909, 0.47556317, -0.20320031, 1.7239039, 1.2882664, -0.23157145)
+bone_name = "Bone.008.L.001"
+bone_idx = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(0.8558915, 0.073259115, 0.51194113, -0.4755635, -0.27746382, 0.8347781, 0.20320077, -0.9579392, -0.20263925, -0.11186862, 0.40218222, 0.27282786)
+visible = false
+mesh = SubResource("BoxMesh_1rq6r")
+skeleton = NodePath("../../../..")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "glide"
+playback_default_blend_time = 1.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_fqw8k")
+anim_player = NodePath("../AnimationPlayer")
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+parameters/TimeScale/scale = 0.20000000000000284

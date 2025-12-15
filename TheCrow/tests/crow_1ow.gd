@@ -71,7 +71,7 @@ var speedn:float
 @export var maxcoords: Vector2=Vector2(18,13)
 @export var vismode: int=0
 @export var viewspeed:float
-
+@export var modelscene:Node3D
 #@export var viewpt: Camera3D
 #endregion
 func _ready() -> void:
@@ -92,8 +92,8 @@ func _process(delta: float) -> void:
 	#region final adjusment and action
 	if state==states.Normal:
 		speedn=min(speedn,maxbasespeed)
-	speedn=max(speedn,0)
-	print(speedn)
+	speedn=max(speedn,minspeed)
+	#print(speedn)
 	speedtotal=speedadded+speedn
 	move_dir = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	if move_dir.x<0:
@@ -106,6 +106,7 @@ func _process(delta: float) -> void:
 		move_dir.y*=controltotal.z
 	var crotation=Vector3(maxangle*move_dir.y,-maxangle*move_dir.x,0)
 	visual_coll.rotation_degrees=crotation
+	#crotation=Vector3(crotation.x/1.5,crotation.y/1.5,0)
 		#visual_coll.rotation.x=lerp_angle(visual_coll.global_rotation.y,deg_to_rad(crotation.y),viewspeed*delta)
 #
 	#visual_coll.rotation.y=lerp_angle(visual_coll.global_rotation.x,deg_to_rad(crotation.x),viewspeed*delta)
@@ -141,10 +142,15 @@ func _process(delta: float) -> void:
 		#flapcooldown=max(0,flapcooldown-delta)
 		
 	#endregion
-		
+	if trailf.progress_ratio>=0.1:
+		endlevel()
 		
 func flap():
 	flapcooldownr=flapcooldown
+	$AnimationPlayer.play("flap")
+	modelscene.play("flap")
+func flapboost():
 	speedn+=speedperflap
 
-	
+func endlevel():
+	get_tree().reload_current_scene()

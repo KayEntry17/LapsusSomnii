@@ -3,5 +3,5 @@ extends Node
 func _ready() -> void:
 	aud.change_track(theme)
 	#Save.save_game()
-	Save.load_game()
-	print(Save.save())
+	#Save.load_game()
+	#print(Save.save())

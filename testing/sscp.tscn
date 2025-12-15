@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://g3uq3lakrxy6"]
 
 [ext_resource type="Script" uid="uid://cxpsg6to6davm" path="res://testing/themem.gd" id="1_0ksud"]
-[ext_resource type="AudioStream" uid="uid://do13hs60xvtrp" path="res://audio/even more shit i made for the internet/oggs/a quiet evening, just us.ogg" id="2_0ksud"]
+[ext_resource type="AudioStream" uid="uid://bqdlt78boclfr" path="res://audio/jens vide/Rain in Otherworld.ogg" id="2_0ksud"]
 [ext_resource type="Material" uid="uid://bn8dx410mcq6k" path="res://testing/ssc.tres" id="3_g6tuc"]
 [ext_resource type="PackedScene" uid="uid://bjr32q6qdtf2w" path="res://testing/slopccityexp.tscn" id="4_t4dfb"]
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="6_lfyik"]

@@ -7,3 +7,4 @@ stream_1/volume = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_6x2gt")
+bus = &"Music"

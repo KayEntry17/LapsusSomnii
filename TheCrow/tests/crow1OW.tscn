@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://ck6gjome6mr4l"]
+[gd_scene load_steps=22 format=4 uid="uid://ck6gjome6mr4l"]
 
 [ext_resource type="Script" uid="uid://oc01surlpwl6" path="res://TheCrow/tests/crow_1ow.gd" id="1_eiqnp"]
 [ext_resource type="Script" uid="uid://b31jixb3dj838" path="res://TheCrow/tests/lookat.gd" id="2_h4gvt"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://bqd1fc6fsj0d2" path="res://TheCrow/tests/lag.gd" id="3_uvr1k"]
 [ext_resource type="Material" uid="uid://cvlitihns0lve" path="res://testing/3ddither.tres" id="4_h8eww"]
 [ext_resource type="Script" uid="uid://cjvibx01it8n6" path="res://testing/copier.gd" id="6_habae"]
-[ext_resource type="Script" uid="uid://cvv2epbsf0ca2" path="res://TheCrow/tests/smoothpl.gd" id="6_ujvdi"]
+[ext_resource type="PackedScene" uid="uid://juely5at7xmi" path="res://TheCrow/materials+models/cr_4r.tscn" id="7_lrxvu"]
+[ext_resource type="AudioStream" uid="uid://sqkmsaai685p" path="res://sfx/wing-flap-2.mp3" id="7_rcl4y"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_habae"]
 size = Vector2(6.215, 4.055)
@@ -75,7 +76,43 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Compositor" id="Compositor_ujvdi"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("visual_coll")]
+[sub_resource type="Animation" id="Animation_5eg26"]
+resource_name = "flap"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CR2r/CR4r/flap")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.91),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"flapboost"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8uabi"]
+_data = {
+&"flap": SubResource("Animation_5eg26")
+}
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("visual_coll", "modelscene")]
 script = ExtResource("1_eiqnp")
 minspeed = 5.0
 speedperflap = 30.0
@@ -90,6 +127,7 @@ maxangle = 45.0
 visual_coll = NodePath("CR2r")
 maxcoords = Vector2(40, 20)
 viewspeed = 3.0
+modelscene = NodePath("CR2r/CR4r")
 
 [node name="Camera3D" type="Node3D" parent="." node_paths=PackedStringArray("birdbirdbird")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
@@ -101,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)
 top_level = true
 fov = 101.5
 script = ExtResource("3_uvr1k")
-speed = 0.5
+speed = 0.8
 c = NodePath("../Camera3D")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Camera3D2"]
@@ -113,6 +151,9 @@ mesh = SubResource("PlaneMesh_habae")
 skeleton = NodePath("../SubViewport/Camera3D2")
 surface_material_override/0 = ExtResource("4_h8eww")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.118, -9.878)
+
 [node name="CR2r" type="Node3D" parent="."]
 
 [node name="Cube_003" type="MeshInstance3D" parent="CR2r"]
@@ -123,15 +164,16 @@ mesh = SubResource("ArrayMesh_1xna8")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
 
-[node name="Cube_004" type="MeshInstance3D" parent="CR2r" node_paths=PackedStringArray("c")]
+[node name="CR4r" parent="CR2r" node_paths=PackedStringArray("c") instance=ExtResource("7_lrxvu")]
 top_level = true
-layers = 16385
-mesh = SubResource("ArrayMesh_1xna8")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_uvr1k")
-script = ExtResource("6_ujvdi")
 speed = 5.0
 c = NodePath("../Cube_003")
+
+[node name="flap" type="AudioStreamPlayer" parent="CR2r/CR4r"]
+stream = ExtResource("7_rcl4y")
+volume_db = 24.0
+pitch_scale = 0.73
+bus = &"SFX"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 visible = false
@@ -167,3 +209,8 @@ compositor = SubResource("Compositor_ujvdi")
 fov = 101.5
 script = ExtResource("6_habae")
 camcopy = NodePath("../../Camera3D2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8uabi")
+}
