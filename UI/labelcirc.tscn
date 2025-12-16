@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://byqhg38o7g0td"]
+
+[ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_t7jyo"]
+[ext_resource type="FontFile" uid="uid://didtfydixjpit" path="res://UI/ffonts/AlphaProta-Regular.ttf" id="2_41uu2"]
+[ext_resource type="Script" uid="uid://digsb0tp2ogva" path="res://UI/spinn.gd" id="3_5q3xk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_54ska"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xryf8"]
+noise = SubResource("FastNoiseLite_54ska")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u2mds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spkem"]
+resource_local_to_scene = true
+shader = ExtResource("1_t7jyo")
+shader_parameter/speed = 0.28
+shader_parameter/power = 3.905
+shader_parameter/radius = -49.69
+shader_parameter/nt2 = SubResource("NoiseTexture2D_u2mds")
+shader_parameter/nt = SubResource("NoiseTexture2D_xryf8")
+shader_parameter/offset = 0.0
+
+[node name="Label2" type="Label"]
+material = SubResource("ShaderMaterial_spkem")
+offset_right = 615.0
+offset_bottom = 132.0
+rotation = 0.12217305
+theme_override_fonts/font = ExtResource("2_41uu2")
+theme_override_font_sizes/font_size = 7
+text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
+script = ExtResource("3_5q3xk")

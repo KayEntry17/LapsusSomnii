@@ -142,7 +142,7 @@ func _process(delta: float) -> void:
 		#flapcooldown=max(0,flapcooldown-delta)
 		
 	#endregion
-	if trailf.progress_ratio>=0.1:
+	if trailf.progress_ratio>=1:
 		endlevel()
 		
 func flap():

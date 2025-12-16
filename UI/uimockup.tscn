@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://b8csy8o7kguro"]
+
+[ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
+[ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_qdpoj"]
+[ext_resource type="FontFile" uid="uid://didtfydixjpit" path="res://UI/ffonts/AlphaProta-Regular.ttf" id="2_j6rnc"]
+[ext_resource type="Script" uid="uid://digsb0tp2ogva" path="res://UI/spinn.gd" id="3_spkem"]
+[ext_resource type="PackedScene" uid="uid://byqhg38o7g0td" path="res://UI/labelcirc.tscn" id="4_wgo6c"]
+[ext_resource type="Script" uid="uid://cni85jmfcu2xe" path="res://UI/arcsp.gd" id="6_b5cvq"]
+[ext_resource type="Texture2D" uid="uid://c7jkrvdfu041w" path="res://UI/crowptproto-export-export.png" id="6_wgo6c"]
+
+[sub_resource type="Environment" id="Environment_qdpoj"]
+background_mode = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_54ska"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xryf8"]
+noise = SubResource("FastNoiseLite_54ska")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u2mds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_spkem"]
+resource_local_to_scene = true
+shader = ExtResource("1_qdpoj")
+shader_parameter/speed = 0.28
+shader_parameter/power = 3.905
+shader_parameter/radius = -45.93
+shader_parameter/nt2 = SubResource("NoiseTexture2D_u2mds")
+shader_parameter/nt = SubResource("NoiseTexture2D_xryf8")
+shader_parameter/offset = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xsnu7"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1m7rn"]
+noise = SubResource("FastNoiseLite_xsnu7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0b8n6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1hy6"]
+resource_local_to_scene = true
+shader = ExtResource("1_qdpoj")
+shader_parameter/speed = -0.3
+shader_parameter/power = 3.905
+shader_parameter/radius = 72.16
+shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
+shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
+shader_parameter/offset = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qdpoj")
+
+[node name="Node2D7" type="Node2D" parent="."]
+clip_children = 2
+position = Vector2(41, 319)
+script = ExtResource("1_87s1n")
+radius = 74.46
+
+[node name="portrait" type="Node2D" parent="."]
+position = Vector2(41, 319)
+
+[node name="Label" type="Label" parent="portrait"]
+material = SubResource("ShaderMaterial_spkem")
+offset_right = 615.0
+offset_bottom = 132.0
+rotation = 0.12217305
+theme_override_fonts/font = ExtResource("2_j6rnc")
+theme_override_font_sizes/font_size = 7
+text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
+script = ExtResource("3_spkem")
+
+[node name="Label2" parent="portrait" instance=ExtResource("4_wgo6c")]
+material = SubResource("ShaderMaterial_t1hy6")
+rotation = 0.0
+text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
+
+[node name="Node2D" type="Node2D" parent="portrait"]
+clip_children = 2
+script = ExtResource("1_87s1n")
+
+[node name="Crowptproto" type="Sprite2D" parent="portrait/Node2D"]
+texture_filter = 1
+position = Vector2(-4, 8)
+texture = ExtResource("6_wgo6c")
+
+[node name="Node2D2" type="Node2D" parent="portrait"]
+script = ExtResource("6_b5cvq")
+radius = 60.825
+speed = 1.0
+gap = 0.675
+offset = 14.225
+thickness = 2.6
+
+[node name="Node2D6" type="Node2D" parent="portrait"]
+script = ExtResource("6_b5cvq")
+radius = 74.265
+speed = 0.66
+gap = 0.675
+offset = 14.225
+thickness = 5.465
+
+[node name="Node2D3" type="Node2D" parent="portrait"]
+script = ExtResource("6_b5cvq")
+radius = 55.325
+speed = -0.1
+gap = 0.675
+offset = -15.105
+
+[node name="Node2D4" type="Node2D" parent="portrait"]
+script = ExtResource("6_b5cvq")
+radius = 44.465
+speed = -0.5
+gap = 0.675
+offset = -8.225
+
+[node name="Node2D5" type="Node2D" parent="portrait"]
+script = ExtResource("6_b5cvq")
+radius = 40.36
+speed = 0.2
+gap = 0.675
+offset = 12.63
+thickness = 1.0
