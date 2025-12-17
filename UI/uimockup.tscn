@@ -1,14 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://b8csy8o7kguro"]
+[gd_scene load_steps=32 format=3 uid="uid://b8csy8o7kguro"]
 
 [ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
+[ext_resource type="PackedScene" uid="uid://831pm6b32fg" path="res://UI/portrait.tscn" id="1_mqphw"]
 [ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_qdpoj"]
+[ext_resource type="Texture2D" uid="uid://mh13tnguqo7k" path="res://audio/non backup placeholders/stw.png" id="2_akxeg"]
 [ext_resource type="FontFile" uid="uid://didtfydixjpit" path="res://UI/ffonts/AlphaProta-Regular.ttf" id="2_j6rnc"]
 [ext_resource type="Script" uid="uid://digsb0tp2ogva" path="res://UI/spinn.gd" id="3_spkem"]
 [ext_resource type="PackedScene" uid="uid://byqhg38o7g0td" path="res://UI/labelcirc.tscn" id="4_wgo6c"]
 [ext_resource type="Script" uid="uid://cni85jmfcu2xe" path="res://UI/arcsp.gd" id="6_b5cvq"]
 [ext_resource type="Texture2D" uid="uid://c7jkrvdfu041w" path="res://UI/crowptproto-export-export.png" id="6_wgo6c"]
 [ext_resource type="Shader" uid="uid://30nd0yhnfmso" path="res://UI/regulart.gdshader" id="8_1m7rn"]
-[ext_resource type="Texture2D" uid="uid://c128i18k6gt4w" path="res://audio/non backup placeholders/2stw.png" id="8_mqphw"]
 [ext_resource type="FontFile" uid="uid://blxw164ph12dp" path="res://UI/ffonts/Eirian-Regular.ttf" id="9_1m7rn"]
 [ext_resource type="Script" uid="uid://synr8b4eilyq" path="res://UI/textb.gd" id="9_akxeg"]
 [ext_resource type="FontFile" uid="uid://m6d3eply52yv" path="res://UI/ffonts/VirtualVectorVortex.ttf" id="9_t1hy6"]
@@ -42,26 +43,6 @@ noise_type = 2
 noise = SubResource("FastNoiseLite_xsnu7")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0b8n6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1hy6"]
-resource_local_to_scene = true
-shader = ExtResource("1_qdpoj")
-shader_parameter/speed = -0.3
-shader_parameter/power = 3.905
-shader_parameter/radius = 71.38
-shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
-shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
-shader_parameter/offset = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_akxeg"]
-resource_local_to_scene = true
-shader = ExtResource("1_qdpoj")
-shader_parameter/speed = -0.3
-shader_parameter/power = 3.905
-shader_parameter/radius = 71.38
-shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
-shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
-shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1m7rn"]
 resource_local_to_scene = true
@@ -116,167 +97,24 @@ color = Color(0, 0, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qdpoj")
 
-[node name="portrait2" type="Node2D" parent="."]
+[node name="portrait" parent="." instance=ExtResource("1_mqphw")]
 position = Vector2(57, 303)
+portrait = ExtResource("2_akxeg")
 
-[node name="Node2D8" type="Node2D" parent="portrait2"]
-clip_children = 2
-script = ExtResource("1_87s1n")
-radius = 74.46
-
-[node name="Node2D" type="Node2D" parent="portrait2"]
-clip_children = 2
-script = ExtResource("1_87s1n")
-radius = 55.0
-
-[node name="Crowptproto" type="Sprite2D" parent="portrait2/Node2D"]
-texture_filter = 1
-position = Vector2(-8, 8)
-texture = ExtResource("6_wgo6c")
-
-[node name="Label" type="Label" parent="portrait2"]
-material = SubResource("ShaderMaterial_spkem")
-offset_right = 615.0
-offset_bottom = 132.0
-rotation = 0.12217305
-theme_override_fonts/font = ExtResource("2_j6rnc")
-theme_override_font_sizes/font_size = 7
-text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
-script = ExtResource("3_spkem")
-
-[node name="Label2" parent="portrait2" instance=ExtResource("4_wgo6c")]
-material = SubResource("ShaderMaterial_t1hy6")
-offset_top = -1.0
-offset_right = 689.0
-offset_bottom = 131.0
-rotation = 0.0
-theme_override_font_sizes/font_size = 9
-text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
-speed = -0.5
-
-[node name="Node2D2" type="Node2D" parent="portrait2"]
-script = ExtResource("6_b5cvq")
-radius = 60.825
-speed = 1.0
-gap = 0.675
-offset = 14.225
-thickness = 2.6
-
-[node name="Node2D6" type="Node2D" parent="portrait2"]
-script = ExtResource("6_b5cvq")
-radius = 74.265
-speed = 0.66
-gap = 0.675
-offset = 14.225
-thickness = 5.465
-
-[node name="Node2D3" type="Node2D" parent="portrait2"]
-script = ExtResource("6_b5cvq")
-radius = 55.325
-speed = -0.1
-gap = 0.675
-offset = -15.105
-
-[node name="Node2D4" type="Node2D" parent="portrait2"]
-script = ExtResource("6_b5cvq")
-radius = 44.465
-speed = -0.5
-gap = 0.675
-offset = -8.225
-
-[node name="Node2D5" type="Node2D" parent="portrait2"]
-script = ExtResource("6_b5cvq")
-radius = 40.36
-speed = 0.2
-gap = 0.675
-offset = 12.63
-thickness = 1.0
-
-[node name="portrait3" type="Node2D" parent="."]
+[node name="portrait2" parent="." instance=ExtResource("1_mqphw")]
 position = Vector2(583, 303)
+portrait = ExtResource("6_wgo6c")
 
-[node name="Node2D8" type="Node2D" parent="portrait3"]
-clip_children = 2
-script = ExtResource("1_87s1n")
-radius = 74.46
-
-[node name="Node2D" type="Node2D" parent="portrait3"]
-clip_children = 2
-script = ExtResource("1_87s1n")
-radius = 55.0
-
-[node name="Crowptproto" type="Sprite2D" parent="portrait3/Node2D"]
-texture_filter = 1
-texture = ExtResource("8_mqphw")
-
-[node name="Label" type="Label" parent="portrait3"]
-material = SubResource("ShaderMaterial_spkem")
-offset_right = 615.0
-offset_bottom = 132.0
-rotation = 0.12217305
-theme_override_fonts/font = ExtResource("2_j6rnc")
-theme_override_font_sizes/font_size = 7
-text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
-script = ExtResource("3_spkem")
-
-[node name="Label2" parent="portrait3" instance=ExtResource("4_wgo6c")]
-material = SubResource("ShaderMaterial_akxeg")
-offset_top = -1.0
-offset_right = 689.0
-offset_bottom = 131.0
-rotation = 0.0
-theme_override_font_sizes/font_size = 9
-text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
-speed = -0.5
-
-[node name="Node2D2" type="Node2D" parent="portrait3"]
-script = ExtResource("6_b5cvq")
-radius = 60.825
-speed = 1.0
-gap = 0.675
-offset = 14.225
-thickness = 2.6
-
-[node name="Node2D6" type="Node2D" parent="portrait3"]
-script = ExtResource("6_b5cvq")
-radius = 74.265
-speed = 0.66
-gap = 0.675
-offset = 14.225
-thickness = 5.465
-
-[node name="Node2D3" type="Node2D" parent="portrait3"]
-script = ExtResource("6_b5cvq")
-radius = 55.325
-speed = -0.1
-gap = 0.675
-offset = -15.105
-
-[node name="Node2D4" type="Node2D" parent="portrait3"]
-script = ExtResource("6_b5cvq")
-radius = 44.465
-speed = -0.5
-gap = 0.675
-offset = -8.225
-
-[node name="Node2D5" type="Node2D" parent="portrait3"]
-script = ExtResource("6_b5cvq")
-radius = 40.36
-speed = 0.2
-gap = 0.675
-offset = 12.63
-thickness = 1.0
-
-[node name="portrait" type="Node2D" parent="."]
+[node name="protop" type="Node2D" parent="."]
 visible = false
-position = Vector2(41, 319)
+position = Vector2(-114, 309)
 
-[node name="Node2D7" type="Node2D" parent="portrait"]
+[node name="Node2D7" type="Node2D" parent="protop"]
 clip_children = 2
 script = ExtResource("1_87s1n")
 radius = 74.46
 
-[node name="Label" type="Label" parent="portrait"]
+[node name="Label" type="Label" parent="protop"]
 material = SubResource("ShaderMaterial_spkem")
 offset_right = 615.0
 offset_bottom = 132.0
@@ -286,7 +124,7 @@ theme_override_font_sizes/font_size = 7
 text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
 script = ExtResource("3_spkem")
 
-[node name="Label2" parent="portrait" instance=ExtResource("4_wgo6c")]
+[node name="Label2" parent="protop" instance=ExtResource("4_wgo6c")]
 material = SubResource("ShaderMaterial_1m7rn")
 offset_top = -1.0
 offset_right = 689.0
@@ -296,16 +134,16 @@ theme_override_font_sizes/font_size = 9
 text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
 speed = -0.5
 
-[node name="Node2D" type="Node2D" parent="portrait"]
+[node name="Node2D" type="Node2D" parent="protop"]
 clip_children = 2
 script = ExtResource("1_87s1n")
 
-[node name="Crowptproto" type="Sprite2D" parent="portrait/Node2D"]
+[node name="Crowptproto" type="Sprite2D" parent="protop/Node2D"]
 texture_filter = 1
 position = Vector2(-4, 8)
 texture = ExtResource("6_wgo6c")
 
-[node name="Node2D2" type="Node2D" parent="portrait"]
+[node name="Node2D2" type="Node2D" parent="protop"]
 script = ExtResource("6_b5cvq")
 radius = 60.825
 speed = 1.0
@@ -313,7 +151,7 @@ gap = 0.675
 offset = 14.225
 thickness = 2.6
 
-[node name="Node2D6" type="Node2D" parent="portrait"]
+[node name="Node2D6" type="Node2D" parent="protop"]
 script = ExtResource("6_b5cvq")
 radius = 74.265
 speed = 0.66
@@ -321,21 +159,21 @@ gap = 0.675
 offset = 14.225
 thickness = 5.465
 
-[node name="Node2D3" type="Node2D" parent="portrait"]
+[node name="Node2D3" type="Node2D" parent="protop"]
 script = ExtResource("6_b5cvq")
 radius = 55.325
 speed = -0.1
 gap = 0.675
 offset = -15.105
 
-[node name="Node2D4" type="Node2D" parent="portrait"]
+[node name="Node2D4" type="Node2D" parent="protop"]
 script = ExtResource("6_b5cvq")
 radius = 44.465
 speed = -0.5
 gap = 0.675
 offset = -8.225
 
-[node name="Node2D5" type="Node2D" parent="portrait"]
+[node name="Node2D5" type="Node2D" parent="protop"]
 script = ExtResource("6_b5cvq")
 radius = 40.36
 speed = 0.2
@@ -346,7 +184,7 @@ thickness = 1.0
 [node name="textb" type="Node2D" parent="."]
 position = Vector2(49, 0)
 script = ExtResource("9_akxeg")
-movespeed = 5
+movespeed = 10
 noise = SubResource("FastNoiseLite_mqphw")
 grad = SubResource("Gradient_mqphw")
 power = 0.7

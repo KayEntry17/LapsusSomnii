@@ -14,11 +14,15 @@ var inip2=Vector2(583,303)
 func _process(delta: float) -> void:
 	times+=delta
 	if speaking==1:
+		$"../portrait".on=true
+		$"../portrait2".on=false
 		targetp1=inip1
 		targetp2=Vector2(inip2.x+offset,inip2.y)
 		for i in range($Line2D3.points.size()):
 			$Line2D3.points[i]=lerp($Line2D3.points[i],$Line2D.points[i],movespeed*delta)
-	else:
+	elif speaking==-1:
+		$"../portrait2".on=true
+		$"../portrait".on=false
 		targetp2=inip2
 		targetp1=Vector2(inip1.x-offset,inip2.y)
 		for i in range($Line2D3.points.size()):
@@ -29,8 +33,8 @@ func _process(delta: float) -> void:
 			noisev=grad.sample(noisev+0.5).r-0.5
 			$Line2D3.points[i]+=Vector2(noisev*power,-noisev*power)
 			print(noisev)
-	$"../portrait2".position=lerp($"../portrait2".position, targetp1,movespeed*delta)
-	$"../portrait3".position=lerp($"../portrait3".position, targetp2,movespeed*delta)
+	#$"../portrait".position=lerp($"../portrait".position, targetp1,movespeed*delta)
+	#$"../portrait2".position=lerp($"../portrait2".position, targetp2,movespeed*delta)
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		speaking*=-1
