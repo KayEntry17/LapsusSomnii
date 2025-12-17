@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8csy8o7kguro"]
+[gd_scene load_steps=33 format=3 uid="uid://b8csy8o7kguro"]
 
 [ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
 [ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_qdpoj"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://cni85jmfcu2xe" path="res://UI/arcsp.gd" id="6_b5cvq"]
 [ext_resource type="Texture2D" uid="uid://c7jkrvdfu041w" path="res://UI/crowptproto-export-export.png" id="6_wgo6c"]
 [ext_resource type="Shader" uid="uid://30nd0yhnfmso" path="res://UI/regulart.gdshader" id="8_1m7rn"]
+[ext_resource type="Texture2D" uid="uid://c128i18k6gt4w" path="res://audio/non backup placeholders/2stw.png" id="8_mqphw"]
 [ext_resource type="FontFile" uid="uid://blxw164ph12dp" path="res://UI/ffonts/Eirian-Regular.ttf" id="9_1m7rn"]
+[ext_resource type="Script" uid="uid://synr8b4eilyq" path="res://UI/textb.gd" id="9_akxeg"]
 [ext_resource type="FontFile" uid="uid://m6d3eply52yv" path="res://UI/ffonts/VirtualVectorVortex.ttf" id="9_t1hy6"]
 [ext_resource type="Shader" uid="uid://b4b0hm3daomde" path="res://UI/uishaketitle.gdshader" id="10_t1hy6"]
 
@@ -51,6 +53,16 @@ shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
 shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
 shader_parameter/offset = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akxeg"]
+resource_local_to_scene = true
+shader = ExtResource("1_qdpoj")
+shader_parameter/speed = -0.3
+shader_parameter/power = 3.905
+shader_parameter/radius = 71.38
+shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
+shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
+shader_parameter/offset = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1m7rn"]
 resource_local_to_scene = true
 shader = ExtResource("1_qdpoj")
@@ -60,6 +72,12 @@ shader_parameter/radius = 71.38
 shader_parameter/nt2 = SubResource("NoiseTexture2D_0b8n6")
 shader_parameter/nt = SubResource("NoiseTexture2D_1m7rn")
 shader_parameter/offset = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mqphw"]
+frequency = 0.0145
+
+[sub_resource type="Gradient" id="Gradient_mqphw"]
+colors = PackedColorArray(0.24528302, 0.24528302, 0.24528302, 1, 0.8409873, 0.8409873, 0.8409873, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t1hy6"]
 frequency = 0.0068
@@ -88,6 +106,7 @@ shader_parameter/nt = SubResource("NoiseTexture2D_t1hy6")
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -9.0
 offset_top = -72.0
 offset_right = 799.0
@@ -98,7 +117,7 @@ color = Color(0, 0, 0, 1)
 environment = SubResource("Environment_qdpoj")
 
 [node name="portrait2" type="Node2D" parent="."]
-position = Vector2(56, 305)
+position = Vector2(57, 303)
 
 [node name="Node2D8" type="Node2D" parent="portrait2"]
 clip_children = 2
@@ -166,6 +185,81 @@ gap = 0.675
 offset = -8.225
 
 [node name="Node2D5" type="Node2D" parent="portrait2"]
+script = ExtResource("6_b5cvq")
+radius = 40.36
+speed = 0.2
+gap = 0.675
+offset = 12.63
+thickness = 1.0
+
+[node name="portrait3" type="Node2D" parent="."]
+position = Vector2(583, 303)
+
+[node name="Node2D8" type="Node2D" parent="portrait3"]
+clip_children = 2
+script = ExtResource("1_87s1n")
+radius = 74.46
+
+[node name="Node2D" type="Node2D" parent="portrait3"]
+clip_children = 2
+script = ExtResource("1_87s1n")
+radius = 55.0
+
+[node name="Crowptproto" type="Sprite2D" parent="portrait3/Node2D"]
+texture_filter = 1
+texture = ExtResource("8_mqphw")
+
+[node name="Label" type="Label" parent="portrait3"]
+material = SubResource("ShaderMaterial_spkem")
+offset_right = 615.0
+offset_bottom = 132.0
+rotation = 0.12217305
+theme_override_fonts/font = ExtResource("2_j6rnc")
+theme_override_font_sizes/font_size = 7
+text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
+script = ExtResource("3_spkem")
+
+[node name="Label2" parent="portrait3" instance=ExtResource("4_wgo6c")]
+material = SubResource("ShaderMaterial_akxeg")
+offset_top = -1.0
+offset_right = 689.0
+offset_bottom = 131.0
+rotation = 0.0
+theme_override_font_sizes/font_size = 9
+text = "theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia theatrum corvi somnia"
+speed = -0.5
+
+[node name="Node2D2" type="Node2D" parent="portrait3"]
+script = ExtResource("6_b5cvq")
+radius = 60.825
+speed = 1.0
+gap = 0.675
+offset = 14.225
+thickness = 2.6
+
+[node name="Node2D6" type="Node2D" parent="portrait3"]
+script = ExtResource("6_b5cvq")
+radius = 74.265
+speed = 0.66
+gap = 0.675
+offset = 14.225
+thickness = 5.465
+
+[node name="Node2D3" type="Node2D" parent="portrait3"]
+script = ExtResource("6_b5cvq")
+radius = 55.325
+speed = -0.1
+gap = 0.675
+offset = -15.105
+
+[node name="Node2D4" type="Node2D" parent="portrait3"]
+script = ExtResource("6_b5cvq")
+radius = 44.465
+speed = -0.5
+gap = 0.675
+offset = -8.225
+
+[node name="Node2D5" type="Node2D" parent="portrait3"]
 script = ExtResource("6_b5cvq")
 radius = 40.36
 speed = 0.2
@@ -250,13 +344,20 @@ offset = 12.63
 thickness = 1.0
 
 [node name="textb" type="Node2D" parent="."]
+position = Vector2(49, 0)
+script = ExtResource("9_akxeg")
+movespeed = 5
+noise = SubResource("FastNoiseLite_mqphw")
+grad = SubResource("Gradient_mqphw")
+power = 0.7
+speed = 5
 
 [node name="Label3" type="Label" parent="textb"]
 material = SubResource("ShaderMaterial_mqphw")
-offset_left = 203.0
-offset_top = 260.0
-offset_right = 568.0
-offset_bottom = 347.0
+offset_left = 144.0
+offset_top = 258.0
+offset_right = 509.0
+offset_bottom = 345.0
 theme_override_fonts/font = ExtResource("9_1m7rn")
 theme_override_font_sizes/font_size = 12
 text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. 
@@ -266,10 +367,10 @@ visible_characters_behavior = 1
 
 [node name="Label4" type="Label" parent="textb"]
 material = SubResource("ShaderMaterial_df0jk")
-offset_left = 444.0
-offset_top = 243.0
-offset_right = 561.0
-offset_bottom = 330.0
+offset_left = 399.0
+offset_top = 242.0
+offset_right = 516.0
+offset_bottom = 329.0
 theme_override_fonts/font = ExtResource("9_t1hy6")
 theme_override_font_sizes/font_size = 14
 text = "THE NARRATOR"
@@ -278,7 +379,18 @@ autowrap_mode = 2
 visible_characters_behavior = 1
 
 [node name="Line2D" type="Line2D" parent="textb"]
-position = Vector2(49, 0)
+visible = false
+points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 141, 335, 106, 291, 135, 292, 128, 275)
+closed = true
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="textb"]
 points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 139, 330, 106, 291, 135, 292, 128, 275)
+closed = true
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="textb"]
+visible = false
+points = PackedVector2Array(446, 287, 418, 298, 406, 281, 97, 218, 7, 243, -17, 270, 20, 336, 377, 355, 427, 321)
 closed = true
 width = 2.0
