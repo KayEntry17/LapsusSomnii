@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://b8csy8o7kguro"]
+[gd_scene load_steps=32 format=3 uid="uid://b8csy8o7kguro"]
 
 [ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
 [ext_resource type="PackedScene" uid="uid://831pm6b32fg" path="res://UI/portrait.tscn" id="1_mqphw"]
 [ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_qdpoj"]
+[ext_resource type="Texture2D" uid="uid://mh13tnguqo7k" path="res://audio/non backup placeholders/stw.png" id="2_akxeg"]
 [ext_resource type="FontFile" uid="uid://didtfydixjpit" path="res://UI/ffonts/AlphaProta-Regular.ttf" id="2_j6rnc"]
 [ext_resource type="Script" uid="uid://digsb0tp2ogva" path="res://UI/spinn.gd" id="3_spkem"]
 [ext_resource type="PackedScene" uid="uid://byqhg38o7g0td" path="res://UI/labelcirc.tscn" id="4_wgo6c"]
@@ -98,7 +99,7 @@ environment = SubResource("Environment_qdpoj")
 
 [node name="portrait" parent="." instance=ExtResource("1_mqphw")]
 position = Vector2(57, 303)
-portrait = ExtResource("6_wgo6c")
+portrait = ExtResource("2_akxeg")
 
 [node name="portrait2" parent="." instance=ExtResource("1_mqphw")]
 position = Vector2(583, 303)
@@ -229,11 +230,5 @@ width = 2.0
 [node name="Line2D2" type="Line2D" parent="textb"]
 visible = false
 points = PackedVector2Array(446, 287, 418, 298, 406, 281, 97, 218, 7, 243, -17, 270, 20, 336, 377, 355, 427, 321)
-closed = true
-width = 2.0
-
-[node name="Line2D0" type="Line2D" parent="textb"]
-visible = false
-points = PackedVector2Array(266, 366, 283, 370, 283, 375, 324, 390, 453, 372, 312, 374, 296, 370, 321, 383, 237, 399)
 closed = true
 width = 2.0

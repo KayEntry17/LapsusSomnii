@@ -12,6 +12,7 @@ var times=0
 var inip1=Vector2(57,303)
 var inip2=Vector2(583,303)
 func _process(delta: float) -> void:
+	#region animations
 	times+=delta
 	if speaking==1:
 		$"../portrait".on=true
@@ -27,6 +28,11 @@ func _process(delta: float) -> void:
 		targetp1=Vector2(inip1.x-offset,inip2.y)
 		for i in range($Line2D3.points.size()):
 			$Line2D3.points[i]=lerp($Line2D3.points[i],$Line2D2.points[i],movespeed*delta)
+	elif speaking==0:
+		$"../portrait2".on=false
+		$"../portrait".on=false
+		for i in range($Line2D3.points.size()):
+			$Line2D3.points[i]=lerp($Line2D3.points[i],$Line2D0.points[i],movespeed*delta)
 	
 	for i in range($Line2D3.points.size()):
 			var noisev=noise.get_noise_2d(($Line2D3.points[i]+Vector2(times*speed,-0.5*times*speed)).x,($Line2D3.points[i]+Vector2(times*speed,-0.5*times*speed)).y)
@@ -38,7 +44,12 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		speaking*=-1
+	if Input.is_action_just_pressed("ui_right"):
+		speaking=0
+	if Input.is_action_just_pressed("ui_left"):
+		speaking=1
 	queue_redraw()
+	#endregion
 func _draw():
 	var polygons = Geometry2D.merge_polygons($Line2D3.points, PackedVector2Array([]))
 	for i in polygons:
