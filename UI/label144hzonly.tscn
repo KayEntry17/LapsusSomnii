@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvi1l1fgufukt"]
+
+[ext_resource type="Shader" uid="uid://b4b0hm3daomde" path="res://UI/uishaketitle.gdshader" id="1_ex0qh"]
+[ext_resource type="FontFile" uid="uid://dhc3e3r8bs4h8" path="res://UI/ffonts/AlphaProta-Italic.ttf" id="2_8whc5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t1hy6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_df0jk"]
+resource_local_to_scene = true
+shader = ExtResource("1_ex0qh")
+shader_parameter/speed = 7.41
+shader_parameter/power = 1.38
+shader_parameter/nt = SubResource("NoiseTexture2D_t1hy6")
+
+[node name="Label5" type="Label"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 444.0
+offset_top = 243.0
+offset_right = 809.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("2_8whc5")
+theme_override_font_sizes/font_size = 14
+text = "The  Narrator"
+autowrap_mode = 2
+visible_characters_behavior = 1
