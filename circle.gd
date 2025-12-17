@@ -1,6 +1,7 @@
 @tool
 extends Node2D
 @export var radius=40.0
+var thickness=0.0
 @export var col:Color
 func _process(delta: float) -> void:
 	queue_redraw()

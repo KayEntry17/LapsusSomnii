@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 			var noisev=noise.get_noise_2d(($Line2D3.points[i]+Vector2(times*speed,-0.5*times*speed)).x,($Line2D3.points[i]+Vector2(times*speed,-0.5*times*speed)).y)
 			noisev=grad.sample(noisev+0.5).r-0.5
 			$Line2D3.points[i]+=Vector2(noisev*power,-noisev*power)
-			print(noisev)
+			#print(noisev)
 	#$"../portrait".position=lerp($"../portrait".position, targetp1,movespeed*delta)
 	#$"../portrait2".position=lerp($"../portrait2".position, targetp2,movespeed*delta)
 	

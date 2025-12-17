@@ -103,6 +103,7 @@ portrait = ExtResource("2_akxeg")
 
 [node name="portrait2" parent="." instance=ExtResource("1_mqphw")]
 position = Vector2(583, 303)
+on = false
 portrait = ExtResource("6_wgo6c")
 
 [node name="protop" type="Node2D" parent="."]
@@ -187,8 +188,7 @@ script = ExtResource("9_akxeg")
 movespeed = 10
 noise = SubResource("FastNoiseLite_mqphw")
 grad = SubResource("Gradient_mqphw")
-power = 0.7
-speed = 5
+power = 1.0
 
 [node name="Label3" type="Label" parent="textb"]
 material = SubResource("ShaderMaterial_mqphw")
