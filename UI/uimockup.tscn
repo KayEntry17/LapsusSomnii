@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://b8csy8o7kguro"]
+[gd_scene load_steps=33 format=3 uid="uid://b8csy8o7kguro"]
 
 [ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
 [ext_resource type="PackedScene" uid="uid://831pm6b32fg" path="res://UI/portrait.tscn" id="1_mqphw"]
 [ext_resource type="Shader" uid="uid://chceufa6ca60y" path="res://UI/uimockup.gdshader" id="1_qdpoj"]
 [ext_resource type="FontFile" uid="uid://didtfydixjpit" path="res://UI/ffonts/AlphaProta-Regular.ttf" id="2_j6rnc"]
+[ext_resource type="Texture2D" uid="uid://mh13tnguqo7k" path="res://audio/non backup placeholders/stw.png" id="3_akxeg"]
 [ext_resource type="Script" uid="uid://digsb0tp2ogva" path="res://UI/spinn.gd" id="3_spkem"]
 [ext_resource type="PackedScene" uid="uid://byqhg38o7g0td" path="res://UI/labelcirc.tscn" id="4_wgo6c"]
 [ext_resource type="Script" uid="uid://cni85jmfcu2xe" path="res://UI/arcsp.gd" id="6_b5cvq"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" uid="uid://synr8b4eilyq" path="res://UI/textb.gd" id="9_akxeg"]
 [ext_resource type="FontFile" uid="uid://m6d3eply52yv" path="res://UI/ffonts/VirtualVectorVortex.ttf" id="9_t1hy6"]
 [ext_resource type="Shader" uid="uid://b4b0hm3daomde" path="res://UI/uishaketitle.gdshader" id="10_t1hy6"]
+[ext_resource type="Script" uid="uid://1wwho3epypmy" path="res://UI/bgp.gd" id="11_vgd8q"]
 
 [sub_resource type="Environment" id="Environment_qdpoj"]
 background_mode = 1
@@ -97,13 +99,13 @@ color = Color(0, 0, 0, 1)
 environment = SubResource("Environment_qdpoj")
 
 [node name="portrait" parent="." instance=ExtResource("1_mqphw")]
-position = Vector2(57, 303)
+position = Vector2(57, 304)
 portrait = ExtResource("6_wgo6c")
 
 [node name="portrait2" parent="." instance=ExtResource("1_mqphw")]
-position = Vector2(583, 303)
+position = Vector2(583, 304)
 on = false
-portrait = ExtResource("6_wgo6c")
+portrait = ExtResource("3_akxeg")
 
 [node name="protop" type="Node2D" parent="."]
 visible = false
@@ -189,7 +191,12 @@ noise = SubResource("FastNoiseLite_mqphw")
 grad = SubResource("Gradient_mqphw")
 power = 1.0
 
-[node name="Label3" type="Label" parent="textb"]
+[node name="bg" type="Node2D" parent="textb"]
+clip_children = 2
+script = ExtResource("11_vgd8q")
+
+[node name="Label3" type="Label" parent="textb/bg"]
+visible = false
 material = SubResource("ShaderMaterial_mqphw")
 offset_left = 144.0
 offset_top = 258.0
@@ -202,7 +209,20 @@ Though it was 5 months ago she was envisioned, it is only today she will be give
 autowrap_mode = 2
 visible_characters_behavior = 1
 
-[node name="Label4" type="Label" parent="textb"]
+[node name="Label5" type="Label" parent="textb/bg"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 15.999999
+offset_top = 248.0
+offset_right = 363.0
+offset_bottom = 361.0
+rotation = 0.045198053
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="Label4" type="Label" parent="textb/bg"]
 material = SubResource("ShaderMaterial_df0jk")
 offset_left = 399.0
 offset_top = 242.0
@@ -215,6 +235,19 @@ horizontal_alignment = 2
 autowrap_mode = 2
 visible_characters_behavior = 1
 
+[node name="Label6" type="Label" parent="textb/bg"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = -1.0000038
+offset_top = 215.99998
+offset_right = 116.0
+offset_bottom = 303.0
+rotation = 0.18629543
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 16
+text = "THE C	omedian>"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
 [node name="Line2D" type="Line2D" parent="textb"]
 visible = false
 points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 141, 335, 106, 291, 135, 292, 128, 275)
@@ -224,16 +257,17 @@ width = 2.0
 [node name="Line2D3" type="Line2D" parent="textb"]
 points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 139, 330, 106, 291, 135, 292, 128, 275)
 closed = true
-width = 2.0
+width = 1.0
+antialiased = true
 
 [node name="Line2D2" type="Line2D" parent="textb"]
 visible = false
-points = PackedVector2Array(446, 287, 418, 298, 406, 281, 97, 218, 7, 243, -17, 270, 20, 336, 377, 355, 427, 321)
+points = PackedVector2Array(465, 295, 359, 317, 418, 277, -12, 213, 19, 264, -57, 281, 5, 294, -81, 317, 359, 337)
 closed = true
 width = 2.0
 
 [node name="Line2D0" type="Line2D" parent="textb"]
 visible = false
-points = PackedVector2Array(266, 366, 283, 370, 283, 375, 324, 390, 453, 372, 312, 374, 296, 370, 321, 383, 237, 399)
+points = PackedVector2Array(253, 379, 283, 370, 336, 385, 381, 421, 351, 443, 327, 424, 295, 414, 240, 447, 206, 453)
 closed = true
 width = 2.0

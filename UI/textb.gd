@@ -48,9 +48,9 @@ func _process(delta: float) -> void:
 		speaking=0
 	if Input.is_action_just_pressed("ui_left"):
 		speaking=1
-	queue_redraw()
+	#queue_redraw()
 	#endregion
-func _draw():
-	var polygons = Geometry2D.merge_polygons($Line2D3.points, PackedVector2Array([]))
-	for i in polygons:
-		draw_colored_polygon(i,Color.BLACK)
+#func _draw():
+	#var polygons = Geometry2D.merge_polygons($Line2D3.points, PackedVector2Array([]))
+	#for i in polygons:
+		#draw_colored_polygon(i,Color.BLACK)
