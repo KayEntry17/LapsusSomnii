@@ -8,7 +8,9 @@ var targetp2
 @export var offset=200
 var times=0
 @export var power=1.5
+
 @export var speed=10
+@export var tblist:Dictionary[int, Node2D]
 var inip1=Vector2(57,303)
 var inip2=Vector2(583,303)
 func _process(delta: float) -> void:
