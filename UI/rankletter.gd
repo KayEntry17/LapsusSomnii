@@ -16,7 +16,7 @@ func _ready() -> void:
 	for i in range(10):
 		main.points[i]=(letarr[letter].points[i]+letarr[letter].position)*scalel
 func _process(delta: float) -> void:
-	#timer-=delta
+	timer-=delta
 	times+=delta
 	if timer<=0:
 		timer=0.5

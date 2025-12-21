@@ -19,6 +19,7 @@ config/icon="uid://4lp50kkv0pkt"
 
 aud="*res://audio/audio_stream_player.tscn"
 Save="*res://CORE/savem.tscn"
+Dialogue="*res://audio/dialogue.tscn"
 
 [display]
 

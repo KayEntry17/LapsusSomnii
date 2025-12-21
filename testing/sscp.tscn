@@ -7,7 +7,7 @@
 [ext_resource type="Shader" uid="uid://t71mxue8ftqq" path="res://testing/noised.gdshader" id="6_lfyik"]
 [ext_resource type="PackedScene" uid="uid://ck6gjome6mr4l" path="res://TheCrow/tests/crow1OW.tscn" id="7_0ksud"]
 [ext_resource type="Script" uid="uid://dkqoklohbhby5" path="res://testing/texture_rect_3.gd" id="7_bdm2m"]
-[ext_resource type="PackedScene" uid="uid://b8csy8o7kguro" path="res://UI/uimockup.tscn" id="8_blco3"]
+[ext_resource type="PackedScene" uid="uid://snwp7uruxqyx" path="res://UI/ingameui.tscn" id="8_blco3"]
 
 [sub_resource type="Sky" id="Sky_gqg8v"]
 sky_material = ExtResource("3_g6tuc")
@@ -233,5 +233,4 @@ transform = Transform3D(1.000006, 0, 0, 0, 1.000006, 0, 0, 0, 1.0000032, 0, 0, 0
 trailf = NodePath("..")
 vismode = 2
 
-[node name="Node2D" parent="." instance=ExtResource("8_blco3")]
-z_index = 40
+[node name="ingameui" parent="." instance=ExtResource("8_blco3")]

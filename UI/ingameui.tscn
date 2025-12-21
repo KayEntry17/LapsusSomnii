@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://snwp7uruxqyx"]
+
+[ext_resource type="PackedScene" uid="uid://ciak315m5e1mw" path="res://UI/rankletter.tscn" id="1_ne5tc"]
+[ext_resource type="Script" uid="uid://0tyjxmjtsrka" path="res://UI/float4all.gd" id="1_rrlbq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_31wq3"]
+frequency = 0.019
+
+[sub_resource type="Gradient" id="Gradient_2eh3l"]
+offsets = PackedFloat32Array(0, 0.1130031, 0.94736844, 1)
+colors = PackedColorArray(0.16408668, 0.16408668, 0.16408668, 1, 0.2973863, 0.2973863, 0.2973863, 1, 0.7517216, 0.7517216, 0.7517216, 1, 0.88771313, 0.88771313, 0.88771313, 1)
+
+[node name="ingameui" type="Node2D" node_paths=PackedStringArray("floating")]
+script = ExtResource("1_rrlbq")
+floating = [NodePath("Line2D")]
+noise = SubResource("FastNoiseLite_31wq3")
+grad = SubResource("Gradient_2eh3l")
+power = 1.0
+
+[node name="rankletter" parent="." instance=ExtResource("1_ne5tc")]
+position = Vector2(574, 63)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(1, -1)
+points = PackedVector2Array(492, 2, 488, 122, 522, 193, 605, 236, 640, 233)
+width = 1.0

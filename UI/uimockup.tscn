@@ -99,7 +99,6 @@ color = Color(0, 0, 0, 1)
 environment = SubResource("Environment_qdpoj")
 
 [node name="portrait" parent="." instance=ExtResource("1_mqphw")]
-visible = false
 position = Vector2(57, 303)
 portrait = ExtResource("6_wgo6c")
 
@@ -191,100 +190,227 @@ movespeed = 10
 noise = SubResource("FastNoiseLite_mqphw")
 grad = SubResource("Gradient_mqphw")
 power = 1.0
+textdissp = 0.05
 tblist = {
--1: NodePath("Line2D2"),
-0: NodePath("Line2D0"),
-1: NodePath("Line2D")
+-1: NodePath("pl"),
+0: NodePath("birthbydeath"),
+1: NodePath("standop"),
+2: NodePath("shock1"),
+3: NodePath("shock2")
 }
 
 [node name="bg" type="Node2D" parent="textb"]
 clip_children = 2
 script = ExtResource("11_vgd8q")
 
-[node name="Label3" type="Label" parent="textb/bg"]
-visible = false
+[node name="lmain" type="Label" parent="textb/bg"]
 material = SubResource("ShaderMaterial_mqphw")
-offset_left = 144.0
-offset_top = 258.0
-offset_right = 509.0
-offset_bottom = 345.0
-theme_override_fonts/font = ExtResource("9_1m7rn")
-theme_override_font_sizes/font_size = 12
-text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. 
-Though it was 5 months ago she was envisioned, it is only today she will be given a voice!"
-autowrap_mode = 2
-visible_characters_behavior = 1
-
-[node name="Label5" type="Label" parent="textb/bg"]
-material = SubResource("ShaderMaterial_mqphw")
-offset_left = 21.0
-offset_top = 245.0
-offset_right = 386.0
-offset_bottom = 332.0
+offset_left = 142.0
+offset_top = 260.0
+offset_right = 500.0
+offset_bottom = 347.0
+rotation = 0.01824722
 theme_override_fonts/font = ExtResource("9_1m7rn")
 theme_override_font_sizes/font_size = 12
 text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!
-Persona 5 is a mediocre video game"
+"
 autowrap_mode = 2
+visible_characters = 164
 visible_characters_behavior = 1
+visible_ratio = 0.8
 
-[node name="Label4" type="Label" parent="textb/bg"]
+[node name="llabel" type="Label" parent="textb/bg"]
 material = SubResource("ShaderMaterial_df0jk")
-offset_left = 399.0
-offset_top = 242.0
-offset_right = 516.0
+offset_left = 402.0
+offset_top = 241.99998
+offset_right = 519.0
 offset_bottom = 329.0
+rotation = -0.0284124
 theme_override_fonts/font = ExtResource("9_t1hy6")
 theme_override_font_sizes/font_size = 14
-text = "THE C	omedian>"
+text = "The Comedian?"
 horizontal_alignment = 2
 autowrap_mode = 2
 visible_characters_behavior = 1
 
-[node name="Label6" type="Label" parent="textb/bg"]
-material = SubResource("ShaderMaterial_df0jk")
-offset_left = 12.0
-offset_top = 227.0
-offset_right = 129.0
-offset_bottom = 314.0
-theme_override_fonts/font = ExtResource("9_t1hy6")
-theme_override_font_sizes/font_size = 14
-text = "THE C	omedian>"
-autowrap_mode = 2
-visible_characters_behavior = 1
-
-[node name="Line2D" type="Line2D" parent="textb"]
+[node name="pl" type="Line2D" parent="textb"]
 visible = false
-points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 141, 335, 106, 291, 135, 292, 128, 275)
+points = PackedVector2Array(143, 250, 514, 235, 537, 258, 507, 320, 408, 350, 141, 335, 106, 291, 135, 292, 128, 275)
 closed = true
 width = 2.0
 
+[node name="lmain" type="Label" parent="textb/pl"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 142.0
+offset_top = 260.0
+offset_right = 500.0
+offset_bottom = 347.0
+rotation = 0.01824722
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!
+"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="llabel" type="Label" parent="textb/pl"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 402.0
+offset_top = 241.99998
+offset_right = 519.0
+offset_bottom = 329.0
+rotation = -0.0284124
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 14
+text = "The Comedian?"
+horizontal_alignment = 2
+autowrap_mode = 2
+visible_characters_behavior = 1
+
 [node name="Line2Dtr" type="Line2D" parent="textb"]
-visible = false
 points = PackedVector2Array(154, 255, 514, 235, 537, 258, 507, 320, 408, 350, 139, 330, 106, 291, 135, 292, 128, 275)
 closed = true
 width = 1.0
 antialiased = true
 
-[node name="Line2D4" type="Line2D" parent="textb"]
+[node name="shock1" type="Line2D" parent="textb"]
+visible = false
 position = Vector2(-49, 0)
-points = PackedVector2Array(451, 284, 369, 294, 419, 270, -12, 213, 12, 268, -14, 287, 23, 352, 275.43155, 332.23126, 355, 326)
+points = PackedVector2Array(496, 285, 422, 286, 456, 261, 9, 210, 59, 268, 16, 292, 72, 342, 275.43155, 332.23126, 428, 316)
 closed = true
 width = 2.0
 
-[node name="Line2D5" type="Line2D" parent="textb"]
-position = Vector2(-98, 0)
-points = PackedVector2Array(431, 300, 356, 301, 398, 281, -45, 209, 27, 262, -36, 272, 5, 304, -43, 347, 314, 334)
+[node name="lmain" type="Label" parent="textb/shock1"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 63.0
+offset_top = 262.00003
+offset_right = 421.0
+offset_bottom = 349.00003
+rotation = -0.027895229
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. It just so happenassas that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!
+"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="llabel" type="Label" parent="textb/shock1"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 41.0
+offset_top = 220.0
+offset_right = 158.0
+offset_bottom = 307.0
+rotation = 0.09480496
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 14
+text = "The Comedian?"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="shock2" type="Line2D" parent="textb"]
+visible = false
+position = Vector2(14, 0)
+points = PackedVector2Array(431, 300, 344, 310, 412, 271, -51, 212, 2, 278, -40, 278, -5, 302, -43, 354, 314, 334)
 closed = true
 width = 2.0
 
-[node name="Line2D2" type="Line2D" parent="textb"]
-points = PackedVector2Array(448, 267, 394, 287, 391, 248, 269, 217, 6, 224, -12, 281, 19, 340, 201, 347, 379, 313)
+[node name="lmain" type="Label" parent="textb/shock2"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 0.9999995
+offset_top = 271.99997
+offset_right = 359.0
+offset_bottom = 358.99997
+rotation = -0.021151155
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. It just so happensasdf that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!
+"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="llabel" type="Label" parent="textb/shock2"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 5.0
+offset_top = 221.99998
+offset_right = 122.0
+offset_bottom = 309.0
+rotation = 0.14708392
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 14
+text = "The Comedian?"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="standop" type="Line2D" parent="textb"]
+visible = false
+points = PackedVector2Array(448, 267, 382, 281, 364, 242, 304, 218, 5, 243, -12, 281, 10, 333, 340, 321, 379, 302)
 closed = true
 width = 2.0
 
-[node name="Line2D0" type="Line2D" parent="textb"]
+[node name="lmain" type="Label" parent="textb/standop"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 11.0
+offset_top = 250.0
+offset_right = 369.0
+offset_bottom = 346.97357
+rotation = -0.022359831
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. 
+It just so happens that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice! 
+"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="llabel" type="Label" parent="textb/standop"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 193.00003
+offset_top = 233.00003
+offset_right = 310.00003
+offset_bottom = 320.00003
+rotation = -0.11141759
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 14
+text = "The Comedian?"
+horizontal_alignment = 2
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="birthbydeath" type="Line2D" parent="textb"]
 visible = false
 points = PackedVector2Array(253, 379, 283, 370, 336, 385, 381, 421, 351, 443, 327, 424, 295, 414, 240, 447, 206, 453)
 closed = true
 width = 2.0
+
+[node name="lmain" type="Label" parent="textb/birthbydeath"]
+material = SubResource("ShaderMaterial_mqphw")
+offset_left = 141.58742
+offset_top = 391.32382
+offset_right = 499.5874
+offset_bottom = 478.32382
+rotation = 0.01824722
+theme_override_fonts/font = ExtResource("9_1m7rn")
+theme_override_font_sizes/font_size = 12
+text = "  A young crow floats in the abyss. It just so happens that today, the 16th of December, its project will get UI. Though it was 5 months ago she was envisioned, it is only today she will be given a voice!
+"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="llabel" type="Label" parent="textb/birthbydeath"]
+material = SubResource("ShaderMaterial_df0jk")
+offset_left = 401.58743
+offset_top = 373.3238
+offset_right = 518.5874
+offset_bottom = 460.3238
+rotation = -0.0284124
+theme_override_fonts/font = ExtResource("9_t1hy6")
+theme_override_font_sizes/font_size = 14
+text = "The Comedian?"
+horizontal_alignment = 2
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="Timer" type="Timer" parent="textb"]
+one_shot = true
+
+[connection signal="timeout" from="textb/Timer" to="textb" method="_on_timer_timeout"]

@@ -6,6 +6,8 @@ var listradon:Array[Array]
 @export var speed=5
 @export var portrait: Texture2D
 var listradonshader:Array[float]
+func upd8portrait():
+	$Node2D/Crowptproto.texture=portrait
 func _ready() -> void:
 	$Node2D/Crowptproto.texture=portrait
 	for i in listradbase:
@@ -17,7 +19,7 @@ func _ready() -> void:
 		listradonshader.append(i.material.get_shader_parameter("radius"))
 		if !on:
 			i.material.set_shader_parameter("radius",0.0)
-	print(listradon)
+	#print(listradon)
 func _process(delta: float) -> void:
 	if on:
 		for i in range(listradbase.size()):

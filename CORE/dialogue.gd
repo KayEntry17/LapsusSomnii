@@ -5,4 +5,5 @@ extends Node
 @export var dicimg:Dictionary[String,Texture2D]
 @export var imgnames:Dictionary[String,String]
 @export var coolt:Dictionary[String,String]
+@export var nextline:Dictionary[String,String]
 var cooltopen:Array
