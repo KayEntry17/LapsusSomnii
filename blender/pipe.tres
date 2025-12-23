@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://s8vmm17fi63k"]
+
+[ext_resource type="Texture2D" uid="uid://cnpw8oaegxmlm" path="res://blender/egg_pipe12.png" id="1_jqf7e"]
+
+[resource]
+resource_name = "pipe"
+cull_mode = 2
+albedo_texture = ExtResource("1_jqf7e")
+roughness = 0.5
+texture_filter = 2

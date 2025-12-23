@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhfu6dlvpb160"]
+
+[ext_resource type="Texture2D" uid="uid://bale4ysr7ue43" path="res://blender/egg_panel1.png" id="1_krmis"]
+
+[resource]
+resource_name = "Material.003"
+cull_mode = 2
+albedo_texture = ExtResource("1_krmis")
+roughness = 0.5
+texture_filter = 2

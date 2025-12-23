@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://biiyvlp4kakyi"]
+
+[ext_resource type="Texture2D" uid="uid://c5rhbj0sdm7wd" path="res://blender/egg_panel2.png" id="1_rdw5e"]
+
+[resource]
+resource_name = "grates"
+cull_mode = 2
+albedo_texture = ExtResource("1_rdw5e")
+roughness = 0.5
+texture_filter = 2

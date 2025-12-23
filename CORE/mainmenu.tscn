@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://rn0fk0hd8gjy"]
+
+[ext_resource type="PackedScene" uid="uid://c0owy46v8pgsg" path="res://blender/egg.tscn" id="1_36toy"]
+[ext_resource type="Shader" uid="uid://vw3ra8tboiye" path="res://reflb.gdshader" id="2_acgvu"]
+[ext_resource type="Script" uid="uid://bdlp1bqp24kvr" path="res://CORE/reflection oldstyle.gd" id="2_rip1j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6eg5k"]
+
+[sub_resource type="Sky" id="Sky_acgvu"]
+sky_material = SubResource("ProceduralSkyMaterial_6eg5k")
+
+[sub_resource type="Environment" id="Environment_rip1j"]
+background_mode = 2
+sky = SubResource("Sky_acgvu")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 5.35
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.11
+ssao_intensity = 16.4
+ssao_power = 1.8467196
+ssao_detail = 5.0
+ssao_horizon = 0.0
+ssao_sharpness = 1.0
+ssao_light_affect = 0.8
+ssao_ao_channel_affect = 1.0
+ssil_enabled = true
+ssil_intensity = 2.98
+sdfgi_enabled = true
+glow_normalized = true
+glow_intensity = 2.47
+glow_strength = 1.73
+glow_bloom = 0.12
+glow_hdr_scale = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6eg5k"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_36toy"]
+material = SubResource("ShaderMaterial_6eg5k")
+size = Vector2(100, 100)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6eg5k"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ki7a3"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_acgvu")
+shader_parameter/screen_texturedither2 = SubResource("ViewportTexture_6eg5k")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6eg5k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rip1j")
+
+[node name="egg" parent="." instance=ExtResource("1_36toy")]
+transform = Transform3D(0.7228224, 0, 0.69103384, 0, 1, 0, -0.69103384, 0, 0.7228224, -0.434, 1.102, -0.44)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8028175, 0, 0.5962249, 0, 1, 0, -0.5962249, 0, 0.8028175, 0.2, 0.98, 4.311236)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.25222835, -0.93960774, 0.23133974, 0.5352875, 0.06368072, 0.8422661, -0.8061316, 0.33627665, 0.48689818, 0.9868226, 3, 1.8243986)
+light_energy = 4.439
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5341412, -0.078623116, -1.0117109)
+layers = 16384
+mesh = SubResource("PlaneMesh_36toy")
+surface_material_override/0 = SubResource("ShaderMaterial_ki7a3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999999, 3, 0)
+mesh = SubResource("SphereMesh_6eg5k")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+canvas_cull_mask = 4294950911
+size = Vector2i(2560, 1440)
+
+[node name="Camera3D2" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("refheight", "ogcam")]
+transform = Transform3D(-0.80281746, 7.0184534e-08, 0.59622484, -8.742278e-08, -1, 0, 0.59622484, -5.212363e-08, 0.80281746, 0.2, -0.98, 4.311)
+top_level = true
+cull_mask = 1032191
+script = ExtResource("2_rip1j")
+refheight = NodePath("../../MeshInstance3D")
+ogcam = NodePath("../../Camera3D")

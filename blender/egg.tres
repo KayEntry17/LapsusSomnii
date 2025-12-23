@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqfwkmt5wj1x3"]
+
+[ext_resource type="Texture2D" uid="uid://cnxpawrdbsvap" path="res://blender/egg_egg.png" id="1_vof4n"]
+
+[resource]
+resource_name = "egg"
+cull_mode = 2
+albedo_texture = ExtResource("1_vof4n")
+roughness = 0.5
+texture_filter = 2

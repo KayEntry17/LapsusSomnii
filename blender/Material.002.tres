@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqxeop4q4eun"]
+
+[ext_resource type="Texture2D" uid="uid://d7s5t3tj6lgq" path="res://blender/egg_audioisolation.png" id="1_0lwa5"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_0lwa5")
+roughness = 0.34343433
+texture_filter = 2
