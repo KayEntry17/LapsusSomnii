@@ -1,0 +1,108 @@
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://b8058xrpu11ah"]
+
+[ext_resource type="Texture2D" uid="uid://dx1rhw3kh4wju" path="res://testing/bayer16tile2.png" id="1_rmx8d"]
+
+[sub_resource type="Shader" id="Shader_l83ya"]
+code = "shader_type spatial;
+render_mode unshaded;
+uniform sampler2D grad:repeat_enable;
+uniform sampler2D grad2:repeat_enable;
+uniform sampler2D grad3:repeat_enable;
+uniform sampler2D grad4:repeat_enable;
+uniform vec2 scales;
+uniform sampler2D screen_texturedither: filter_nearest,repeat_enable;
+uniform int scale;
+uniform vec2 res;
+uniform float speedw;
+uniform float mixv;
+
+uniform float brightness=0.;
+uniform vec4 col1:source_color;
+uniform vec4 col2:source_color;
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec2 texs=vec2(textureSize(screen_texturedither,0));
+	vec2 texs2=vec2(textureSize(grad,0));
+
+	vec2 coruv=floor(UV*texs2)/texs2;
+	//vec2 newuv=coruv+vec2(TIME*speedw);
+	vec4 col=texture(grad3,vec2(mix(texture(grad,coruv+vec2(TIME*speedw)),texture(grad2,coruv-vec2(TIME*speedw)),0.5).r,0.));
+	vec4 col4=texture(grad3,vec2(mix(texture(grad,UV*scales+vec2(TIME*speedw)),texture(grad2,UV*scales-vec2(TIME*speedw)),0.5).r,0.));
+	//+UV+vec2(TIME*speedw/10.)
+
+	vec4 colog=texture(screen_texturedither,UV*(texs2/texs));
+	vec3 ogc=vec3(col.r+col.g+col.b)/3.;
+	//vec4 ditcol;
+	//if (colog.r-(brightness/100.)<=ogc.r){
+		//ditcol=col2;}
+	//else{
+//
+		//ditcol=col1;}
+	//if (ogc.r<=0.){
+		//ditcol=col1;
+	//}
+	//if (ogc.r>=0.99){
+		//ditcol=col2;
+	//}
+	//COLOR=mix(ditcol,col,mixv);
+	ALBEDO=texture(grad4,col4.rg).xyz;
+	//ALBEDO==ditcol.rgb;
+	//vec3 normc=(texture(grad,UV+TIME*0.1*speedw).xyz);
+
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sfxh2"]
+frequency = 0.0022
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_40uki"]
+noise = SubResource("FastNoiseLite_sfxh2")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h6ko3"]
+frequency = 0.0049
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6512u"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_h6ko3")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hcthb"]
+frequency = 0.0223
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3h0ng"]
+noise = SubResource("FastNoiseLite_hcthb")
+seamless = true
+
+[sub_resource type="Gradient" id="Gradient_rmx8d"]
+offsets = PackedFloat32Array(0.3583062, 0.6986971, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.92173916, 0.92173916, 0.92173916, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfxh2"]
+gradient = SubResource("Gradient_rmx8d")
+
+[resource]
+resource_name = "SCREEN"
+render_priority = 0
+shader = SubResource("Shader_l83ya")
+shader_parameter/grad = SubResource("NoiseTexture2D_40uki")
+shader_parameter/grad2 = SubResource("NoiseTexture2D_6512u")
+shader_parameter/grad3 = SubResource("NoiseTexture2D_3h0ng")
+shader_parameter/grad4 = SubResource("GradientTexture1D_sfxh2")
+shader_parameter/scales = Vector2(1.375, 1)
+shader_parameter/screen_texturedither = ExtResource("1_rmx8d")
+shader_parameter/scale = 0
+shader_parameter/res = Vector2(0, 0)
+shader_parameter/speedw = 0.1
+shader_parameter/mixv = 0.0
+shader_parameter/brightness = 0.0
+shader_parameter/col1 = Color(0, 0, 0, 1)
+shader_parameter/col2 = Color(1, 1, 1, 1)

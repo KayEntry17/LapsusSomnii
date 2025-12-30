@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://rn0fk0hd8gjy"]
+[gd_scene load_steps=17 format=3 uid="uid://rn0fk0hd8gjy"]
 
 [ext_resource type="PackedScene" uid="uid://c0owy46v8pgsg" path="res://blender/egg.tscn" id="1_36toy"]
 [ext_resource type="Shader" uid="uid://vw3ra8tboiye" path="res://reflb.gdshader" id="2_acgvu"]
 [ext_resource type="Script" uid="uid://bdlp1bqp24kvr" path="res://CORE/reflection oldstyle.gd" id="2_rip1j"]
+[ext_resource type="Script" uid="uid://c8tpdbu8an7qq" path="res://CORE/sub_viewport.gd" id="3_acgvu"]
+[ext_resource type="Script" uid="uid://brsug76yttbj0" path="res://addons/PlanarReflectorCpp/SupportFiles/Compositor/ReflectEffectGD.gd" id="5_02aib"]
+[ext_resource type="Material" uid="uid://x4ihf67reqen" path="res://addons/PlanarReflectorCpp/SupportFiles/Shaders/BaseReflectionShaderMaterial.tres" id="6_waa23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6eg5k"]
 
@@ -10,7 +13,6 @@
 sky_material = SubResource("ProceduralSkyMaterial_6eg5k")
 
 [sub_resource type="Environment" id="Environment_rip1j"]
-background_mode = 2
 sky = SubResource("Sky_acgvu")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
@@ -51,7 +53,24 @@ render_priority = 0
 shader = ExtResource("2_acgvu")
 shader_parameter/screen_texturedither2 = SubResource("ViewportTexture_6eg5k")
 
-[sub_resource type="SphereMesh" id="SphereMesh_6eg5k"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_waa23"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 1
+access_resolved_color = false
+access_resolved_depth = false
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_02aib")
+fill_enabled = false
+metadata/_custom_type_script = "uid://brsug76yttbj0"
+
+[sub_resource type="Compositor" id="Compositor_ueifk"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_waa23")])
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ki7a3"]
+size = Vector2(10, 10)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -66,10 +85,10 @@ size_flags_vertical = 8
 environment = SubResource("Environment_rip1j")
 
 [node name="egg" parent="." instance=ExtResource("1_36toy")]
-transform = Transform3D(0.7228224, 0, 0.69103384, 0, 1, 0, -0.69103384, 0, 0.7228224, -0.434, 1.102, -0.44)
+transform = Transform3D(0.7228224, 0, 0.69103384, 0, 1, 0, -0.69103384, 0, 0.7228224, -0.434, 1.105, -0.44)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.8028175, 0, 0.5962249, 0, 1, 0, -0.5962249, 0, 0.8028175, 0.2, 0.98, 4.311236)
+transform = Transform3D(0.9494255, -0.112524845, 0.29313722, 0, 0.93358046, 0.35836798, -0.31399247, -0.3402437, 0.88636506, 0.78, 1.3587546, 2.1288552)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.25222835, -0.93960774, 0.23133974, 0.5352875, 0.06368072, 0.8422661, -0.8061316, 0.33627665, 0.48689818, 0.9868226, 3, 1.8243986)
@@ -79,22 +98,39 @@ shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5341412, -0.078623116, -1.0117109)
+visible = false
 layers = 16384
 mesh = SubResource("PlaneMesh_36toy")
 surface_material_override/0 = SubResource("ShaderMaterial_ki7a3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999999, 3, 0)
-mesh = SubResource("SphereMesh_6eg5k")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5341412, -0.078623116, -1.0117109)
+visible = false
+layers = 16384
+mesh = SubResource("PlaneMesh_36toy")
+surface_material_override/0 = SubResource("ShaderMaterial_ki7a3")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 canvas_cull_mask = 4294950911
 size = Vector2i(2560, 1440)
+script = ExtResource("3_acgvu")
 
 [node name="Camera3D2" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("refheight", "ogcam")]
-transform = Transform3D(-0.80281746, 7.0184534e-08, 0.59622484, -8.742278e-08, -1, 0, 0.59622484, -5.212363e-08, 0.80281746, 0.2, -0.98, 4.311)
+transform = Transform3D(0.80281746, 0, 0.59622484, 0, 1, 0, -0.59622484, 0, 0.80281746, 0.2, -0.98, 4.311)
 top_level = true
 cull_mask = 1032191
 script = ExtResource("2_rip1j")
 refheight = NodePath("../../MeshInstance3D")
 ogcam = NodePath("../../Camera3D")
+
+[node name="PlanarReflectorCPP" type="PlanarReflectorCPP" parent="." node_paths=PackedStringArray("main_camera")]
+main_camera = NodePath("../Camera3D")
+reflection_camera_resolution = Vector2i(2560, 1440)
+active_compositor = SubResource("Compositor_ueifk")
+reflection_offset_position = Vector3(0, -0.1, 0)
+use_lod = false
+lod_distance_near = 44.7
+lod_distance_far = 168.0
+lod_resolution_multiplier = 1.0
+mesh = SubResource("PlaneMesh_ki7a3")
+surface_material_override/0 = ExtResource("6_waa23")

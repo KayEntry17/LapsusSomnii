@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1yfltuxgwv6g"]
+
+[ext_resource type="PackedScene" uid="uid://dp5fv3heyp1dk" path="res://blender/1tv.glb" id="1_ujqoq"]
+
+[node name="1tv" instance=ExtResource("1_ujqoq")]
+
+[node name="TVNS_036" parent="." index="1"]
+visible = false

@@ -6,7 +6,7 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO=texture(screen_texturedither2,SCREEN_UV).xyz;
+	ALBEDO=texture(screen_texturedither2,vec2(SCREEN_UV.x,-SCREEN_UV.y)).xyz;
 }
 
 //void light() {

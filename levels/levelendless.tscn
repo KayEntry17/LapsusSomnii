@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b88vn7ip6aaoh"]
+
+[ext_resource type="PackedScene" uid="uid://c1yfltuxgwv6g" path="res://blender/1_tv.tscn" id="1_3hgap"]
+
+[sub_resource type="Environment" id="Environment_3hgap"]
+background_mode = 1
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_66uay"]
+exposure_multiplier = 1.119
+
+[node name="level" type="Node3D"]
+
+[node name="1tv" parent="." instance=ExtResource("1_3hgap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.233227, -21.474602, 59.02128)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3hgap")
+camera_attributes = SubResource("CameraAttributesPractical_66uay")
