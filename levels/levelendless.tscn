@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b88vn7ip6aaoh"]
+[gd_scene load_steps=6 format=3 uid="uid://b88vn7ip6aaoh"]
 
+[ext_resource type="Script" uid="uid://iuk0p8lrweb6" path="res://levels/levelendless.gd" id="1_1ckqj"]
 [ext_resource type="PackedScene" uid="uid://c1yfltuxgwv6g" path="res://blender/1_tv.tscn" id="1_3hgap"]
+[ext_resource type="PackedScene" uid="uid://cj5mdeeg2a7jf" path="res://levels/backgroundchunks/tvchunk.tscn" id="2_g60oa"]
 
 [sub_resource type="Environment" id="Environment_3hgap"]
 background_mode = 1
@@ -10,6 +12,8 @@ adjustment_enabled = true
 exposure_multiplier = 1.119
 
 [node name="level" type="Node3D"]
+script = ExtResource("1_1ckqj")
+chunkbase = Array[PackedScene]([ExtResource("2_g60oa")])
 
 [node name="1tv" parent="." instance=ExtResource("1_3hgap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.233227, -21.474602, 59.02128)

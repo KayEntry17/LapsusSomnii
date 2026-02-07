@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b8csy8o7kguro"]
+[gd_scene load_steps=30 format=3 uid="uid://b8csy8o7kguro"]
 
 [ext_resource type="Script" uid="uid://bui822g4kshyq" path="res://circle.gd" id="1_87s1n"]
 [ext_resource type="PackedScene" uid="uid://831pm6b32fg" path="res://UI/portrait.tscn" id="1_mqphw"]
@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://byqhg38o7g0td" path="res://UI/labelcirc.tscn" id="4_wgo6c"]
 [ext_resource type="Script" uid="uid://cni85jmfcu2xe" path="res://UI/arcsp.gd" id="6_b5cvq"]
 [ext_resource type="Texture2D" uid="uid://c7jkrvdfu041w" path="res://UI/crowptproto-export-export.png" id="6_wgo6c"]
-[ext_resource type="Shader" uid="uid://30nd0yhnfmso" path="res://UI/regulart.gdshader" id="8_1m7rn"]
 [ext_resource type="FontFile" uid="uid://blxw164ph12dp" path="res://UI/ffonts/Eirian-Regular.ttf" id="9_1m7rn"]
 [ext_resource type="Script" uid="uid://synr8b4eilyq" path="res://UI/textb.gd" id="9_akxeg"]
 [ext_resource type="FontFile" uid="uid://m6d3eply52yv" path="res://UI/ffonts/VirtualVectorVortex.ttf" id="9_t1hy6"]
 [ext_resource type="Shader" uid="uid://b4b0hm3daomde" path="res://UI/uishaketitle.gdshader" id="10_t1hy6"]
 [ext_resource type="Script" uid="uid://1wwho3epypmy" path="res://UI/bgp.gd" id="11_vgd8q"]
+[ext_resource type="Material" uid="uid://bkud1kfvwb75v" path="res://UI/uimockup.tres" id="12_vgd8q"]
 
 [sub_resource type="Environment" id="Environment_qdpoj"]
 background_mode = 1
@@ -60,19 +60,6 @@ frequency = 0.0145
 
 [sub_resource type="Gradient" id="Gradient_mqphw"]
 colors = PackedColorArray(0.24528302, 0.24528302, 0.24528302, 1, 0.8409873, 0.8409873, 0.8409873, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t1hy6"]
-frequency = 0.0068
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_df0jk"]
-noise = SubResource("FastNoiseLite_t1hy6")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mqphw"]
-shader = ExtResource("8_1m7rn")
-shader_parameter/speed = 1.31
-shader_parameter/power = 0.72
-shader_parameter/nt = SubResource("NoiseTexture2D_df0jk")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_df0jk"]
 
@@ -204,7 +191,7 @@ clip_children = 2
 script = ExtResource("11_vgd8q")
 
 [node name="lmain" type="Label" parent="textb/bg"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 142.0
 offset_top = 260.0
 offset_right = 500.0
@@ -240,7 +227,7 @@ closed = true
 width = 2.0
 
 [node name="lmain" type="Label" parent="textb/pl"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 142.0
 offset_top = 260.0
 offset_right = 500.0
@@ -281,7 +268,7 @@ closed = true
 width = 2.0
 
 [node name="lmain" type="Label" parent="textb/shock1"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 63.0
 offset_top = 262.00003
 offset_right = 421.0
@@ -315,7 +302,7 @@ closed = true
 width = 2.0
 
 [node name="lmain" type="Label" parent="textb/shock2"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 0.9999995
 offset_top = 271.99997
 offset_right = 359.0
@@ -348,7 +335,7 @@ closed = true
 width = 2.0
 
 [node name="lmain" type="Label" parent="textb/standop"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 11.0
 offset_top = 250.0
 offset_right = 369.0
@@ -383,7 +370,7 @@ closed = true
 width = 2.0
 
 [node name="lmain" type="Label" parent="textb/birthbydeath"]
-material = SubResource("ShaderMaterial_mqphw")
+material = ExtResource("12_vgd8q")
 offset_left = 141.58742
 offset_top = 391.32382
 offset_right = 499.5874

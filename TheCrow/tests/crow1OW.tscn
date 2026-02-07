@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ck6gjome6mr4l"]
+[gd_scene load_steps=23 format=4 uid="uid://ck6gjome6mr4l"]
 
 [ext_resource type="Script" uid="uid://oc01surlpwl6" path="res://TheCrow/tests/crow_1ow.gd" id="1_eiqnp"]
 [ext_resource type="Script" uid="uid://b31jixb3dj838" path="res://TheCrow/tests/lookat.gd" id="2_h4gvt"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cjvibx01it8n6" path="res://testing/copier.gd" id="6_habae"]
 [ext_resource type="PackedScene" uid="uid://juely5at7xmi" path="res://TheCrow/materials+models/cr_4r.tscn" id="7_lrxvu"]
 [ext_resource type="AudioStream" uid="uid://sqkmsaai685p" path="res://sfx/wing-flap-2.mp3" id="7_rcl4y"]
+[ext_resource type="Script" uid="uid://c8tpdbu8an7qq" path="res://CORE/sub_viewport.gd" id="8_rcl4y"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_habae"]
 size = Vector2(6.215, 4.055)
@@ -199,6 +200,7 @@ expand_mode = 1
 transparent_bg = true
 size = Vector2i(2560, 1440)
 render_target_update_mode = 0
+script = ExtResource("8_rcl4y")
 
 [node name="Camera3D3" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("camcopy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.118, 9.878)

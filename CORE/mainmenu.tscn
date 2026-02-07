@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://rn0fk0hd8gjy"]
+[gd_scene load_steps=19 format=3 uid="uid://rn0fk0hd8gjy"]
 
 [ext_resource type="PackedScene" uid="uid://c0owy46v8pgsg" path="res://blender/egg.tscn" id="1_36toy"]
 [ext_resource type="Shader" uid="uid://vw3ra8tboiye" path="res://reflb.gdshader" id="2_acgvu"]
-[ext_resource type="Script" uid="uid://bdlp1bqp24kvr" path="res://CORE/reflection oldstyle.gd" id="2_rip1j"]
 [ext_resource type="Script" uid="uid://c8tpdbu8an7qq" path="res://CORE/sub_viewport.gd" id="3_acgvu"]
-[ext_resource type="Script" uid="uid://brsug76yttbj0" path="res://addons/PlanarReflectorCpp/SupportFiles/Compositor/ReflectEffectGD.gd" id="5_02aib"]
-[ext_resource type="Material" uid="uid://x4ihf67reqen" path="res://addons/PlanarReflectorCpp/SupportFiles/Shaders/BaseReflectionShaderMaterial.tres" id="6_waa23"]
+[ext_resource type="Material" uid="uid://davbb14q100sa" path="res://CORE/fogwall.tres" id="4_ueifk"]
+[ext_resource type="Shader" uid="uid://cvnj8b2kwsrhl" path="res://CORE/mm.gdshader" id="5_ki7a3"]
+[ext_resource type="Material" uid="uid://do6c3h3n5fb0q" path="res://UI/textured.tres" id="5_waa23"]
+[ext_resource type="FontFile" uid="uid://ukow685ce4ka" path="res://UI/ffonts/Circo.ttf" id="6_waa23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6eg5k"]
 
@@ -16,8 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_6eg5k")
 sky = SubResource("Sky_acgvu")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 5.35
-ssr_enabled = true
+ambient_light_energy = 0.45
 ssao_enabled = true
 ssao_radius = 0.11
 ssao_intensity = 16.4
@@ -53,24 +53,21 @@ render_priority = 0
 shader = ExtResource("2_acgvu")
 shader_parameter/screen_texturedither2 = SubResource("ViewportTexture_6eg5k")
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_waa23"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 1
-access_resolved_color = false
-access_resolved_depth = false
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("5_02aib")
-fill_enabled = false
-metadata/_custom_type_script = "uid://brsug76yttbj0"
+[sub_resource type="PlaneMesh" id="PlaneMesh_3x5uc"]
+material = ExtResource("4_ueifk")
+size = Vector2(2.89, 3.345)
 
-[sub_resource type="Compositor" id="Compositor_ueifk"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_waa23")])
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaqi1"]
+shader = ExtResource("5_ki7a3")
+shader_parameter/threshold = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ki7a3"]
-size = Vector2(10, 10)
+[sub_resource type="ViewportTexture" id="ViewportTexture_acgvu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueifk"]
+line_spacing = -28.975
+font_size = 26
+font_color = Color(0.58431375, 0.023529412, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -85,14 +82,20 @@ size_flags_vertical = 8
 environment = SubResource("Environment_rip1j")
 
 [node name="egg" parent="." instance=ExtResource("1_36toy")]
-transform = Transform3D(0.7228224, 0, 0.69103384, 0, 1, 0, -0.69103384, 0, 0.7228224, -0.434, 1.105, -0.44)
+transform = Transform3D(0.9668234, 0, -0.25544578, 0, 1, 0, 0.25544578, 0, 0.9668234, -0.284, 1.105, -1.175)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.9494255, -0.112524845, 0.29313722, 0, 0.93358046, 0.35836798, -0.31399247, -0.3402437, 0.88636506, 0.78, 1.3587546, 2.1288552)
+[node name="egg2" parent="egg" instance=ExtResource("1_36toy")]
+transform = Transform3D(-1, 8.740447e-08, -0.00020939112, -8.742278e-08, -1, 8.7422784e-08, -0.00020939112, 8.7441094e-08, 1, 0, -2.3531203, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.25222835, -0.93960774, 0.23133974, 0.5352875, 0.06368072, 0.8422661, -0.8061316, 0.33627665, 0.48689818, 0.9868226, 3, 1.8243986)
+transform = Transform3D(-0.25222835, -0.9396078, 0.23133975, 0.5352875, 0.063680746, 0.842266, -0.8061316, 0.33627665, 0.4868982, 1.012, 2.916, 1.474)
 light_energy = 4.439
+light_specular = 0.0
+shadow_enabled = true
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SpotLight3D"]
+transform = Transform3D(-0.39933574, -0.16638476, -0.90158045, -0.16654351, 0.9801976, -0.10712652, 0.9015511, 0.10737291, -0.41913822, -1.915, 0.4, -5.35)
+light_energy = 2.694
 light_specular = 0.0
 shadow_enabled = true
 
@@ -111,26 +114,99 @@ mesh = SubResource("PlaneMesh_36toy")
 surface_material_override/0 = SubResource("ShaderMaterial_ki7a3")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 canvas_cull_mask = 4294950911
 size = Vector2i(2560, 1440)
 script = ExtResource("3_acgvu")
 
-[node name="Camera3D2" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("refheight", "ogcam")]
-transform = Transform3D(0.80281746, 0, 0.59622484, 0, 1, 0, -0.59622484, 0, 0.80281746, 0.2, -0.98, 4.311)
-top_level = true
-cull_mask = 1032191
-script = ExtResource("2_rip1j")
-refheight = NodePath("../../MeshInstance3D")
-ogcam = NodePath("../../Camera3D")
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.9494255, -0.112524845, 0.29313722, 0, 0.93358046, 0.35836798, -0.31399247, -0.3402437, 0.88636506, -0.924, 1.444, 2.257)
+fov = 62.5
 
-[node name="PlanarReflectorCPP" type="PlanarReflectorCPP" parent="." node_paths=PackedStringArray("main_camera")]
-main_camera = NodePath("../Camera3D")
-reflection_camera_resolution = Vector2i(2560, 1440)
-active_compositor = SubResource("Compositor_ueifk")
-reflection_offset_position = Vector3(0, -0.1, 0)
-use_lod = false
-lod_distance_near = 44.7
-lod_distance_far = 168.0
-lod_resolution_multiplier = 1.0
-mesh = SubResource("PlaneMesh_ki7a3")
-surface_material_override/0 = ExtResource("6_waa23")
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381, -0.068, -0.92)
+mesh = SubResource("PlaneMesh_3x5uc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qaqi1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_acgvu")
+expand_mode = 1
+
+[node name="TextureRect2" type="ColorRect" parent="."]
+material = ExtResource("5_waa23")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.7372549, 0.7137255, 0.6392157, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = -11
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Control" type="Control" parent="TextureRect2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect2/MarginContainer/Control"]
+material = ExtResource("5_waa23")
+layout_mode = 0
+offset_left = -15.0
+offset_right = 27.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("6_waa23")
+theme_override_font_sizes/font_size = 41
+text = "Th e a t  r um"
+label_settings = SubResource("LabelSettings_ueifk")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="TextureRect2/MarginContainer/Control"]
+material = ExtResource("5_waa23")
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("6_waa23")
+theme_override_font_sizes/font_size = 41
+text = "Co r v  i"
+label_settings = SubResource("LabelSettings_ueifk")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label3" type="Label" parent="TextureRect2/MarginContainer/Control"]
+material = ExtResource("5_waa23")
+layout_mode = 0
+offset_left = 58.0
+offset_top = 1.0
+offset_right = 100.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("6_waa23")
+theme_override_font_sizes/font_size = 41
+text = "S omn  i a"
+label_settings = SubResource("LabelSettings_ueifk")
+horizontal_alignment = 1
+autowrap_mode = 1

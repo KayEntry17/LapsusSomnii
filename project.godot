@@ -25,7 +25,6 @@ Dialogue="*res://audio/dialogue.tscn"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -98,7 +97,5 @@ brakel={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=1

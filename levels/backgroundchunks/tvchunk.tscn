@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c1yfltuxgwv6g" path="res://blender/1_tv.tscn" id="2_p16ov"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p16ov"]
-size = Vector3(282.833, 300, 279.6527)
+size = Vector3(282.833, 148.83813, 279.6527)
 
 [node name="Node3D" type="Area3D"]
 script = ExtResource("1_126bk")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.815674, 19.648071, -0.26837158)
+shape = SubResource("BoxShape3D_p16ov")
+
 [node name="1tv" parent="." instance=ExtResource("2_p16ov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1794662, 4.098522, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.815674, 0, -0.26837158)
-shape = SubResource("BoxShape3D_p16ov")

@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://d02m3xc1cvhf8" path="res://blender/egg.glb" id="1_340xm"]
 
 [node name="egg" instance=ExtResource("1_340xm")]
+
+[node name="BézierCurve_007" parent="." index="2"]
+transform = Transform3D(5.364418e-07, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.364418e-07, 0, -0.09475583, -0.11741817)

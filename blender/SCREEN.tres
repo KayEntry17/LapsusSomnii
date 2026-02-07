@@ -15,7 +15,7 @@ uniform int scale;
 uniform vec2 res;
 uniform float speedw;
 uniform float mixv;
-
+uniform vec2 resmod;
 uniform float brightness=0.;
 uniform vec4 col1:source_color;
 uniform vec4 col2:source_color;
@@ -25,15 +25,15 @@ void vertex() {
 
 void fragment() {
 	vec2 texs=vec2(textureSize(screen_texturedither,0));
-	vec2 texs2=vec2(textureSize(grad,0));
+	vec2 texs2=resmod;
 
 	vec2 coruv=floor(UV*texs2)/texs2;
 	//vec2 newuv=coruv+vec2(TIME*speedw);
 	vec4 col=texture(grad3,vec2(mix(texture(grad,coruv+vec2(TIME*speedw)),texture(grad2,coruv-vec2(TIME*speedw)),0.5).r,0.));
-	vec4 col4=texture(grad3,vec2(mix(texture(grad,UV*scales+vec2(TIME*speedw)),texture(grad2,UV*scales-vec2(TIME*speedw)),0.5).r,0.));
+	vec4 col4=texture(grad3,vec2(mix(texture(grad,coruv*scales+vec2(TIME*speedw)),texture(grad2,coruv*scales-vec2(TIME*speedw)),0.5).r,0.));
 	//+UV+vec2(TIME*speedw/10.)
 
-	vec4 colog=texture(screen_texturedither,UV*(texs2/texs));
+	vec4 colog=texture(screen_texturedither,coruv*(texs2/texs));
 	vec3 ogc=vec3(col.r+col.g+col.b)/3.;
 	//vec4 ditcol;
 	//if (colog.r-(brightness/100.)<=ogc.r){
@@ -100,9 +100,10 @@ shader_parameter/grad4 = SubResource("GradientTexture1D_sfxh2")
 shader_parameter/scales = Vector2(1.375, 1)
 shader_parameter/screen_texturedither = ExtResource("1_rmx8d")
 shader_parameter/scale = 0
-shader_parameter/res = Vector2(0, 0)
+shader_parameter/res = Vector2(0, 39.945)
 shader_parameter/speedw = 0.1
 shader_parameter/mixv = 0.0
+shader_parameter/resmod = Vector2(40, 30)
 shader_parameter/brightness = 0.0
 shader_parameter/col1 = Color(0, 0, 0, 1)
 shader_parameter/col2 = Color(1, 1, 1, 1)

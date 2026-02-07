@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://do6c3h3n5fb0q"]
+
+[ext_resource type="Shader" uid="uid://cx5qdrnrg67qf" path="res://CORE/mainmenu.gdshader" id="1_voijo"]
+[ext_resource type="Texture2D" uid="uid://e7hc6y46apb6" path="res://UI/kiwihug-cqhXfrRHCPo-unsplash.jpg" id="2_0riel"]
+
+[resource]
+shader = ExtResource("1_voijo")
+shader_parameter/papert = ExtResource("2_0riel")
+shader_parameter/scale = 3.0
