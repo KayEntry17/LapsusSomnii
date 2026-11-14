@@ -234,3 +234,4 @@ trailf = NodePath("..")
 vismode = 2
 
 [node name="ingameui" parent="." instance=ExtResource("8_blco3")]
+visible = false

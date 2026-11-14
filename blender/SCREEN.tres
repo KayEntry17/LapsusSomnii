@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://b8058xrpu11ah"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b8058xrpu11ah"]
 
 [ext_resource type="Texture2D" uid="uid://dx1rhw3kh4wju" path="res://testing/bayer16tile2.png" id="1_rmx8d"]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0ck21a5mkmhp"]
+[gd_scene format=3 uid="uid://c0ck21a5mkmhp"]
 
 [ext_resource type="PackedScene" uid="uid://cyixqipwn6y18" path="res://testing/neatblock.tscn" id="1_e2sit"]
 [ext_resource type="Shader" uid="uid://bipn5lro2iecj" path="res://testing/globalsp.gdshader" id="1_upup2"]
+[ext_resource type="Shader" uid="uid://cybjmabn6de1b" path="res://testing/dither 3d.gdshader" id="2_rofhy"]
 [ext_resource type="Shader" uid="uid://dhn8oi7itk27m" path="res://testing/dither.gdshader" id="2_t6ll6"]
 [ext_resource type="Shader" uid="uid://d2wkfv0dafvbk" path="res://testing/edged.gdshader" id="2_y4y50"]
 [ext_resource type="Script" uid="uid://cjvibx01it8n6" path="res://testing/copier.gd" id="3_1g8fq"]
@@ -14,10 +15,39 @@
 [ext_resource type="Material" uid="uid://cvlitihns0lve" path="res://testing/3ddither.tres" id="10_jqt6t"]
 [ext_resource type="PackedScene" uid="uid://c5bqydqcyxuri" path="res://testing/test.tscn" id="12_udk60"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_31i2h"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8trct"]
+frequency = 0.905
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqey7"]
+width = 640
+height = 360
+noise = SubResource("FastNoiseLite_8trct")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_neav6"]
+frequency = 0.5629
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8trct"]
+resource_local_to_scene = true
+width = 640
+height = 360
+noise = SubResource("FastNoiseLite_neav6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_neav6"]
 resource_local_to_scene = true
 render_priority = 0
-next_pass = ExtResource("10_jqt6t")
+shader = ExtResource("2_rofhy")
+shader_parameter/screen_texturedither = SubResource("NoiseTexture2D_nqey7")
+shader_parameter/screen_texturedither2 = SubResource("NoiseTexture2D_8trct")
+shader_parameter/col1 = Color(1, 1, 1, 1)
+shader_parameter/col2 = Color(0, 0, 0, 1)
+shader_parameter/brightness = 2.3
+shader_parameter/dithersp = 1.0
+shader_parameter/resolution = Vector2(640, 360)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_otwmm"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_neav6")
 shader = ExtResource("1_upup2")
 shader_parameter/offset = -1.1
 shader_parameter/scale = 1.0
@@ -111,47 +141,47 @@ shader_parameter/_NormalThreshold = 0.32
 shader_parameter/depthfost = 30.0
 shader_parameter/depthfoend = 76.54
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcjjm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipmma"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_upup2")
 shader_parameter/offset = -0.305
 shader_parameter/scale = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_udk60"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2455"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_upup2")
 shader_parameter/offset = 0.42
 shader_parameter/scale = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqt6t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5li0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_upup2")
 shader_parameter/offset = -2.63
 shader_parameter/scale = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rofhy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vohdh"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_upup2")
 shader_parameter/offset = 0.585
 shader_parameter/scale = 10.515
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=129974698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8974831, 0, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=39701041]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_energy = 7.0
 shadow_enabled = true
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.5105905, -0.75340235, -0.41434428, 0.15564701, -0.39294446, 0.9062938, -0.8456182, -0.52723646, -0.083368994, 2.0189826, 1.67188, -4.008275)
-surface_material_override/0 = SubResource("ShaderMaterial_31i2h")
+[node name="MeshInstance3D" parent="." unique_id=109840066 instance=ExtResource("1_e2sit")]
+transform = Transform3D(-0.9817452, -0.16306345, 0.097905256, 0.155647, -0.39294443, 0.9062938, -0.10931209, 0.9049882, 0.4111522, 2.0189826, 1.67188, -4.008275)
+surface_material_override/0 = SubResource("ShaderMaterial_otwmm")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2145129966]
 visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_7cyv6")
@@ -163,7 +193,7 @@ grow_vertical = 2
 texture = ExtResource("3_ntx4i")
 stretch_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="."]
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1360144987]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,7 +203,7 @@ grow_vertical = 2
 rotation = 0.0009521246
 texture = SubResource("GradientTexture1D_jqt6t")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1677448957]
 visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_nqey7")
@@ -188,7 +218,7 @@ stretch_mode = 1
 script = ExtResource("5_31i2h")
 ratio = 4
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2120854464]
 visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_1g8fq")
@@ -200,42 +230,42 @@ grow_vertical = 2
 texture = SubResource("ViewportTexture_e2sit")
 expand_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=982614280]
 environment = SubResource("Environment_ntx4i")
 
-[node name="scrapstexp" parent="." instance=ExtResource("4_7cyv6")]
+[node name="scrapstexp" parent="." unique_id=578681434 instance=ExtResource("4_7cyv6")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.6428199, -1.4509232, 0.8041675)
 visible = false
 
-[node name="scrapstexp2" parent="." instance=ExtResource("4_7cyv6")]
+[node name="scrapstexp2" parent="." unique_id=84281953 instance=ExtResource("4_7cyv6")]
 transform = Transform3D(1, 0, 0, 0, 0.94973737, 0.31304777, 0, -0.31304777, 0.94973737, 0.6428199, 0.8115146, 2.8219926)
 visible = false
 
-[node name="scrapstexp3" parent="." instance=ExtResource("4_7cyv6")]
+[node name="scrapstexp3" parent="." unique_id=1643791353 instance=ExtResource("4_7cyv6")]
 transform = Transform3D(0.9599179, 0.26619372, 0.08774146, -0.2802814, 0.9116699, 0.30050012, 0, -0.31304774, 0.94973737, -2.2899337, 0.8115146, -0.51075387)
 visible = false
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=247484092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2, 0.5)
 use_collision = true
 size = Vector3(6, 1, 12)
 material = SubResource("StandardMaterial3D_jqt6t")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1708028659 node_paths=PackedStringArray("camera")]
 script = ExtResource("9_e2sit")
 speed = 4.0
 jump_height = 0.5
 camera = NodePath("Camera3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2136328525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 shape = SubResource("CapsuleShape3D_31i2h")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=699994984]
 transform = Transform3D(0.049738813, 0, 0.99876225, 0, 1, 0, -0.99876225, 0, 0.049738813, 2.5, 1, 0)
 cull_mask = 524287
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/Camera3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/Camera3D" unique_id=1975566807]
 transform = Transform3D(0.99999356, -0.0018416122, 0.0030971465, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.99806273, 0.062190916, 0.89951843, 0.005445242, -0.8456867)
 visible = false
 layers = 524289
@@ -244,15 +274,15 @@ mesh = SubResource("PlaneMesh_sbfop")
 skeleton = NodePath("../SubViewport/Camera3D2")
 surface_material_override/0 = ExtResource("10_jqt6t")
 
-[node name="SubViewport" type="SubViewport" parent="CharacterBody3D/Camera3D"]
+[node name="SubViewport" type="SubViewport" parent="CharacterBody3D/Camera3D" unique_id=1513659665]
 size = Vector2i(2560, 1440)
 
-[node name="Camera3D2" type="Camera3D" parent="CharacterBody3D/Camera3D/SubViewport" node_paths=PackedStringArray("camcopy")]
+[node name="Camera3D2" type="Camera3D" parent="CharacterBody3D/Camera3D/SubViewport" unique_id=1141926849 node_paths=PackedStringArray("camcopy")]
 transform = Transform3D(0.049738813, 0, 0.99876225, 0, 1, 0, -0.99876225, 0, 0.049738813, 1.6025169, 1, 0)
 script = ExtResource("3_1g8fq")
 camcopy = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/SubViewport/Camera3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/SubViewport/Camera3D2" unique_id=601487302]
 transform = Transform3D(0.99999356, -0.0018416122, 0.0030971467, 0.003205672, 0.062185466, -0.9980593, 0.0016454309, 0.9980628, 0.062190916, 0.8995184, 0.005445242, -0.84568673)
 visible = false
 layers = 524288
@@ -260,164 +290,164 @@ ignore_occlusion_culling = true
 mesh = SubResource("PlaneMesh_sbfop")
 surface_material_override/0 = SubResource("ShaderMaterial_t81v6")
 
-[node name="MeshInstance3D2" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.16263811, 0.8947604, 0.41587585, 0.15564717, -0.39294475, 0.90629387, 0.9743315, 0.21212788, -0.075359166, 1.5557361, 0.91279435, 6.2742605)
-surface_material_override/0 = SubResource("ShaderMaterial_hcjjm")
+[node name="MeshInstance3D2" parent="." unique_id=873813877 instance=ExtResource("1_e2sit")]
+transform = Transform3D(0.952922, -0.18195935, -0.24254803, 0.15564717, -0.39294475, 0.90629387, -0.26021647, -0.9013795, -0.34612447, 1.5557361, 0.91279435, 6.2742605)
+surface_material_override/0 = SubResource("ShaderMaterial_ipmma")
 
-[node name="MeshInstance3D3" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(0.84379435, 0.52991635, 0.08484412, 0.155647, -0.3929445, 0.9062938, 0.5135988, -0.7515201, -0.41404474, -0.29962254, 0.1777845, -3.87949)
-surface_material_override/0 = SubResource("ShaderMaterial_udk60")
+[node name="MeshInstance3D3" parent="." unique_id=504672199 instance=ExtResource("1_e2sit")]
+transform = Transform3D(0.1132399, -0.90432864, -0.4115407, 0.155647, -0.3929445, 0.9062938, -0.9812998, -0.16668367, 0.09625915, -0.29962254, 0.1777845, -3.87949)
+surface_material_override/0 = SubResource("ShaderMaterial_u2455")
 
-[node name="MeshInstance3D4" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-0.43248397, 0.6185595, -0.6560041, -0.7674188, -0.6344652, -0.09231332, -0.473313, 0.4635061, 0.7490903, -0.9871819, 3.1701505, 5.750202)
-surface_material_override/0 = SubResource("ShaderMaterial_jqt6t")
+[node name="MeshInstance3D4" parent="." unique_id=1072871284 instance=ExtResource("1_e2sit")]
+transform = Transform3D(-0.2486038, 0.16174848, 0.9550042, -0.76741886, -0.6344652, -0.092313245, 0.5909854, -0.7558381, 0.28185934, -0.9871819, 3.1701505, 5.750202)
+surface_material_override/0 = SubResource("ShaderMaterial_b5li0")
 
-[node name="MeshInstance3D5" parent="." instance=ExtResource("1_e2sit")]
-transform = Transform3D(-4.018672, -8.893557, -3.165838, 1.5969384, -4.031611, 9.298575, -9.304173, 3.1493454, 2.9633708, -16.344467, 0, -6.737998)
-surface_material_override/0 = SubResource("ShaderMaterial_rofhy")
+[node name="MeshInstance3D5" parent="." unique_id=641490542 instance=ExtResource("1_e2sit")]
+transform = Transform3D(-6.764833, 6.585429, 4.0170574, 1.5969384, -4.031611, 9.298574, 7.5468144, 6.756171, 1.6332018, -16.344467, 0, -6.737998)
+surface_material_override/0 = SubResource("ShaderMaterial_vohdh")
 
-[node name="beam" type="Node3D" parent="."]
+[node name="beam" type="Node3D" parent="." unique_id=1862234397]
 
-[node name="test" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam" unique_id=766089968 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam" unique_id=1617314744 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam" unique_id=934655447 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam" unique_id=1368399861 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam" unique_id=2051690029 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam" unique_id=1177992390 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam2" type="Node3D" parent="."]
+[node name="beam2" type="Node3D" parent="." unique_id=862592122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.906479)
 
-[node name="test" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam2" unique_id=2040715587 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam2" unique_id=2096727713 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam2" unique_id=810065464 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam2" unique_id=1474067527 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam2" unique_id=413912275 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam2" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam2" unique_id=2119759083 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam3" type="Node3D" parent="."]
+[node name="beam3" type="Node3D" parent="." unique_id=1026516496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.031101, 0, -30.027765)
 
-[node name="test" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam3" unique_id=736862338 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam3" unique_id=1696640950 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam3" unique_id=1024071566 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam3" unique_id=1960657310 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam3" unique_id=250048022 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam3" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam3" unique_id=1071073937 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam4" type="Node3D" parent="."]
+[node name="beam4" type="Node3D" parent="." unique_id=1464352854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.031101, 0, 14.459528)
 
-[node name="test" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam4" unique_id=1818288157 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam4" unique_id=185522244 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam4" unique_id=1176519805 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam4" unique_id=1924218698 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam4" unique_id=1593285348 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam4" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam4" unique_id=1076289737 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam5" type="Node3D" parent="."]
+[node name="beam5" type="Node3D" parent="." unique_id=73551391]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 9.091847, 37.889748, 11.837095)
 
-[node name="test" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam5" unique_id=1827194398 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam5" unique_id=976573339 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam5" unique_id=1293144332 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam5" unique_id=919362992 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam5" unique_id=889505149 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam5" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam5" unique_id=638625873 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam6" type="Node3D" parent="."]
+[node name="beam6" type="Node3D" parent="." unique_id=678197507]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -2.6838386, 36.130295, 11.837095)
 
-[node name="test" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam6" unique_id=1658765009 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam6" unique_id=567575170 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam6" unique_id=390980339 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam6" unique_id=1454984194 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam6" unique_id=248358592 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam6" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam6" unique_id=848901507 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)
 
-[node name="beam7" type="Node3D" parent="."]
+[node name="beam7" type="Node3D" parent="." unique_id=1055974965]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -2.6838386, -15.761105, 11.837095)
 
-[node name="test" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test" parent="beam7" unique_id=1772415176 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 20.633125, 8.572)
 
-[node name="test2" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test2" parent="beam7" unique_id=1431872502 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -12.211876, 8.572)
 
-[node name="test3" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test3" parent="beam7" unique_id=706843556 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -45.051666, 8.572)
 
-[node name="test4" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test4" parent="beam7" unique_id=201293573 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, -77.89667, 8.572)
 
-[node name="test5" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test5" parent="beam7" unique_id=359057642 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 85.934326, 8.572)
 
-[node name="test6" parent="beam7" instance=ExtResource("12_udk60")]
+[node name="test6" parent="beam7" unique_id=1679850828 instance=ExtResource("12_udk60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.582, 53.089325, 8.572)

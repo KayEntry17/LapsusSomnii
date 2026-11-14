@@ -75,7 +75,6 @@ shader_parameter/nt = SubResource("NoiseTexture2D_t1hy6")
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_left = -9.0
 offset_top = -72.0
 offset_right = 799.0

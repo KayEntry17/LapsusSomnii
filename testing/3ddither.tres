@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cvlitihns0lve"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cvlitihns0lve"]
 
 [ext_resource type="Shader" uid="uid://cybjmabn6de1b" path="res://testing/dither 3d.gdshader" id="1_4jjcl"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bkud1kfvwb75v"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bkud1kfvwb75v"]
 
 [ext_resource type="Shader" uid="uid://30nd0yhnfmso" path="res://UI/regulart.gdshader" id="1_02332"]
 
